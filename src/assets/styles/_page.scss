@@ -1,0 +1,29 @@
+// Page styles
+body {
+	overflow-x: hidden;
+}
+
+html:not(.components-ready) * {
+	transition: 0s;
+}
+
+.page {
+	position: relative;
+	min-height: 100vh;
+	overflow: hidden;
+	opacity: 0;
+}
+
+.page-loaded {
+	.page {
+		opacity: 1;
+	}
+}
+
+html .page {
+	transition: opacity .25s;
+}
+
+html.components-ready .page {
+	transition: opacity .25s, padding .2s ease-in-out;
+}

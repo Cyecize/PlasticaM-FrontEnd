@@ -1,0 +1,424 @@
+// Elements
+* + p {
+	margin-top: px-to-rem(15px);
+}
+
+* + h1,
+* + h2,
+* + h3,
+* + h4,
+* + h5,
+* + h6 {
+	margin-top: px-to-rem(20px);
+}
+
+.title-1 + h2,
+.title-2 + h2 {
+	margin-top: px-to-rem( 28px * $xs-multiplier );
+}
+
+figure + h2,
+.row-text + h2,
+.list-ordered + h2 {
+	margin-top: px-to-rem(62px * $xs-multiplier);
+}
+
+* + h3 {
+	margin-top: px-to-rem(28px * $xs-multiplier);
+}
+
+.list + h3,
+.box-cta + h3 {
+	margin-top: px-to-rem(45px* $xs-multiplier);
+}
+
+h1 + h4 {
+	margin-top: px-to-rem(8px * $xs-multiplier);
+}
+
+h1 + h5 {
+	margin-top: px-to-rem(25px * $xs-multiplier);
+}
+
+h3 + h5 {
+	margin-top: px-to-rem(28px * $xs-multiplier);
+}
+
+* + figure {
+	margin-top: px-to-rem(60px * $xs-multiplier);
+}
+
+* + figcaption {
+	margin-top: px-to-rem(9px);
+}
+
+* + form {
+	margin-top: px-to-rem(30px);
+}
+
+// Heading + p
+h1 + p {
+	margin-top: px-to-rem(27px * $xs-multiplier);
+}
+
+h2 + p {
+	margin-top: px-to-rem(29px * $xs-multiplier);
+}
+
+h3 + p {
+	margin-top: px-to-rem(32px * $xs-multiplier);
+}
+
+h4 + p {
+	margin-top: px-to-rem(21px * $xs-multiplier);
+}
+
+h5 + p {
+	margin-top: px-to-rem(7px);
+}
+
+h6 + p {
+	margin-top: px-to-rem(6px);
+}
+
+p + p {
+	margin-top: px-to-rem(30px * $xs-multiplier);
+}
+
+.logo + p {
+	margin-top: px-to-rem( 23px * $xs-multiplier );
+}
+
+// P + heading
+p + h2 {
+	margin-top: px-to-rem(28px);
+}
+
+p + h3 {
+	margin-top: px-to-rem(50px * $xs-multiplier);
+}
+
+p + h4 {
+	margin-top: px-to-rem(20px);
+}
+
+p + h5 {
+	margin-top: px-to-rem(20px);
+}
+
+p + h6 {
+	margin-top: px-to-rem(18px);
+}
+
+* + address {
+	margin-top: 16px;
+}
+
+h2 + p.big {
+	margin-top: px-to-rem(42px * $xs-multiplier);
+}
+
+h3 + p.big {
+	margin-top: px-to-rem(15px)
+}
+
+p.big + p.big {
+	margin-top: px-to-rem(52px * $xs-multiplier);
+}
+
+.quote-boxed + p.big {
+	margin-top: px-to-rem(48px * $xs-multiplier)
+}
+
+.btn-group-1 + img {
+	margin-top: px-to-rem( 50px* $xs-multiplier );
+}
+
+.icon-svg + .title-1,
+.icon-xl + .title-1 {
+	margin-top: px-to-rem( 50px * $xs-multiplier );
+}
+
+// Media
+@include media-breakpoint-up(lg) {
+	// Elements spacing
+	* + p {
+		margin-top: px-to-rem(20px);
+	}
+
+	* + h1,
+	* + h2,
+	* + h4,
+	* + h5,
+	* + h6 {
+		margin-top: px-to-rem(28px);
+	}
+
+	.title-1 + h1 {
+		margin-top: px-to-rem(28px)
+	}
+
+	.title-1 + h2,
+	.title-2 + h2 {
+		margin-top: px-to-rem( 28px * $lg-multiplier );
+	}
+
+	* + h3 {
+		margin-top: px-to-rem(28px * $lg-multiplier);
+	}
+
+	.list + h3,
+	.box-cta + h3 {
+		margin-top: px-to-rem(45px* $lg-multiplier);
+	}
+
+	figure + h2,
+	.row-text + h2,
+	.list-ordered + h2 {
+		margin-top: px-to-rem(62px * $lg-multiplier);
+	}
+
+	h1 + h4 {
+		margin-top: px-to-rem(8px * $lg-multiplier);
+	}
+
+	h1 + h5 {
+		margin-top: px-to-rem(25px * $lg-multiplier);
+	}
+
+	h3 + p.big {
+		margin-top: px-to-rem(45px)
+	}
+
+	// Heading + p
+	h1 + p {
+		margin-top: px-to-rem(27px * $lg-multiplier);
+	}
+
+	h2 + p {
+		margin-top: px-to-rem(29px * $lg-multiplier);
+	}
+
+	h3 + p {
+		margin-top: px-to-rem(32px * $lg-multiplier);
+	}
+
+	h4 + p {
+		margin-top: px-to-rem(21px * $lg-multiplier);
+	}
+
+	h5 + p {
+		margin-top: px-to-rem(12px);
+	}
+
+	h6 + p {
+		margin-top: px-to-rem(10px);
+	}
+
+	p + p {
+		margin-top: px-to-rem(30px * $lg-multiplier);
+	}
+
+	.logo + p {
+		margin-top: px-to-rem( 23px * $lg-multiplier );
+	}
+
+	// P + heading
+	p + h2 {
+		margin-top: px-to-rem(32px);
+	}
+
+	p + h3 {
+		margin-top: px-to-rem(50px * $lg-multiplier);
+	}
+
+	p + h4 {
+		margin-top: px-to-rem(26px);
+	}
+
+	p + h5 {
+		margin-top: px-to-rem(24px);
+	}
+
+	h3 + h5 {
+		margin-top: px-to-rem(28px * $lg-multiplier);
+	}
+
+	p + h6 {
+		margin-top: px-to-rem(24px);
+	}
+
+	* + figure {
+		margin-top: px-to-rem(60px * $lg-multiplier);
+	}
+
+	h2 + p.big {
+		margin-top: px-to-rem(42px * $lg-multiplier);
+	}
+
+	p.big + p.big {
+		margin-top: px-to-rem(52px * $lg-multiplier);
+	}
+
+	.quote-boxed + p.big {
+		margin-top: px-to-rem(48px * $lg-multiplier)
+	}
+
+	.btn-group-1 + img {
+		margin-top: px-to-rem( 50px * $lg-multiplier );
+	}
+
+	.icon-svg + .title-1,
+	.icon-xl + .title-1 {
+		margin-top: px-to-rem( 50px * $lg-multiplier );
+	}
+}
+
+@include media-breakpoint-up(xxl) {
+	p + h2 {
+		margin-top: px-to-rem(48px);
+	}
+
+	.title-1 + h2,
+	.title-2 + h2 {
+		margin-top: px-to-rem( 28px );
+	}
+
+	figure + h2,
+	.row-text + h2,
+	.list-ordered + h2 {
+		margin-top: px-to-rem(62px);
+	}
+
+	* + h3 {
+		margin-top: px-to-rem(28px);
+	}
+	p + h3 {
+		margin-top: px-to-rem(50px);
+	}
+
+	.list + h3,
+	.box-cta + h3 {
+		margin-top: px-to-rem(45px);
+	}
+
+	h1 + h4 {
+		margin-top: px-to-rem(8px);
+	}
+
+	h1 + h5 {
+		margin-top: px-to-rem(25px);
+	}
+
+	h3 + h5 {
+		margin-top: px-to-rem(28px);
+	}
+
+	h1 + p {
+		margin-top: px-to-rem(27px);
+	}
+
+	h2 + p {
+		margin-top: px-to-rem(29px);
+	}
+
+	h3 + p {
+		margin-top: px-to-rem(32px);
+	}
+
+	h4 + p {
+		margin-top: px-to-rem(21px);
+	}
+
+	p + p {
+		margin-top: px-to-rem(30px);
+	}
+
+	.logo + p {
+		margin-top: px-to-rem( 23px );
+	}
+
+	* + figure {
+		margin-top: px-to-rem(60px);
+	}
+
+	h2 + p.big {
+		margin-top: px-to-rem(42px);
+	}
+
+	h3 + p.big {
+		margin-top: px-to-rem(45px)
+	}
+
+	p.big + p.big {
+		margin-top: px-to-rem(52px);
+	}
+
+	.quote-boxed + p.big {
+		margin-top: px-to-rem(48px)
+	}
+
+	.btn-group-1 + img {
+		margin-top: px-to-rem( 50px );
+	}
+
+	.icon-svg + .title-1,
+	.icon-xl + .title-1 {
+		margin-top: px-to-rem( 50px );
+	}
+}
+
+// Spacers
+* + .offset-md {
+	margin-top: px-to-rem(120px * $xs-multiplier);
+}
+
+* + .offset-custom-1 {
+	margin-top: px-to-rem(51px * $xs-multiplier);
+}
+
+// Group spacing
+html {
+	.group-5 {
+		@include group(px-to-rem(5px));
+	}
+
+	.group-15 {
+		@include group(px-to-rem(15px));
+	}
+
+	.group-20 {
+		@include group(px-to-rem(20px));
+	}
+}
+
+* + .group-offset-1 {
+	margin-top: px-to-rem(40px * $xs-multiplier);
+}
+
+// Media
+@include media-breakpoint-up(lg) {
+	* + .offset-md {
+		margin-top: px-to-rem(120px * $lg-multiplier);
+	}
+	* + .offset-custom-1 {
+		margin-top: px-to-rem(51px * $lg-multiplier);
+	}
+	* + .group-offset-1 {
+		margin-top: px-to-rem(40px * $lg-multiplier);
+	}
+}
+
+@include media-breakpoint-up(xxl) {
+	* + .offset-md {
+		margin-top: px-to-rem(120px);
+	}
+
+	* + .offset-custom-1 {
+		margin-top: px-to-rem(51px);
+	}
+
+	* + .group-offset-1 {
+		margin-top: px-to-rem(40px);
+	}
+}

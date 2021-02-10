@@ -1,0 +1,120 @@
+// Mixins
+@mixin bg-variant($parent, $color) {
+	#{$parent} {
+		background-color: $color;
+	}
+	a#{$parent},
+	button#{$parent} {
+		@include hover-focus {
+			background-color: darken($color, 10%);
+		}
+	}
+}
+
+@mixin bg-gradient-variant($parent, $color) {
+	#{$parent} {
+		background: $color linear-gradient(180deg, mix($body-bg, $color, 15%), $color) repeat-x;
+	}
+}
+
+@mixin bg-adjacent() {
+	&:not([style*='background-']) + &:not([style*='background-']) {
+		padding-top: 0;
+	}
+}
+
+// Bootstrap styles
+@each $color, $value in $theme-colors {
+	@include bg-variant(".bg-#{$color}", $value);
+}
+
+@if $enable-gradients {
+	@each $color, $value in $theme-colors {
+		@include bg-gradient-variant(".bg-gradient-#{$color}", $value);
+	}
+}
+
+.bg-white {
+	background-color: $white;
+}
+
+.bg-transparent {
+	background-color: transparent;
+}
+
+// Theme color light backgrounds
+@each $color, $value in $theme-colors {
+	.bg-#{$color} {
+		@include bg-adjacent();
+	}
+}
+
+// Gray backgrounds
+@each $color, $value in $grays {
+	@include bg-variant(".bg-#{$color}", $value);
+
+	.bg-#{$color} {
+		@include bg-adjacent();
+	}
+}
+
+// Transparent background
+.bg-transparent {
+	@include bg-adjacent();
+}
+
+// Image background
+.bg-image {
+	background-position: center center;
+	background-size: cover;
+}
+
+.bg-image-1 {
+	background-position: center right;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+// Background mask
+.bg-mask {
+	position: relative;
+
+	&::before {
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba( $white, .8 );
+		content: '';
+		pointer-events: none;
+	}
+}
+
+.bg-mask-1 {
+	&::before {
+		background: rgba( $white, .5 );
+	}
+}
+
+@include media-breakpoint-up( md ) {
+	.bg-mask-1 {
+		&::before {
+			display: none;
+		}
+	}
+}
+
+@include media-breakpoint-down( xl ) {
+	.bg-image-1 {
+		background-image: none !important;
+	}
+}
+
+@include media-breakpoint-up( lg ) {
+	.bg-mask {
+		&::before {
+			display: none;
+		}
+	}
+}
