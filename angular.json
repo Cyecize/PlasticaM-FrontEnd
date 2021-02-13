@@ -37,7 +37,9 @@
               "includePaths": ["src/assets/styles"]
             },
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js"
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/core.min.js",
+              "src/assets/script.js"
             ]
           },
           "configurations": {
