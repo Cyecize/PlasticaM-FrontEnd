@@ -32,15 +32,15 @@ components.currentDevice = {
 // 	styles: './components/mdi/mdi.css'
 // };
 
-components.linearicons = {
-	selector: '[class*="linearicons-"]',
-	styles: './components/linearicons/linearicons.css'
-};
+// components.linearicons = {
+// 	selector: '[class*="linearicons-"]',
+// 	styles: './components/linearicons/linearicons.css'
+// };
 
-components.onClinicFont = {
-	selector: '[class*="onclinic-"]',
-	styles: './components/on-clinic-font/OnClinicFont.css'
-};
+// components.onClinicFont = {
+// 	selector: '[class*="onclinic-"]',
+// 	styles: './components/on-clinic-font/OnClinicFont.css'
+// };
 
 components.fontSpartan = {
 	selector: 'html',
@@ -111,7 +111,7 @@ components.list = {
 	selector: '.list',
 	styles: [
 		'./components/list/list.css',
-		'./components/on-clinic-font/OnClinicFont.css'
+		//'./components/on-clinic-font/OnClinicFont.css'
 	]
 };
 
@@ -478,7 +478,7 @@ components.owlCarousel = {
 	selector: '.owl-carousel',
 	styles: [
 		'./components/owl-carousel/owl.carousel.css',
-		'./components/on-clinic-font/OnClinicFont.css'
+		//'./components/on-clinic-font/OnClinicFont.css'
 	],
 	script: [
 		// './components/jquery/jquery.min.js',
