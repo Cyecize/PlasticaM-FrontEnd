@@ -42,10 +42,10 @@ components.currentDevice = {
 // 	styles: './components/on-clinic-font/OnClinicFont.css'
 // };
 
-components.fontSpartan = {
-	selector: 'html',
-	styles: 'https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600;800&display=swap'
-};
+// components.fontSpartan = {
+// 	selector: 'html',
+// 	styles: 'https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600;800&display=swap'
+// };
 
 components.blogPost = {
 	selector: '.blog-post',
