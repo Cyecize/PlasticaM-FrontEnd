@@ -19,7 +19,7 @@ let components = {};
 
 components.currentDevice = {
 	selector: 'html',
-	script: './components/current-device/current-device.min.js'
+	script: './assets/components/current-device.min.js'
 };
 
 // components.fontAwesome = {
@@ -27,10 +27,10 @@ components.currentDevice = {
 // 	styles: './components/font-awesome/font-awesome.css'
 // };
 
-components.mdi = {
-	selector: '[class*="mdi-"]',
-	styles: './components/mdi/mdi.css'
-};
+// components.mdi = {
+// 	selector: '[class*="mdi-"]',
+// 	styles: './components/mdi/mdi.css'
+// };
 
 components.linearicons = {
 	selector: '[class*="linearicons-"]',
@@ -231,7 +231,7 @@ components.accordion = {
 	styles: './components/accordion/accordion.css',
 	script: [
 		// './components/jquery/jquery.min.js',
-		'./components/current-device/current-device.min.js',
+		'./assets/components/current-device.min.js',
 		'./components/multiswitch/multiswitch.min.js'
 	],
 	init: function ( nodes ) {
@@ -273,7 +273,7 @@ components.counter = {
 	selector: '[data-counter]',
 	styles: './components/counter/counter.css',
 	script: [
-		'./components/util/util.min.js',
+		'./assets/components/util.min.js',
 		'./components/counter/counter.min.js',
 	],
 	init: function ( nodes ) {
@@ -379,7 +379,7 @@ components.lightgallery = {
 	script: [
 		// './components/jquery/jquery.min.js',
 		'./components/lightgallery/lightgallery.min.js',
-		'./components/util/util.min.js'
+		'./assets/components/util.min.js'
 	],
 	init: function ( nodes ) {
 		if ( !window.xMode ) {
@@ -452,7 +452,7 @@ components.multiswitch = {
 	selector: '[data-multi-switch]',
 	styles: './components/multiswitch/multiswitch.css',
 	script: [
-		'./components/current-device/current-device.min.js',
+    './assets/components/current-device.min.js',
 		'./components/multiswitch/multiswitch.min.js'
 	],
 	dependencies: 'rdNavbar',
@@ -483,7 +483,7 @@ components.owlCarousel = {
 	script: [
 		// './components/jquery/jquery.min.js',
 		'./components/owl-carousel/owl.carousel.min.js',
-		'./components/util/util.min.js'
+		'./assets/components/util.min.js'
 	],
 	init: function ( nodes ) {
 		nodes.forEach( function ( node ) {
@@ -1077,9 +1077,9 @@ components.rdNavbar = {
 	],
 	script: [
 		// './components/jquery/jquery.min.js',
-		'./components/util/util.min.js',
-		'./components/current-device/current-device.min.js',
-		'./components/rd-navbar/rd-navbar.js'
+		'./assets/components/util.min.js',
+    './assets/components/current-device.min.js',
+		'./assets/components/rd-navbar/rd-navbar.js'
 	],
 	dependencies: 'currentDevice',
 	init: function ( nodes ) {
@@ -1277,7 +1277,7 @@ components.swiper = {
 	script: [
 		// './components/jquery/jquery.min.js',
 		'./components/swiper/swiper.min.js',
-		'./components/util/util.min.js'
+		'./assets/components/util.min.js'
 	],
 	init: function ( nodes ) {
 		nodes.forEach( function ( node ) {
@@ -1326,7 +1326,7 @@ components.toTop = {
 	init: function () {
 		if ( !window.xMode ) {
 			let node = document.createElement( 'div' );
-			node.className = 'to-top mdi-chevron-up';
+			node.className = 'to-top fas fa-chevron-up';
 			document.body.appendChild( node );
 
 			node.addEventListener( 'mousedown', function () {
