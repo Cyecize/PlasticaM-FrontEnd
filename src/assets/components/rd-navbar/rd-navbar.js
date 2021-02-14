@@ -111,7 +111,6 @@
       RDNavbar.prototype.initialize = function() {
         var ctx;
         ctx = this;
-        debugger
         ctx.$element.addClass("rd-navbar").addClass(ctx.options.layout);
         if (isTouch) {
           ctx.$element.addClass("rd-navbar--is-touch");
