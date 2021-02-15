@@ -1,0 +1,12 @@
+@import "~bootstrap/scss/functions";
+@import "functions";
+@import "variables";
+@import "~bootstrap/scss/variables";
+@import "mixins";
+@import "~bootstrap/scss/mixins";
+
+// Layout
+@import "src/app/core/footer/footer-dark";
+@import "src/app/core/footer/footer-minimal";
+@import "rights";
+@import "logo";

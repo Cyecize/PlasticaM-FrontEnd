@@ -1,0 +1,33 @@
+@import "~bootstrap/scss/functions";
+@import "functions";
+@import "variables";
+@import "~bootstrap/scss/variables";
+
+
+// Base
+.rights {
+	font-size: px-to-rem( 14px );
+}
+
+.rights-link {
+	color: inherit;
+
+	&:hover {
+		color: $secondary;
+	}
+}
+
+.rights-2 {
+	> * + * {
+		margin-top: px-to-rem( 10px );
+	}
+}
+
+* + .rights { margin-top: px-to-rem( 14px ) }
+* + .rights-link-offset { margin-left: px-to-rem( 14px ) }
+
+
+// Contexts
+.context-dark {
+
+}

@@ -1,0 +1,46 @@
+// Base
+.footer-dark {
+	padding: 86px * $xs-multiplier 0;
+	font-size: $h6-font-size;
+
+	a {
+		color: inherit;
+
+		&:hover {
+			color: $primary-light;
+		}
+	}
+
+	.social-icon {
+		color: rgba( $white, .5 );
+
+		&:hover {
+			color: $white;
+		}
+	}
+
+	.list-icons .list-icon {
+		color: inherit;
+	}
+
+	.footer-title + * { margin-top: px-to-rem( 25px * $xs-multiplier ) }
+	* + .social { margin-top: px-to-rem( 28px * $xs-multiplier ); }
+}
+
+@include media-breakpoint-up( xxl ) {
+	.footer-dark {
+		padding: 86px * $lg-multiplier 0;
+
+		.footer-title + * { margin-top: px-to-rem( 25px * $lg-multiplier ) }
+		* + .social { margin-top: px-to-rem( 28px * $lg-multiplier ); }
+	}
+}
+
+@include media-breakpoint-up( xxl ) {
+	.footer-dark {
+		padding: 86px 0;
+
+		.footer-title + * { margin-top: px-to-rem( 25px ) }
+		* + .social { margin-top: px-to-rem( 28px ); }
+	}
+}

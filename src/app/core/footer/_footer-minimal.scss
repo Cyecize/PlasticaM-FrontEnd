@@ -1,0 +1,25 @@
+// Base
+.footer-minimal {
+	padding: 20px 0;
+	font-size: $font-size-sm;
+}
+
+.footer-light-1 + .footer-minimal.bg-200 {
+	border-top: 1px solid $border-color;
+}
+
+.footer-minimal.context-dark {
+	a {
+		color: $primary-light;
+
+		&:hover {
+			color: $white;
+		}
+	}
+}
+
+@include media-breakpoint-up( xxl ) {
+	.footer-minimal {
+		padding: 23px 0;
+	}
+}

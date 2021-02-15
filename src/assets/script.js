@@ -77,10 +77,7 @@ components.currentDevice = {
 // 	styles: './components/comment/comment.css'
 // };
 //
-// components.footer = {
-// 	selector: 'footer, .footer',
-// 	styles: './components/footer/footer.css'
-// };
+
 
 // components.grid = {
 // 	selector: '.container, .container-fluid, .row, [class*="col-"]',
@@ -113,11 +110,6 @@ components.currentDevice = {
 // 		'./components/list/list.css',
 // 		//'./components/on-clinic-font/OnClinicFont.css'
 // 	]
-// };
-
-// components.logo = {
-// 	selector: '.logo',
-// 	styles: './components/logo/logo.css'
 // };
 
 // components.pag = {
@@ -170,10 +162,6 @@ components.currentDevice = {
 // 	styles: './components/rd-form/rd-form.css'
 // };
 //
-// components.rights = {
-// 	selector: '.rights',
-// 	styles: './components/rights/rights.css'
-// };
 
 // components.section = {
 // 	selector: 'section',
