@@ -1,0 +1,85 @@
+@import "~bootstrap/scss/functions";
+@import "../functions";
+@import "../variables";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "../mixins";
+
+
+// Base
+.text-block-1 {
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.text-block-2 {
+	padding-bottom: 1px;
+	@include group( px-to-rem( 15px ), px-to-rem( 12px ) )
+}
+
+.text-block-inner {
+	max-width: 750px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.text-block-privacy {
+	p + h3 { margin-top: px-to-rem( 70px * $xs-multiplier ); }
+	h3 + p.big { margin-top: px-to-rem( 30px * $xs-multiplier ) }
+	* + .link-privacy { margin-top: px-to-rem( 70px * $xs-multiplier ) }
+}
+
+.text-block {
+	* + .text-block-text { margin-top: px-to-rem( 50px * $xs-multiplier ) }
+}
+
+* + .text-block-2 { margin-top: px-to-rem( 31px * $xs-multiplier ) }
+img + .text-block-3 { margin-top: px-to-rem( 50px * $xs-multiplier ) }
+.text-block-3 + .text-block-3 { margin-top: px-to-rem( 37px * $xs-multiplier ) }
+* + .text-block-4 { margin-top: px-to-rem( 47px * $xs-multiplier ) }
+.btn-group-1 + .text-block-4 { margin-top: px-to-rem( 80px * $xs-multiplier ) }
+
+// Media
+@include media-breakpoint-up( lg ) {
+	.text-block {
+		* + .text-block-text { margin-top: px-to-rem( 50px * $lg-multiplier ) }
+	}
+
+	.text-block-5 {
+		h4 + p { margin-top: px-to-rem( 51px * $lg-multiplier ) }
+		h4 + .list-marked { margin-top: px-to-rem( 51px * $lg-multiplier ) }
+		.big + .list-marked { margin-top: px-to-rem( 29px * $lg-multiplier ) }
+	}
+
+	.text-block-privacy {
+		p + h3 { margin-top: px-to-rem( 70px * $lg-multiplier ); }
+		h3 + p.big { margin-top: px-to-rem( 30px * $lg-multiplier ) }
+		* + .link-privacy { margin-top: px-to-rem( 70px * $lg-multiplier ) }
+	}
+
+	* + .text-block-2 { margin-top: px-to-rem( 31px * $lg-multiplier ) }
+	img + .text-block-3 { margin-top: px-to-rem( 50px * $lg-multiplier ) }
+	.text-block-3 + .text-block-3 { margin-top: px-to-rem( 37px * $lg-multiplier ) }
+	* + .text-block-4 { margin-top: px-to-rem( 47px * $lg-multiplier ) }
+	.btn-group-1 + .text-block-4 { margin-top: px-to-rem( 80px * $lg-multiplier ) }
+}
+
+@include media-breakpoint-up( xxl ) {
+	.text-block {
+		* + .text-block-text { margin-top: px-to-rem( 50px ) }
+	}
+
+	.text-block-privacy {
+		p + h3 { margin-top: px-to-rem( 70px ); }
+		h3 + p.big { margin-top: px-to-rem( 30px ) }
+		* + .link-privacy { margin-top: px-to-rem( 70px ) }
+	}
+
+	* + .text-block-2 { margin-top: px-to-rem( 31px ) }
+	img + .text-block-3 { margin-top: px-to-rem( 50px ) }
+	.text-block-3 + .text-block-3 { margin-top: px-to-rem( 37px ) }
+	* + .text-block-4 { margin-top: px-to-rem( 47px ) }
+	.btn-group-1 + .text-block-4 { margin-top: px-to-rem( 80px ) }
+}

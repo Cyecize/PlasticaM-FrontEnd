@@ -1,0 +1,176 @@
+@import "~bootstrap/scss/functions";
+@import "../functions";
+@import "../variables";
+@import "~bootstrap/scss/variables";
+@import "../mixins";
+
+$custom-control-indicator-size:                 px-to-rem( 24px );
+$custom-control-gutter:                         px-to-rem( 9px );
+$custom-control-indicator-border-color:         $input-border-color;
+
+$custom-control-indicator-disabled-bg:          $input-disabled-bg;
+$custom-control-label-disabled-color:           $gray-400;
+
+$custom-control-indicator-checked-color:        $gray-800;
+$custom-control-indicator-checked-bg:           $gray-200;
+$custom-control-indicator-checked-disabled-bg:  rgba( $custom-control-indicator-checked-bg, .5 );
+$custom-control-indicator-checked-box-shadow:   0 0 0 1px $input-border-color;
+$custom-control-indicator-checked-border-color: $input-border-color;
+
+$custom-control-indicator-active-color:         $component-active-color;
+$custom-control-indicator-active-bg:            $custom-control-indicator-checked-bg;
+$custom-control-indicator-active-box-shadow:    none;
+$custom-control-indicator-active-border-color:  $custom-control-indicator-checked-border-color;
+
+$custom-checkbox-indicator-border-radius:       $border-radius-sm;
+
+$custom-checkbox-indicator-icon-checked:        str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 8'%3e%3cpath fill='transparent' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' stroke='#{$custom-control-indicator-checked-color}' d='M10 1L4 7L1 4'/%3e%3c/svg%3e"), "#", "%23");
+
+$custom-radio-indicator-border-radius:         $custom-checkbox-indicator-border-radius;
+$custom-radio-indicator-icon-checked:           str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 8'%3e%3cpath fill='transparent' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' stroke='#{$custom-control-indicator-checked-color}' d='M10 1L4 7L1 4'/%3e%3c/svg%3e"), "#", "%23");
+
+$custom-switch-indicator-border-radius: $rounded-pill;
+$custom-switch-width: px-to-rem( 60px );
+$custom-switch-indicator-size: $custom-control-indicator-size;
+
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/custom-forms";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/input-group";
+
+// Base style
+label {
+	font-weight: 600;
+	font-size: $label-font-size;
+	text-transform: uppercase;
+	color: $gray-800;
+	cursor: pointer;
+	letter-spacing: .03em;
+}
+
+textarea {
+	min-height: px-to-rem( 108px );
+	max-height: px-to-rem( 200px );
+}
+
+.textarea-1 {
+	min-height: px-to-rem( 162px );
+}
+
+.form-group {
+	position: relative;
+	text-align: left;
+	margin-bottom: 0;
+}
+
+.form-control-wrap {
+	position: relative;
+}
+
+.form-control {
+	text-overflow: ellipsis;
+}
+
+.form-control-inline {
+	display: inline-block;
+	text-align: center;
+	width: auto;
+}
+
+.form-group + .form-group,
+.form-control-wrap + .form-control-wrap {
+	margin-top: px-to-rem( 11px );
+}
+
+.input-group {
+	> .form-control,
+	> .form-control-plaintext,
+	> .custom-select,
+	> .custom-file {
+		height: auto;
+	}
+}
+
+
+// Reset mozila validation styles
+:invalid {
+	box-shadow: none;
+}
+
+:-moz-submit-invalid {
+	box-shadow: none;
+}
+
+:-moz-ui-invalid {
+	box-shadow:none;
+}
+
+
+// Custom control
+.custom-control {
+	padding-left: 0;
+}
+
+.custom-control-label {
+	padding-left: $custom-control-gutter + $custom-control-indicator-size;
+	font-size: px-to-rem( 16px );
+	font-weight: 500;
+	text-transform: none;
+
+	&::before,
+	&::after {
+		top: ( px-to-rem( 16px ) * $line-height-base - $custom-control-indicator-size) / 2;
+		left: 0;
+		will-change: transform;
+	}
+}
+
+.custom-checkbox,
+.custom-radio {
+	padding-top: ( $custom-control-indicator-size - ( px-to-rem( 16px ) * $line-height-base ) )/2;
+	padding-bottom: ( $custom-control-indicator-size - ( px-to-rem( 16px ) * $line-height-base ) )/2;
+}
+
+.custom-control-accent {
+	.custom-control-input:checked ~ .custom-control-label {
+		color: $custom-control-indicator-checked-color;
+	}
+}
+
+.custom-control + .custom-control { margin-top: px-to-rem( 8px ) }
+
+// Filter control elements
+.custom-control-text {
+	color: $primary;
+	transition: $transition-base;
+}
+
+.custom-control-count {
+	margin-left: px-to-rem( 5px );
+	color: $primary-light;
+}
+
+.custom-control-input:checked ~ .custom-control-label,
+.custom-control-label:hover {
+	.custom-control-text {
+		color: $secondary;
+	}
+}
+
+// Checkbox accordion
+.custom-control-description {
+	overflow: hidden;
+	max-height: 0;
+	color: $body-color;
+	transition: .4s;
+
+	> span {
+		display: inline-block;
+		margin-top: px-to-rem( 8px )
+	}
+}
+
+.custom-control-input:checked ~ .custom-control-description {
+	max-height: px-to-rem( 75px );
+}
+

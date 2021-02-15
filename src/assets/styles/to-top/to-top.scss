@@ -1,0 +1,54 @@
+@import "~bootstrap/scss/functions";
+@import "../functions";
+@import "../variables";
+@import "~bootstrap/scss/variables";
+
+
+.to-top {
+	position: fixed;
+	bottom: 5vh;
+	right: 5vw;
+	transform: scale(0);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	font-size: px-to-rem( 25px );
+	border-radius: 50%;
+	box-shadow: $btn-box-shadow;
+	opacity: 0;
+	background: $primary;
+	color: color-yiq( $primary );
+	will-change: transform;
+	z-index: 10;
+	cursor: pointer;
+	transition: .2s;
+
+	&::after {
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		content: '';
+		background: $gray-900;
+		border-radius: 50%;
+		transform: scale( 0 );
+		transition: $transition-base;
+	}
+
+	&.show {
+		transform: scale(1);
+		opacity: 1;
+		transition: all .2s, transform .2s cubic-bezier(0.5, 0, 1, 2);
+	}
+
+	&.active,
+	&:hover {
+		&::after {
+			transform: scale( 1 );
+		}
+	}
+}

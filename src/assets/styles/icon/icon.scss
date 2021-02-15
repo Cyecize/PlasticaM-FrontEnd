@@ -1,0 +1,99 @@
+@import "~bootstrap/scss/functions";
+@import "../functions";
+@import "../variables";
+@import "~bootstrap/scss/variables";
+@import "../mixins";
+@import "~bootstrap/scss/mixins";
+
+
+// Base
+.icon {
+	display: inline-flex;
+	line-height: 1;
+}
+
+
+// Sizes
+.icon-xl {
+	font-size: px-to-rem( 90px );
+}
+
+.icon-lg {
+	font-size: px-to-rem( 34px );
+}
+
+.icon-md {
+	font-size: $font-size-lg;
+}
+
+.icon-sm {
+	font-size: px-to-rem( 17px );
+}
+
+// Round link
+.icon-round {
+	justify-content: center;
+	align-items: center;
+	width: 2.56em;
+	height: 2.56em;
+	background-color: $gray-100;
+	border-radius: 50%;
+
+	&.icon-sm {
+		width: px-to-rem( 30px );
+		height: px-to-rem( 30px );
+	}
+}
+
+.icon-base {
+	color: rgba( $dark, .5 );
+}
+
+.icon-primary-light {
+	color: $primary-light;
+}
+
+.icon-btn {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: px-to-rem( 68px );
+	height: px-to-rem( 68px );
+	font-size: px-to-rem( 22px );
+	color: $primary;
+	background-color: $white;
+	border: 2px solid $primary;
+	border-radius: 50%;
+	transition: $transition-base;
+
+	&:hover {
+		color: $white;
+		background-color: $primary;
+	}
+}
+
+// Icon link
+.icon-link {
+	transition: $transition-base;
+
+	&.icon-base {
+		&:hover {
+			color: $dark;
+		}
+	}
+
+	&.icon-primary-light {
+		&:hover {
+			color: $primary;
+		}
+	}
+
+	&.icon-round {
+		color: $white;
+		background-color: $primary;
+
+		&:hover {
+			background-color: $gray-900;
+		}
+	}
+}

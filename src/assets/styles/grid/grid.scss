@@ -1,0 +1,226 @@
+@import "~bootstrap/scss/functions";
+@import "../functions";
+@import "../variables";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~bootstrap/scss/mixins/grid-framework";
+@import "~bootstrap/scss/mixins/grid";
+@import "~bootstrap/scss/grid";
+@import "grid-spacing";
+
+// Base
+.row-10 {
+	@include grid-spacing( px-to-rem( 10px ) );
+}
+
+.row-20 {
+	@include grid-spacing( px-to-rem( 20px ) );
+}
+
+.row-25 {
+	@include grid-spacing( px-to-rem( 25px ) );
+}
+
+.row-15 {
+	@include grid-spacing( px-to-rem( 15px ) );
+}
+
+.row-30 {
+	@include grid-spacing( px-to-rem( 30px ) );
+}
+
+.row-40 {
+	@include grid-spacing( px-to-rem( 40px ) );
+}
+
+
+// Spacing
+* + .row {
+	margin-top: px-to-rem( 40px );
+}
+
+p + .row-text {
+	margin-top: px-to-rem( 25px );
+}
+
+h3 + .row-text,
+.text-block-4 + .row-text {
+	margin-top: px-to-rem( 39px * $xs-multiplier );
+}
+
+.text-block-6 + .row-text {
+	margin-top: px-to-rem( 50px * $xs-multiplier );
+}
+
+* + .row-text-2 {
+	margin-top: px-to-rem( 30px * $xs-multiplier );
+}
+
+h3 + .row-content,
+.text-block + .row-content {
+	margin-top: px-to-rem( 35px );
+}
+
+h1 + .row-content {
+	margin-top: px-to-rem( 80px * $xs-multiplier );
+}
+
+.product-search + .row-content {
+	margin-top: px-to-rem( 62px * $xs-multiplier );
+}
+
+.text-block + .row-content-2 {
+	margin-top: px-to-rem( 30px );
+}
+
+.row-gutters-20 {
+	margin-right: px-to-rem( -10px );
+	margin-left: px-to-rem( -10px );
+
+	> [ class*='col-' ] {
+		padding-right: px-to-rem( 10px );
+		padding-left: px-to-rem( 10px );
+	}
+}
+
+
+// Row divided
+.row-divided + .row-divided,
+.row-divided-2 {
+	padding-top: px-to-rem( 50px * $xs-multiplier );
+	border-top: 1px solid $border-color;
+}
+
+.text-block + .row-divided,
+.row-divided + .row-divided {
+	margin-top: px-to-rem( 50px  * $xs-multiplier );
+}
+
+// Media
+@include media-breakpoint-down( md ) {
+	.row {
+		margin-left: px-to-rem( -10px );
+		margin-right: px-to-rem( -10px );
+	}
+
+	[class*='col-'] {
+		padding-left: px-to-rem( 10px );
+		padding-right: px-to-rem( 10px );
+	}
+}
+
+@include media-breakpoint-up( lg ) {
+	.row-lg-30 {
+		@include grid-spacing( px-to-rem( 30px ) );
+	}
+
+	.row-lg-40 {
+		@include grid-spacing( px-to-rem( 40px ) );
+	}
+
+	.row-lg-50 {
+		@include grid-spacing( px-to-rem( 50px ) );
+	}
+
+	.row-lg-80 {
+		@include grid-spacing( px-to-rem( 80px ) );
+	}
+
+	p + .row-text {
+		margin-top: px-to-rem( 43px );
+	}
+
+	h3 + .row-text,
+	.text-block-4 + .row-text {
+		margin-top: px-to-rem( 39px * $lg-multiplier );
+	}
+
+	.text-block-6 + .row-text {
+		margin-top: px-to-rem( 50px * $lg-multiplier );
+	}
+
+	* + .row-text-2 {
+		margin-top: px-to-rem( 30px * $lg-multiplier );
+	}
+
+	h3 + .row-content,
+	.text-block + .row-content {
+		margin-top: px-to-rem( 50px * $lg-multiplier );
+	}
+
+	h1 + .row-content {
+		margin-top: px-to-rem( 80px * $lg-multiplier );
+	}
+
+	.product-search + .row-content {
+		margin-top: px-to-rem( 62px * $lg-multiplier );
+	}
+
+	.text-block + .row-content-2 {
+		margin-top: px-to-rem( 90px * $lg-multiplier );
+	}
+
+	.row-divided + .row-divided,
+	.row-divided-2 {
+		padding-top: px-to-rem( 50px * $lg-multiplier );
+	}
+
+	.text-block + .row-divided,
+	.row-divided + .row-divided {
+		margin-top: px-to-rem( 50px  * $lg-multiplier );
+	}
+}
+
+@include media-breakpoint-up( xxl ) {
+	.container-wide {
+		max-width: 1900px;
+	}
+
+	.row-xxl-100 {
+		@include grid-spacing( px-to-rem( 100px ) );
+	}
+
+	.row-xxl-120 {
+		@include grid-spacing( px-to-rem( 120px ) );
+	}
+
+	h3 + .row-text,
+	.text-block-4 + .row-text {
+		margin-top: px-to-rem( 39px );
+	}
+
+	.text-block-6 + .row-text {
+		margin-top: px-to-rem( 50px );
+	}
+
+	* + .row-text-2 {
+		margin-top: px-to-rem( 30px );
+	}
+
+	h3 + .row-content,
+	.text-block + .row-content {
+		margin-top: px-to-rem( 50px );
+	}
+
+	h1 + .row-content {
+		margin-top: px-to-rem( 80px );
+	}
+
+	.product-search + .row-content {
+		margin-top: px-to-rem( 62px );
+	}
+
+	.text-block + .row-content-2 {
+		margin-top: px-to-rem( 90px );
+	}
+
+	.row-divided + .row-divided,
+	.row-divided-2 {
+		padding-top: px-to-rem( 50px );
+	}
+
+	.text-block + .row-divided,
+	.row-divided + .row-divided {
+		margin-top: px-to-rem( 50px );
+	}
+}

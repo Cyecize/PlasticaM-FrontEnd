@@ -1,0 +1,89 @@
+@import "~bootstrap/scss/functions";
+@import "../functions";
+@import "../variables";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "../variables";
+
+
+// Base
+.link {
+	position: relative;
+	display: inline-block;
+}
+
+.link-inherit {
+	color: inherit;
+
+	&:hover {
+		color: $primary;
+	}
+}
+
+.text-secondary {
+	.link-inherit {
+		color: inherit;
+
+		&:hover {
+			color: $primary;
+		}
+	}
+}
+
+
+// Modifying
+.link-underline {
+	&,
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+// Link button
+.link-btn {
+	font-family: $btn-font-family;
+	font-weight: $btn-font-weight;
+	font-size: $btn-font-size;
+	line-height: $btn-line-height;
+	color: $primary;
+	transition: $transition-base;
+
+	&:hover {
+		color: $gray-800;
+	}
+}
+
+.link-sm {
+	font-size: px-to-rem( 16px );
+}
+
+.link-arrow {
+	font-weight: 500;
+
+	&::after {
+		margin-left: px-to-rem( 5px );
+		content: '>';
+	}
+}
+
+.link-icon {
+	margin-right: px-to-rem( 8px );
+	font-size: px-to-rem( 25px );
+	font-weight: 600;
+	vertical-align: middle;
+}
+
+* + .link-offset-1 { margin-top: px-to-rem( 30px * $xs-multiplier ) }
+* + .link-offset-2 { margin-top: px-to-rem( 58px * $xs-multiplier ) }
+
+
+// Media
+@include media-breakpoint-up( lg ) {
+	* + .link-offset-1 { margin-top: px-to-rem( 30px * $lg-multiplier ) }
+	* + .link-offset-2 { margin-top: px-to-rem( 58px * $lg-multiplier ) }
+}
+
+@include media-breakpoint-up( xxl ) {
+	* + .link-offset-1 { margin-top: px-to-rem( 30px ) }
+	* + .link-offset-2 { margin-top: px-to-rem( 58px ) }
+}
