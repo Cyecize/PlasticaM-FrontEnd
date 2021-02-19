@@ -12,3 +12,9 @@
 		color: $gray-400;
 	}
 }
+
+::selection {
+  text-shadow: none;
+  background: $primary;
+  color: $white;
+}
