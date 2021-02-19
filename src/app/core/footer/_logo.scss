@@ -8,18 +8,9 @@
 	}
 }
 
-.logo-image-inverse {
-	display: none;
-}
-
-
 // Contexts
 .context-dark {
 	.logo-image-default {
-		display: none;
-	}
-
-	.logo-image-inverse {
 		display: inline-block;
 	}
 }

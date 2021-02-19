@@ -111,15 +111,9 @@ $navbar-shadow: 0 0 28px rgba( $gray-600, 0.1 );
   display: block;
 }
 
-.navbar-logo-default,
-.navbar-logo-inverse {
+.navbar-logo-default {
   margin: 0;
 }
-
-.navbar-logo-inverse {
-  display: none;
-}
-
 
 // Layouts
 @import 'src/app/core/navbar/rd-navbar-fixed';
