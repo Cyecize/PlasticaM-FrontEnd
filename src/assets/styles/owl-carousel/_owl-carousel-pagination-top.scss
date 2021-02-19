@@ -1,0 +1,32 @@
+// Base
+.owl-carousel-pagination-top {
+
+}
+
+// Media
+@include media-breakpoint-up( md ) {
+	.owl-carousel-pagination-top {
+		.owl-dots {
+			position: absolute;
+			bottom: calc( 100% + 75px * #{$xs-multiplier} );
+			right: 10px;
+			margin-top: 0;
+		}
+	}
+}
+
+@include media-breakpoint-up( lg ) {
+	.owl-carousel-pagination-top {
+		.owl-dots {
+			bottom: calc( 100% + 75px * #{$lg-multiplier} );
+		}
+	}
+}
+
+@include media-breakpoint-up( xxl ) {
+	.owl-carousel-pagination-top {
+		.owl-dots {
+			bottom: calc( 100% + 75px );
+		}
+	}
+}

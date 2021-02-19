@@ -462,69 +462,69 @@ components.multiswitch = {
 	}
 };
 
-// components.owlCarousel = {
-// 	selector: '.owl-carousel',
-// 	styles: [
-// 		'./components/owl-carousel/owl.carousel.css',
-// 		//'./components/on-clinic-font/OnClinicFont.css'
-// 	],
-// 	script: [
-// 		// './components/jquery/jquery.min.js',
-// 		'./components/owl-carousel/owl.carousel.min.js',
-// 		'./assets/components/util.min.js'
-// 	],
-// 	init: function ( nodes ) {
-// 		nodes.forEach( function ( node ) {
-// 			let
-// 				params = parseJSON( node.getAttribute( 'data-owl' ) ),
-// 				defaults = {
-// 					items: 1,
-// 					margin: 30,
-// 					loop: false,
-// 					mouseDrag: true,
-// 					stagePadding: 0,
-// 					nav: false,
-// 					navText: [],
-// 					dots: false,
-// 					autoplay: false,
-// 					autoplayHoverPause: true
-// 				},
-// 				xMode = {
-// 					autoplay: false,
-// 					loop: false,
-// 					mouseDrag: false
-// 				},
-// 				generated = {
-// 					autoplay: node.getAttribute( 'data-autoplay' ) !== 'false',
-// 					loop: node.getAttribute( 'data-loop' ) !== 'false',
-// 					mouseDrag: node.getAttribute( 'data-mouse-drag' ) !== 'false',
-// 					responsive: {}
-// 				},
-// 				aliaces = [ '-', '-sm-', '-md-', '-lg-', '-xl-', '-xxl-' ],
-// 				values =  [ 0, 576, 768, 992, 1200, 1600 ],
-// 				responsive = generated.responsive;
-//
-// 			for ( let j = 0; j < values.length; j++ ) {
-// 				responsive[ values[ j ] ] = {};
-//
-// 				for ( let k = j; k >= -1; k-- ) {
-// 					if ( !responsive[ values[ j ] ][ 'items' ] && node.getAttribute( 'data' + aliaces[ k ] + 'items' ) ) {
-// 						responsive[ values[ j ] ][ 'items' ] = k < 0 ? 1 : parseInt( node.getAttribute( 'data' + aliaces[ k ] + 'items' ), 10 );
-// 					}
-// 					if ( !responsive[ values[ j ] ][ 'stagePadding' ] && responsive[ values[ j ] ][ 'stagePadding' ] !== 0 && node.getAttribute( 'data' + aliaces[ k ] + 'stage-padding' ) ) {
-// 						responsive[ values[ j ] ][ 'stagePadding' ] = k < 0 ? 0 : parseInt( node.getAttribute( 'data' + aliaces[ k ] + 'stage-padding' ), 10 );
-// 					}
-// 					if ( !responsive[ values[ j ] ][ 'margin' ] && responsive[ values[ j ] ][ 'margin' ] !== 0 && node.getAttribute( 'data' + aliaces[ k ] + 'margin' ) ) {
-// 						responsive[ values[ j ] ][ 'margin' ] = k < 0 ? 30 : parseInt( node.getAttribute( 'data' + aliaces[ k ] + 'margin' ), 10 );
-// 					}
-// 				}
-// 			}
-//
-// 			node.owl = $( node );
-// 			$( node ).owlCarousel( Util.merge( window.xMode ? [ defaults, params, generated, xMode ] : [ defaults, params, generated ] ) );
-// 		});
-// 	}
-// };
+components.owlCarousel = {
+	selector: '.owl-carousel',
+	styles: [
+		//'./assets/components/owl-carousel/owl.carousel.css',
+		//'./components/on-clinic-font/OnClinicFont.css'
+	],
+	script: [
+		// './components/jquery/jquery.min.js',
+		'./assets/components/owl-carousel/owl.carousel.min.js',
+		'./assets/components/util.min.js'
+	],
+	init: function ( nodes ) {
+		nodes.forEach( function ( node ) {
+			let
+				params = parseJSON( node.getAttribute( 'data-owl' ) ),
+				defaults = {
+					items: 1,
+					margin: 30,
+					loop: false,
+					mouseDrag: true,
+					stagePadding: 0,
+					nav: false,
+					navText: [],
+					dots: false,
+					autoplay: false,
+					autoplayHoverPause: true
+				},
+				xMode = {
+					autoplay: false,
+					loop: false,
+					mouseDrag: false
+				},
+				generated = {
+					autoplay: node.getAttribute( 'data-autoplay' ) !== 'false',
+					loop: node.getAttribute( 'data-loop' ) !== 'false',
+					mouseDrag: node.getAttribute( 'data-mouse-drag' ) !== 'false',
+					responsive: {}
+				},
+				aliaces = [ '-', '-sm-', '-md-', '-lg-', '-xl-', '-xxl-' ],
+				values =  [ 0, 576, 768, 992, 1200, 1600 ],
+				responsive = generated.responsive;
+
+			for ( let j = 0; j < values.length; j++ ) {
+				responsive[ values[ j ] ] = {};
+
+				for ( let k = j; k >= -1; k-- ) {
+					if ( !responsive[ values[ j ] ][ 'items' ] && node.getAttribute( 'data' + aliaces[ k ] + 'items' ) ) {
+						responsive[ values[ j ] ][ 'items' ] = k < 0 ? 1 : parseInt( node.getAttribute( 'data' + aliaces[ k ] + 'items' ), 10 );
+					}
+					if ( !responsive[ values[ j ] ][ 'stagePadding' ] && responsive[ values[ j ] ][ 'stagePadding' ] !== 0 && node.getAttribute( 'data' + aliaces[ k ] + 'stage-padding' ) ) {
+						responsive[ values[ j ] ][ 'stagePadding' ] = k < 0 ? 0 : parseInt( node.getAttribute( 'data' + aliaces[ k ] + 'stage-padding' ), 10 );
+					}
+					if ( !responsive[ values[ j ] ][ 'margin' ] && responsive[ values[ j ] ][ 'margin' ] !== 0 && node.getAttribute( 'data' + aliaces[ k ] + 'margin' ) ) {
+						responsive[ values[ j ] ][ 'margin' ] = k < 0 ? 30 : parseInt( node.getAttribute( 'data' + aliaces[ k ] + 'margin' ), 10 );
+					}
+				}
+			}
+
+			node.owl = $( node );
+			$( node ).owlCarousel( Util.merge( window.xMode ? [ defaults, params, generated, xMode ] : [ defaults, params, generated ] ) );
+		});
+	}
+};
 
 // components.regula = {
 // 	selector: '[data-constraints]',
