@@ -10,15 +10,12 @@
           <p>Фирма „КОЛЕВ И КО ООД“ е специализирана в производството на машини за раздуване на различни видове PET
             продукти, както и на нужната екипировка за крайна продукция, за да могат нашите клиенти да произвеждат
             висококачествени преформи и бутилки.</p>
-          <div class="social group-20">
-            <a class="social-icon icon icon-md icon-link onclinic-facebook" href="#"></a>
-            <a class="social-icon icon icon-md icon-link onclinic-twitter" href="#"></a>
-            <a class="social-icon icon icon-md icon-link onclinic-instagram" href="#"></a>
-          </div>
           <div class="footer-lang">
-            <p (click)="showLanguagesDropdown()" class="title">
-              {{ 'language' | translate }} <i class="fa fa-language ml-2" aria-hidden="true"></i>
-            </p>
+            <div>
+              <span (click)="showLanguagesDropdown()" class="title">
+                {{ 'language' | translate }} <i class="fa fa-language ml-2" aria-hidden="true"></i>
+              </span>
+            </div>
 
             <div *ngIf="showLanguages" class="languages">
               <div *ngFor="let lang of languages">
@@ -31,6 +28,11 @@
             </div>
           </div>
         </div>
+          <div class="social group-20">
+            <a class="social-icon icon icon-md icon-link onclinic-facebook" href="#"></a>
+            <a class="social-icon icon icon-md icon-link onclinic-twitter" href="#"></a>
+            <a class="social-icon icon icon-md icon-link onclinic-instagram" href="#"></a>
+          </div>
       </div>
       <div class="col-sm-9 col-lg-4">
         <h5 class="footer-title">Products</h5>

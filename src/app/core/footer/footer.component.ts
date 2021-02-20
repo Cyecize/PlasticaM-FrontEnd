@@ -19,11 +19,10 @@ export class FooterComponent implements OnInit {
   }
 
   updateLanguage(lang: string): void {
-    this.showLanguages = false;
     this.translator.updateLanguage(lang);
   }
 
   showLanguagesDropdown(): void {
-    this.showLanguages = true;
+    this.showLanguages = !this.showLanguages;
   }
 }
