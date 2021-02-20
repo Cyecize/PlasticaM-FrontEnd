@@ -130,5 +130,5 @@ $navbar-shadow: 0 0 28px rgba( $gray-600, 0.1 );
 }
 
 // Layouts
-@import 'src/app/core/navbar/rd-navbar-fixed';
-@import 'src/app/core/navbar/rd-navbar-fullwidth';
+@import 'rd-navbar-fixed';
+@import 'rd-navbar-fullwidth';

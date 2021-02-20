@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {TranslatorService} from '../translate/translator.service';
-import {Locale} from '../translate/locale';
-import {ProductCategoryService} from '../product-category/product.category.service';
-import {ProductCategory} from '../product-category/product.category.model';
+import {TranslatorService} from '../../translate/translator.service';
+import {Locale} from '../../translate/locale';
+import {ProductCategoryService} from '../../product-category/product.category.service';
+import {ProductCategory} from '../../product-category/product.category.model';
 
 @Component({
   selector: 'app-navbar',
