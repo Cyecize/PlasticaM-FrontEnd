@@ -18,6 +18,33 @@
 	}
 }
 
+.footer-lang {
+  margin-top: 15px;
+
+  .title {
+    cursor: pointer;
+
+    i {
+      font-size: 1.5em;
+      margin: 0;
+    }
+
+    &:hover {
+      color: $primary-light;
+    }
+  }
+
+  .languages {
+    .lang-item {
+      cursor: pointer;
+    }
+
+    .active {
+      color: $primary-light;
+    }
+  }
+}
+
 @include media-breakpoint-up( xxl ) {
 	.footer-minimal {
 		padding: 23px 0;

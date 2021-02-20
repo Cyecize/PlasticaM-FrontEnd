@@ -101,6 +101,20 @@ $navbar-shadow: 0 0 28px rgba( $gray-600, 0.1 );
   }
 }
 
+.navbar-lang {
+  .title {
+    i {
+      font-size: 1.5em;
+    }
+  }
+
+  .lang-item {
+    .active {
+      color: $primary;
+    }
+  }
+}
+
 
 // Logo
 .navbar-logo {

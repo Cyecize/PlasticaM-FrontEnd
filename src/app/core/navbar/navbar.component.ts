@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {TranslatorService} from '../translate/translator.service';
+import {Locale} from '../translate/locale';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  languages = Object.values(Locale);
 
-  constructor() { }
+  constructor(public translator: TranslatorService) {
+  }
 
   ngOnInit(): void {
+
   }
 
 }

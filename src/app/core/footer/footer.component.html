@@ -15,6 +15,21 @@
             <a class="social-icon icon icon-md icon-link onclinic-twitter" href="#"></a>
             <a class="social-icon icon icon-md icon-link onclinic-instagram" href="#"></a>
           </div>
+          <div class="footer-lang">
+            <p (click)="showLanguagesDropdown()" class="title">
+              {{ 'language' | translate }} <i class="fa fa-language ml-2" aria-hidden="true"></i>
+            </p>
+
+            <div *ngIf="showLanguages" class="languages">
+              <div *ngFor="let lang of languages">
+                  <span [translate]="lang"
+                        [ngClass]="lang === translator.getCurrentLang() ? 'active' : ''"
+                        (click)="updateLanguage(lang)"
+                        class="lang-item">
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-sm-9 col-lg-4">

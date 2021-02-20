@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {TranslatorService} from '../translate/translator.service';
+import {Locale} from '../translate/locale';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  showLanguages = false;
+  languages = Object.values(Locale);
+
+  constructor(public translator: TranslatorService) {
+  }
 
   ngOnInit(): void {
   }
 
+  updateLanguage(lang: string): void {
+    this.showLanguages = false;
+    this.translator.updateLanguage(lang);
+  }
+
+  showLanguagesDropdown(): void {
+    this.showLanguages = true;
+  }
 }

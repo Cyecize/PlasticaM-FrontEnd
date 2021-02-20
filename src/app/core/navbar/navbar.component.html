@@ -28,7 +28,7 @@
               </a>
             </div>
             <div class="text-block text-block-2 d-md-flex align-items-center justify-content-center">
-              <p class="small-1">Have questions?</p>
+              <p class="small-1" [translate]="'call.now'"></p>
               <div class="list list-icons-2">
                 <div class="list-item">
                   <div class="list-icon icon onclinic-phone"></div>
@@ -101,9 +101,36 @@
             </li>
           </ul>
         </div>
-        <div class="navbar-cell navbar-action-link">
-          <a class="link" href=""><span class="link-icon"></span><span>Login</span></a>
+        <div class="navbar-cell">
+          <ul class="navbar-navigation rd-navbar-nav">
+            <li class="navbar-navigation-root-item navbar-lang">
+              <a class="navbar-navigation-root-link title" href="#">
+                {{ 'language' | translate }} <i class="fa fa-language ml-2" aria-hidden="true"></i>
+              </a>
+              <span class="rd-navbar-submenu-toggle fas fa-chevron-down"></span>
+              <ul class="navbar-navigation-dropdown rd-navbar-dropdown">
+                <li class="navbar-navigation-back">
+                  <button class="navbar-navigation-back-btn"><i class="fas fa-chevron-left"></i> Back</button>
+                </li>
+
+                <li *ngFor="let lang of languages" class="navbar-navigation-dropdown-item lang-item">
+                  <a class="navbar-navigation-dropdown-link"
+                     [translate]="lang"
+                     [ngClass]="lang === translator.getCurrentLang() ? 'active' : ''"
+                     (click)="translator.updateLanguage(lang)"
+                     href="#">
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="navbar-navigation-root-item">
+              <a class="navbar-navigation-root-link" href="#"><span>Login</span></a>
+            </li>
+          </ul>
         </div>
+        <!--        <div class="navbar-cell navbar-action-link">-->
+        <!--          <a class="link" href=""><span class="link-icon"></span><span>Login</span></a>-->
+        <!--        </div>-->
       </div>
     </div>
     <div class="navbar-section-divided">
