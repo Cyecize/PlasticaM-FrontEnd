@@ -1,6 +1,17 @@
 {
   "call.now": "Call now!",
-  "bg": "Bulgarian",
+  "bg": "Български",
   "en": "English",
-  "language": "Language"
+  "language": "Language",
+  "address.value": "Pop Puncho 6 - Montana, Bulgaria",
+  "enter.keyword": "Enter keyword...",
+  "no.results": "No results",
+  "home": "Home",
+  "about.us": "About us",
+  "products": "Products",
+  "contacts": "Contacts",
+  "login": "Login",
+  "back": "Back",
+  "about.us.value": "The company \"Kolev & Co LTD\" is specialized in creating can sealing machines for different kinds of cans as well as providing the required gear for the different can sizes and types. We can answer every technical question.",
+  "read.more": "Read More"
 }

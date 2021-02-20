@@ -7,9 +7,7 @@
           <a class="logo-link" href="index.html">
             <img class="logo-image-default" src="/assets/images/logo.png" alt="Airy" width="290" height="42"/>
           </a>
-          <p>Фирма „КОЛЕВ И КО ООД“ е специализирана в производството на машини за раздуване на различни видове PET
-            продукти, както и на нужната екипировка за крайна продукция, за да могат нашите клиенти да произвеждат
-            висококачествени преформи и бутилки.</p>
+          <p translate="about.us.value"></p>
           <div class="footer-lang">
             <div>
               <span (click)="showLanguagesDropdown()" class="title">
@@ -35,19 +33,19 @@
           </div>
       </div>
       <div class="col-sm-9 col-lg-4">
-        <h5 class="footer-title">Products</h5>
+        <h5 class="footer-title" translate="products"></h5>
         <ul class="list list-sm">
-          <li class="list-item"><a href="single-purpose.html">Can Sealers</a></li>
-          <li class="list-item"><a href="single-purpose.html">Plastic Carpets</a></li>
-          <li class="list-item"><a href="single-purpose.html">Plastic Chess</a></li>
+          <li *ngFor="let category of categories" class="list-item">
+            <a href="#">{{translator.getCategoryName(category)}}</a>
+          </li>
         </ul>
       </div>
       <div class="col-sm-9 col-lg-4">
-        <h5 class="footer-title">Contacts</h5>
+        <h5 class="footer-title" translate="contacts"></h5>
         <ul class="list list-icons">
           <li class="list-item">
             <div class="list-icon onclinic-map-marker"></div>
-            <a href="#">Pop Puncho 6 - Montana, Bulgaria</a>
+            <a href="#" translate="address.value"></a>
           </li>
           <li class="list-item">
             <div class="list-icon onclinic-phone"></div>
@@ -55,7 +53,7 @@
           </li>
           <li class="list-item">
             <div class="list-icon onclinic-email-open"></div>
-            <a href="mailto:#">info@demolink.org</a>
+            <a href="mailto:plasticam@abv.bg">plasticam@abv.bg</a>
           </li>
           <li class="list-item">
             <div class="list-icon onclinic-book"></div>
@@ -71,7 +69,7 @@
     <!-- Copyright-->
     <p class="rights">
       <span>Created by </span><a href="https://www.linkedin.com/in/cyecize/" target="_blank">Tsvetelin Yakimov</a><span>.</span>
-      <a class="ml-2 ml-md-4" href="">About Us</a>
+      <a class="ml-2 ml-md-4" href="" translate="about.us"></a>
       <a class="ml-2 ml-md-4" href="privacy-policy.html">Privacy Policy</a>
       <a class="ml-2 ml-md-4" href="terms-of-use.html">Terms of Use</a>
     </p>

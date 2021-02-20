@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {Locale} from './locale';
+import {ProductCategory} from '../product-category/product.category.model';
 
 @Injectable({providedIn: 'root'})
 export class TranslatorService {
@@ -16,6 +17,17 @@ export class TranslatorService {
   public updateLanguage(lang: Locale | any): void {
     if (Object.values(Locale).includes(lang)) {
       this.translate.setDefaultLang(lang);
+    }
+  }
+
+  public getCategoryName(category: ProductCategory): string {
+    switch (this.getCurrentLang()) {
+      case Locale.BG:
+        return category.nameBg;
+      case Locale.EN:
+        return category.nameEn;
+      default:
+        throw new Error(`Category does not support language ${this.getCurrentLang()}!`);
     }
   }
 

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ProductCategory} from '../../models/product.category.model';
+import {ProductCategory} from '../../../core/product-category/product.category.model';
+import {TranslatorService} from '../../../core/translate/translator.service';
 
 @Component({
   selector: 'app-category-card',
@@ -11,8 +12,8 @@ export class CategoryCardComponent implements OnInit {
   @Input()
   category: ProductCategory | any = {};
 
-  constructor() {
-    // TODO: add lang service to determine which property to get for name.
+  constructor(public translator: TranslatorService) {
+
   }
 
   ngOnInit(): void {

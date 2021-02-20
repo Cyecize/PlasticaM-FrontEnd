@@ -19,7 +19,7 @@
             <div class="list list-icons-2">
               <div class="list-item">
                 <div class="list-icon icon navbar-info-icon onclinic-map-marker novi-icon"></div>
-                <a class="link link-inherit small-1" href="#">Поп Пунчо 6 - Монтана, България</a>
+                <a class="link link-inherit small-1" href="#" translate="address.value"></a>
               </div>
             </div>
             <div class="navbar-logo navbar-fullwidth-logo">
@@ -32,6 +32,7 @@
               <div class="list list-icons-2">
                 <div class="list-item">
                   <div class="list-icon icon onclinic-phone"></div>
+                  <!-- TODO: swap phone number with one coming from BE -->
                   <span class="h5"><a class="link" href="tel:#">0885601720</a></span>
                 </div>
               </div>
@@ -50,8 +51,8 @@
                   <form action="search-results.html" class="navbar-search-form"
                         data-rd-search='{"output":".navbar-search-results","mode":"live","liveResults":3,"template":"<h5 class=\"search-title\"><a target=\"_top\" href=\"#{href}\" class=\"search-link\">#{title}</a></h5><p>...#{token}...</p>"}'
                         method="GET">
-                    <input autocomplete="off" class="navbar-search-input" name="s" placeholder="Enter keyword..."
-                           type="text"/>
+                    <input autocomplete="off" class="navbar-search-input" name="s"
+                           placeholder="{{ 'enter.keyword' | translate }}" type="text"/>
                     <button class="navbar-search-btn onclinic-search novi-icon"></button>
                     <button class="navbar-search-close fas fa-times search-switch novi-icon"
                             data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","class":"navbar-search-active","isolate":"[data-multi-switch]:not(.search-switch)"}'
@@ -60,7 +61,7 @@
                   </form>
                 </div>
               </div>
-              <div class="navbar-search-results">No results</div>
+              <div class="navbar-search-results" translate="no.results"></div>
               <button class="navbar-button search-switch onclinic-search novi-icon"
                       data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","class":"navbar-search-active","isolate":"[data-multi-switch]:not(.search-switch)"}'></button>
             </div>
@@ -72,32 +73,28 @@
       <div class="navbar-container navbar-sidebar">
         <div class="navbar-cell flex-grow-1">
           <ul class="navbar-navigation rd-navbar-nav">
-            <li class="navbar-navigation-root-item active"><a class="navbar-navigation-root-link"
-                                                              href="index.html">Home</a>
-            </li>
-            <li class="navbar-navigation-root-item"><a class="navbar-navigation-root-link" href="about-us.html">About
-              us</a>
+            <li class="navbar-navigation-root-item active">
+              <a class="navbar-navigation-root-link" href="index.html" translate="home"></a>
             </li>
             <li class="navbar-navigation-root-item">
-              <a class="navbar-navigation-root-link" href="purposes.html">Products</a>
+              <a class="navbar-navigation-root-link" href="about-us.html" translate="about.us"></a>
+            </li>
+            <li class="navbar-navigation-root-item">
+              <a class="navbar-navigation-root-link" href="purposes.html" translate="products"></a>
               <span class="rd-navbar-submenu-toggle fas fa-chevron-down"></span>
               <ul class="navbar-navigation-dropdown rd-navbar-dropdown">
                 <li class="navbar-navigation-back">
-                  <button class="navbar-navigation-back-btn"><i class="fas fa-chevron-left"></i> Back</button>
+                  <button class="navbar-navigation-back-btn">
+                    <i class="fas fa-chevron-left"></i> {{'back' | translate}}
+                  </button>
                 </li>
-                <li class="navbar-navigation-dropdown-item">
-                  <a class="navbar-navigation-dropdown-link" href="single-purpose.html">Can Sealers</a>
-                </li>
-                <li class="navbar-navigation-dropdown-item">
-                  <a class="navbar-navigation-dropdown-link" href="single-purpose.html">Plastic Carpets</a>
-                </li>
-                <li class="navbar-navigation-dropdown-item">
-                  <a class="navbar-navigation-dropdown-link" href="single-purpose.html">Plastic Chess</a>
+                <li *ngFor="let category of categories" class="navbar-navigation-dropdown-item">
+                  <a class="navbar-navigation-dropdown-link" href="#">{{translator.getCategoryName(category)}}</a>
                 </li>
               </ul>
             </li>
             <li class="navbar-navigation-root-item">
-              <a class="navbar-navigation-root-link" href="showcase.html">Contacts</a>
+              <a class="navbar-navigation-root-link" href="showcase.html" translate="contacts"></a>
             </li>
           </ul>
         </div>
@@ -110,7 +107,9 @@
               <span class="rd-navbar-submenu-toggle fas fa-chevron-down"></span>
               <ul class="navbar-navigation-dropdown rd-navbar-dropdown">
                 <li class="navbar-navigation-back">
-                  <button class="navbar-navigation-back-btn"><i class="fas fa-chevron-left"></i> Back</button>
+                  <button class="navbar-navigation-back-btn">
+                    <i class="fas fa-chevron-left"></i> {{'back' | translate}}
+                  </button>
                 </li>
 
                 <li *ngFor="let lang of languages" class="navbar-navigation-dropdown-item lang-item">
@@ -124,7 +123,7 @@
               </ul>
             </li>
             <li class="navbar-navigation-root-item">
-              <a class="navbar-navigation-root-link" href="#"><span>Login</span></a>
+              <a class="navbar-navigation-root-link" href="#"><span translate="login"></span></a>
             </li>
           </ul>
         </div>
