@@ -10,7 +10,7 @@ import {TranslatorService} from '../../../core/translate/translator.service';
 export class CategoryCardComponent implements OnInit {
 
   @Input()
-  category: ProductCategory | any = {};
+  category!: ProductCategory;
 
   constructor(public translator: TranslatorService) {
 
