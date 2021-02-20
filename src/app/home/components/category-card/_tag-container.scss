@@ -1,0 +1,18 @@
+// Base
+.tag-container {
+	@include group( px-to-rem( 10px ) );
+}
+
+
+// Spacing
+p + .tag-container { margin-top: px-to-rem( 53px * $xs-multiplier ) }
+
+
+// Media
+@include media-breakpoint-up( lg ) {
+	p + .tag-container { margin-top: px-to-rem( 53px * $lg-multiplier ) }
+}
+
+@include media-breakpoint-up( xxl ) {
+	p + .tag-container { margin-top: px-to-rem( 53px ) }
+}

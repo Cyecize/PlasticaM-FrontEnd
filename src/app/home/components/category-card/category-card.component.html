@@ -1,0 +1,14 @@
+<div class="product product-light">
+  <div class="product-media">
+    <img class="product-img" [src]="category.imageUrl" alt=""/>
+    <div class="product-tags">
+      <div *ngFor="let tag of category.tags" class="tag tag-sm tag-primary-lighter">{{ tag }}</div>
+    </div>
+  </div>
+  <div class="product-body">
+    <div class="product-title">
+      <a class="link link-inherit" href="#todo">{{ category.nameEn }}</a>
+    </div>
+    <div class="btn btn-outline-primary">Read More</div>
+  </div>
+</div>

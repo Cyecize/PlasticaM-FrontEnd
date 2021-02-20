@@ -1,0 +1,98 @@
+@import "~bootstrap/scss/functions";
+@import "functions";
+@import "variables";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "mixins";
+
+// Tag
+.tag {
+	display: inline-block;
+	padding: px-to-rem( 8px, 10px );
+	font-size: $h6-font-size;
+	text-align: center;
+	color: $white;
+	background-color: $primary-light;
+	border: 1px solid $primary-light;
+	border-radius: $border-radius-sm;
+}
+
+a.tag {
+	transition: $transition-base;
+
+	&:hover {
+		color: $white;
+		background-color: $primary;
+		border-color: $primary;
+	}
+}
+
+
+// Sizing
+.tag-sm {
+	padding: px-to-rem( 6px, 9px, 2px );
+	font-size: $font-size-sm;
+	font-weight: 600;
+	text-transform: uppercase;
+	border-radius: 0;
+}
+
+.tag-lg {
+	padding: px-to-rem( 4px, 13px );
+	font-size: $font-size-base;
+	font-weight: $font-weight-base;
+	text-transform: none;
+}
+
+.tag-rounded {
+	border-radius: $border-radius;
+}
+
+
+// Theming
+.tag-tertiary {
+	color: $white;
+	background-color: $tertiary;
+	border-color: $tertiary;
+}
+
+a.tag-primary:hover {
+	color: $white;
+	background-color: $gray-900;
+	border-color: $gray-900;
+}
+
+.tag-light {
+	color: $primary;
+	background-color: $gray-400;
+	border-color: $gray-400;
+}
+
+a.tag-light:hover {
+	color: $white;
+	background-color: $primary;
+	border-color: $primary;
+}
+
+.tag-gray {
+	color: $body-color;
+	background-color: $gray-200;
+	border-color: $gray-200;
+}
+
+.tag-outline {
+	color: $gray-900;
+	background-color: $white;
+	border-color: $gray-300;
+
+}
+
+a.tag-outline:hover {
+	color: $white;
+	background-color: $gray-900;
+	border-color: $gray-900;
+}
+
+
+// Layouts
+@import "tag-container";
