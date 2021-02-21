@@ -102,6 +102,8 @@ $navbar-shadow: 0 0 28px rgba( $gray-600, 0.1 );
 }
 
 .navbar-lang {
+  cursor: pointer;
+
   .title {
     i {
       font-size: 1.5em;
@@ -109,6 +111,8 @@ $navbar-shadow: 0 0 28px rgba( $gray-600, 0.1 );
   }
 
   .lang-item {
+    cursor: pointer;
+
     .active {
       color: $primary;
     }

@@ -3,6 +3,8 @@ import {TranslatorService} from '../../translate/translator.service';
 import {Locale} from '../../translate/locale';
 import {ProductCategoryService} from '../../product-category/product.category.service';
 import {ProductCategory} from '../../product-category/product.category.model';
+import {AppRoutingPath} from '../../../app-routing.path';
+import {RouteUtils} from '../../routing/route-utils';
 
 @Component({
   selector: 'app-footer',
@@ -14,6 +16,9 @@ export class FooterComponent implements OnInit {
   showLanguages = false;
   languages = Object.values(Locale);
   categories: ProductCategory[] = [];
+
+  routes = AppRoutingPath;
+  routeUtils = RouteUtils;
 
   constructor(public translator: TranslatorService,
               private categoryService: ProductCategoryService) {

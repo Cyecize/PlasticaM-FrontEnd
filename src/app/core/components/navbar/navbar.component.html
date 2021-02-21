@@ -8,7 +8,7 @@
         <button class="navbar-switch fas fa-bars novi-icon"
                 data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","isolate":"[data-multi-switch]"}'></button>
         <div class="navbar-logo">
-          <a class="navbar-logo-link" href="index.html">
+          <a class="navbar-logo-link" [routerLink]="routes.HOME.toString()">
             <img alt="Airy" class="navbar-logo-default" height="42" src="/assets/images/logo.png" width="290"/>
           </a>
         </div>
@@ -19,11 +19,11 @@
             <div class="list list-icons-2">
               <div class="list-item">
                 <div class="list-icon icon navbar-info-icon onclinic-map-marker novi-icon"></div>
-                <a class="link link-inherit small-1" href="#" appTranslate="address.value"></a>
+                <span class="link link-inherit small-1 " appTranslate="address.value"></span>
               </div>
             </div>
             <div class="navbar-logo navbar-fullwidth-logo">
-              <a class="navbar-logo-link" href="index.html">
+              <a class="navbar-logo-link" [routerLink]="routes.HOME.toString()">
                 <img alt="Airy" class="navbar-logo-default" height="42" src="/assets/images/logo.png" width="290"/>
               </a>
             </div>
@@ -33,7 +33,7 @@
                 <div class="list-item">
                   <div class="list-icon icon onclinic-phone"></div>
                   <!-- TODO: swap phone number with one coming from BE -->
-                  <span class="h5"><a class="link" href="tel:#">0885601720</a></span>
+                  <span class="h5"><a class="link" href="tel:0885601720">0885601720</a></span>
                 </div>
               </div>
             </div>
@@ -76,13 +76,17 @@
             <li class="navbar-navigation-root-item "
                 routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact: true}">
-              <a class="navbar-navigation-root-link" [routerLink]="routes.HOME.path" appTranslate="home"></a>
+              <a class="navbar-navigation-root-link" [routerLink]="routes.HOME.toString()" appTranslate="home"></a>
             </li>
-            <li class="navbar-navigation-root-item">
-              <a class="navbar-navigation-root-link" href="about-us.html" appTranslate="about.us"></a>
+            <li class="navbar-navigation-root-item" routerLinkActive="active">
+              <a class="navbar-navigation-root-link"
+                 [routerLink]="routes.ABOUT_US.toString()"
+                 appTranslate="about.us"></a>
             </li>
-            <li class="navbar-navigation-root-item">
-              <a class="navbar-navigation-root-link" href="purposes.html" appTranslate="products"></a>
+            <li class="navbar-navigation-root-item" routerLinkActive="active">
+              <a class="navbar-navigation-root-link"
+                 [routerLink]="routes.PRODUCTS.toString()"
+                 appTranslate="products"></a>
               <span class="rd-navbar-submenu-toggle fas fa-chevron-down"></span>
               <ul class="navbar-navigation-dropdown rd-navbar-dropdown">
                 <li class="navbar-navigation-back">
@@ -91,19 +95,23 @@
                   </button>
                 </li>
                 <li *ngFor="let category of categories" class="navbar-navigation-dropdown-item">
-                  <a class="navbar-navigation-dropdown-link" href="#">{{translator.getCategoryName(category)}}</a>
+                  <a class="navbar-navigation-dropdown-link"
+                     [routerLink]="routeUtils.setPathParams(routes.PRODUCTS_CATEGORY.toString(), [category.id])">
+                    {{translator.getCategoryName(category)}}
+                  </a>
                 </li>
               </ul>
             </li>
             <li class="navbar-navigation-root-item" routerLinkActive="active">
-              <a class="navbar-navigation-root-link" [routerLink]="routes.CONTACTS.path" appTranslate="contacts"></a>
+              <a class="navbar-navigation-root-link" [routerLink]="routes.CONTACTS.toString()"
+                 appTranslate="contacts"></a>
             </li>
           </ul>
         </div>
         <div class="navbar-cell">
           <ul class="navbar-navigation rd-navbar-nav">
             <li class="navbar-navigation-root-item navbar-lang">
-              <a class="navbar-navigation-root-link title" href="#">
+              <a class="navbar-navigation-root-link title">
                 {{ 'language' | appTranslate }} <i class="fa fa-language ml-2" aria-hidden="true"></i>
               </a>
               <span class="rd-navbar-submenu-toggle fas fa-chevron-down"></span>
@@ -115,22 +123,23 @@
                 </li>
 
                 <li *ngFor="let lang of languages" class="navbar-navigation-dropdown-item lang-item">
-                  <a class="navbar-navigation-dropdown-link"
-                     [appTranslate]="lang"
-                     [ngClass]="lang === translator.getCurrentLang() ? 'active' : ''"
-                     (click)="translator.updateLanguage(lang)"
-                     href="#">
-                  </a>
+                  <span class="navbar-navigation-dropdown-link"
+                        [appTranslate]="lang"
+                        [ngClass]="lang === translator.getCurrentLang() ? 'active' : ''"
+                        (click)="translator.updateLanguage(lang)">
+                  </span>
                 </li>
               </ul>
             </li>
-            <li class="navbar-navigation-root-item">
-              <a class="navbar-navigation-root-link" href="#"><span appTranslate="login"></span></a>
+            <li class="navbar-navigation-root-item" routerLinkActive="active">
+              <a class="navbar-navigation-root-link" [routerLink]="routes.LOGIN.toString()">
+                <span appTranslate="login"></span>
+              </a>
             </li>
           </ul>
         </div>
         <!--        <div class="navbar-cell navbar-action-link">-->
-        <!--          <a class="link" href=""><span class="link-icon"></span><span>Login</span></a>-->
+        <!--          <a class="link"><span class="link-icon"></span><span>Login</span></a>-->
         <!--        </div>-->
       </div>
     </div>

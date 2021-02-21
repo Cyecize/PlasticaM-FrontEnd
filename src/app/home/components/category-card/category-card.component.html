@@ -7,8 +7,8 @@
   </div>
   <div class="product-body">
     <div class="product-title">
-      <a class="link link-inherit" href="#todo">{{ translator.getCategoryName(category) }}</a>
+      <a class="link link-inherit" [routerLink]="route">{{ translator.getCategoryName(category) }}</a>
     </div>
-    <div class="btn btn-outline-primary" appTranslate="read.more"></div>
+    <a class="btn btn-outline-primary" [routerLink]="route" appTranslate="read.more"></a>
   </div>
 </div>
