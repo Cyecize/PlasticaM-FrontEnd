@@ -4,6 +4,7 @@ import {Locale} from './locale';
 import {ProductCategory} from '../product-category/product.category.model';
 import {CookieService} from 'ngx-cookie-service';
 import {COOKIE_LANG_NAME} from '../general.constants';
+import {Observable} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class TranslatorService {
@@ -15,6 +16,14 @@ export class TranslatorService {
 
   public getCurrentLang(): string {
     return this.translate.getDefaultLang();
+  }
+
+  public getTranslation(key: string): Observable<string> {
+    return this.translate.get(key);
+  }
+
+  public onTranslationChange(callback: any): void {
+    this.translate.onDefaultLangChange.subscribe((event) => callback());
   }
 
   public updateLanguage(lang: Locale | any): boolean {

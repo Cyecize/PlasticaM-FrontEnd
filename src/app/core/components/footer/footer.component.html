@@ -7,17 +7,17 @@
           <a class="logo-link" href="index.html">
             <img class="logo-image-default" src="/assets/images/logo.png" alt="Airy" width="290" height="42"/>
           </a>
-          <p translate="about.us.value"></p>
+          <p appTranslate="about.us.value"></p>
           <div class="footer-lang">
             <div>
               <span (click)="showLanguagesDropdown()" class="title">
-                {{ 'language' | translate }} <i class="fa fa-language ml-2" aria-hidden="true"></i>
+                {{ 'language' | appTranslate }} <i class="fa fa-language ml-2" aria-hidden="true"></i>
               </span>
             </div>
 
             <div *ngIf="showLanguages" class="languages">
               <div *ngFor="let lang of languages">
-                  <span [translate]="lang"
+                  <span [appTranslate]="lang"
                         [ngClass]="lang === translator.getCurrentLang() ? 'active' : ''"
                         (click)="updateLanguage(lang)"
                         class="lang-item">
@@ -33,7 +33,7 @@
           </div>
       </div>
       <div class="col-sm-9 col-lg-4">
-        <h5 class="footer-title" translate="products"></h5>
+        <h5 class="footer-title" appTranslate="products"></h5>
         <ul class="list list-sm">
           <li *ngFor="let category of categories" class="list-item">
             <a href="#">{{translator.getCategoryName(category)}}</a>
@@ -41,11 +41,11 @@
         </ul>
       </div>
       <div class="col-sm-9 col-lg-4">
-        <h5 class="footer-title" translate="contacts"></h5>
+        <h5 class="footer-title" appTranslate="contacts"></h5>
         <ul class="list list-icons">
           <li class="list-item">
             <div class="list-icon onclinic-map-marker"></div>
-            <a href="#" translate="address.value"></a>
+            <a href="#" appTranslate="address.value"></a>
           </li>
           <li class="list-item">
             <div class="list-icon onclinic-phone"></div>
@@ -69,7 +69,7 @@
     <!-- Copyright-->
     <p class="rights">
       <span>Created by </span><a href="https://www.linkedin.com/in/cyecize/" target="_blank">Tsvetelin Yakimov</a><span>.</span>
-      <a class="ml-2 ml-md-4" href="" translate="about.us"></a>
+      <a class="ml-2 ml-md-4" href="" appTranslate="about.us"></a>
       <a class="ml-2 ml-md-4" href="privacy-policy.html">Privacy Policy</a>
       <a class="ml-2 ml-md-4" href="terms-of-use.html">Terms of Use</a>
     </p>

@@ -1,27 +1,15 @@
 import {NgModule} from '@angular/core';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {HttpClient} from '@angular/common/http';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {BrowserModule} from '@angular/platform-browser';
+import {CommonModule} from '@angular/common';
+import {AppTranslateDirective} from '../core/translate/app-translate.directive';
+import {AppTranslatePipe} from '../core/translate/app-translate-pipe';
 
 @NgModule({
   imports: [
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-    BrowserModule,
+    CommonModule,
   ],
-  exports: [TranslateModule, BrowserModule]
+  declarations: [AppTranslateDirective, AppTranslatePipe],
+  exports: [CommonModule, AppTranslateDirective, AppTranslatePipe]
 })
 export class SharedModule {
 
 }
-
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
-
