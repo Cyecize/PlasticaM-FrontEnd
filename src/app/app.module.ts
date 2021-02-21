@@ -5,17 +5,19 @@ import {AppComponent} from './app.component';
 import {LoaderComponent} from './shared/components/loader/loader.component';
 import {HttpClientModule} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
-import {NavbarComponent} from './core/components/navbar/navbar.component';
-import {FooterComponent} from './core/components/footer/footer.component';
 import {SharedModule} from './shared/shared.module';
+import {FooterModule} from './core/components/footer/footer.module';
+import {NavbarModule} from './core/components/navbar/navbar.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoaderComponent
+    LoaderComponent,
   ],
   imports: [
     SharedModule,
+    NavbarModule,
+    FooterModule,
     AppRoutingModule,
     HttpClientModule,
   ],

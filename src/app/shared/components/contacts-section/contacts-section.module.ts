@@ -5,7 +5,8 @@ import {SharedModule} from '../../shared.module';
 
 @NgModule({
   imports: [SharedModule],
-  declarations: [ContactsSectionComponent, MailFormComponent]
+  declarations: [ContactsSectionComponent, MailFormComponent],
+  exports: [ContactsSectionComponent]
 })
 export class ContactsSectionModule {
 
