@@ -8,6 +8,10 @@ const routes: Routes = [
     loadChildren: () => import('./contacts/contacts.module').then(m => m.ContactsModule),
   },
   {
+    path: AppRoutingPath.PRIVACY_POLICY.path,
+    loadChildren: () => import('./privacy-policy/privacy-policy.module').then(m => m.PrivacyPolicyModule),
+  },
+  {
     path: AppRoutingPath.HOME.path,
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
     pathMatch: 'full'
