@@ -8,6 +8,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/contacts/contacts.module').then(m => m.ContactsModule),
   },
   {
+    path: AppRoutingPath.ABOUT_US.path,
+    loadChildren: () => import('./pages/about-us/about-us.module').then(m => m.AboutUsModule),
+  },
+  {
     path: AppRoutingPath.PRIVACY_POLICY.path,
     loadChildren: () => import('./pages/privacy-policy/privacy-policy.module').then(m => m.PrivacyPolicyModule),
   },
