@@ -23,5 +23,7 @@
   "your.message": "Your Message",
   "required.field": "Required field",
   "send": "Send",
-  "our.products": "Our products"
+  "our.products": "Our products",
+  "page.does.not.exist": "The page you’re looking for doesn’t exist :(",
+  "home.page": "Home page"
 }
