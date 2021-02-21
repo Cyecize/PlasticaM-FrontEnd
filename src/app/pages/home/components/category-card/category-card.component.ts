@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ProductCategory} from '../../../core/product-category/product.category.model';
-import {TranslatorService} from '../../../core/translate/translator.service';
-import {AppRoutingPath} from '../../../app-routing.path';
-import {RouteUtils} from '../../../core/routing/route-utils';
+import {ProductCategory} from '../../../../core/product-category/product.category.model';
+import {TranslatorService} from '../../../../core/translate/translator.service';
+import {AppRoutingPath} from '../../../../app-routing.path';
+import {RouteUtils} from '../../../../core/routing/route-utils';
 
 @Component({
   selector: 'app-category-card',

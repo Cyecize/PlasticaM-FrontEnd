@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ProductCategory} from '../core/product-category/product.category.model';
-import {ProductCategoryService} from '../core/product-category/product.category.service';
+import {ProductCategory} from '../../core/product-category/product.category.model';
+import {ProductCategoryService} from '../../core/product-category/product.category.service';
 
 @Component({
   selector: 'app-home',
