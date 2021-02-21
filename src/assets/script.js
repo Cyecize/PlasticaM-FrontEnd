@@ -463,18 +463,22 @@ components.multiswitch = {
 };
 
 components.owlCarousel = {
-	selector: '.owl-carousel',
+	// selector: 'html',
+  selector: '.owl-carousel', //always load it
 	styles: [
 		//'./assets/components/owl-carousel/owl.carousel.css',
 		//'./components/on-clinic-font/OnClinicFont.css'
 	],
 	script: [
 		// './components/jquery/jquery.min.js',
-		'./assets/components/owl-carousel/owl.carousel.min.js',
-		'./assets/components/util.min.js'
+		// './assets/components/owl-carousel/owl.carousel.min.js',
+		// './assets/components/util.min.js'
 	],
+
+  // This method will be called withing the app.
+  // components.owlCarousel.init(
 	init: function ( nodes ) {
-		nodes.forEach( function ( node ) {
+    nodes.forEach( function ( node ) {
 			let
 				params = parseJSON( node.getAttribute( 'data-owl' ) ),
 				defaults = {
@@ -1389,4 +1393,6 @@ window.addEventListener( 'load', function () {
 		components: components,
 		observeDOM: window.xMode,
 	});
+
+  window.components = components;
 });

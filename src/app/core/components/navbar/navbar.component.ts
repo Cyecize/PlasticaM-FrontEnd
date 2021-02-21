@@ -3,6 +3,7 @@ import {TranslatorService} from '../../translate/translator.service';
 import {Locale} from '../../translate/locale';
 import {ProductCategoryService} from '../../product-category/product.category.service';
 import {ProductCategory} from '../../product-category/product.category.model';
+import {AppRoutingPath} from '../../../app-routing.path';
 
 @Component({
   selector: 'app-navbar',
@@ -12,6 +13,8 @@ import {ProductCategory} from '../../product-category/product.category.model';
 export class NavbarComponent implements OnInit {
   languages = Object.values(Locale);
   categories: ProductCategory[] = [];
+
+  routes = AppRoutingPath;
 
   constructor(public translator: TranslatorService,
               private categoryService: ProductCategoryService) {

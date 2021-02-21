@@ -73,8 +73,10 @@
       <div class="navbar-container navbar-sidebar">
         <div class="navbar-cell flex-grow-1">
           <ul class="navbar-navigation rd-navbar-nav">
-            <li class="navbar-navigation-root-item active">
-              <a class="navbar-navigation-root-link" href="index.html" appTranslate="home"></a>
+            <li class="navbar-navigation-root-item "
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">
+              <a class="navbar-navigation-root-link" [routerLink]="routes.HOME.path" appTranslate="home"></a>
             </li>
             <li class="navbar-navigation-root-item">
               <a class="navbar-navigation-root-link" href="about-us.html" appTranslate="about.us"></a>
@@ -93,8 +95,8 @@
                 </li>
               </ul>
             </li>
-            <li class="navbar-navigation-root-item">
-              <a class="navbar-navigation-root-link" href="showcase.html" appTranslate="contacts"></a>
+            <li class="navbar-navigation-root-item" routerLinkActive="active">
+              <a class="navbar-navigation-root-link" [routerLink]="routes.CONTACTS.path" appTranslate="contacts"></a>
             </li>
           </ul>
         </div>
