@@ -1,0 +1,66 @@
+<section class="section section-md bg-primary-lightest section-offset-3">
+  <div class="container">
+    <div class="row row-40">
+      <div class="col-md-6">
+        <div class="text-block">
+          <h2 translate="contact.us"></h2>
+        </div>
+        <div class="row row-15 row-text">
+          <div class="col-sm-6 col-md-12 col-lg-6">
+            <div class="text-block text-block-3">
+              <h5 class="font-weight-bold" translate="contacts"></h5>
+              <ul class="list small-1">
+                <li class="contact-item">
+                  <button class="whatsapp-button"><i class="fab fa-whatsapp"></i> Whatsapp</button>
+                </li>
+                <li class="contact-item">
+                  <button class="facebook-button"><i class="fab fa-facebook"></i> Facebook</button>
+                </li>
+                <li class="contact-item">
+                  <a class="viber-button" href="viber://chat/?number=359888494116" target="_blank">
+                    <i class="fab fa-viber"></i> Viber
+                  </a>
+                </li>
+                <li class="contact-item">
+                  <span class="email-button"
+                        (click)="onEmailButtonClick()"
+                        [ngClass]="isMailFormVisible ? 'email-button-selected' : ''">
+                        <i class="fa fa-envelope"></i> E-Mail
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-12 col-lg-6">
+            <div class="text-block text-block-3">
+              <h5 class="font-weight-bold" translate="address"></h5>
+              <ul class="list small-1">
+                <li class="list-item" translate="address.value"></li>
+              </ul>
+            </div>
+            <div class="text-block text-block-3">
+              <h5 class="font-weight-bold" translate="phone.number"></h5>
+              <ul class="list small-1">
+                <li>
+                  <i class="icon onclinic-phone mr-1"></i> <a class="link link-primary"
+                                                              href="tel:0888494116">0888494116</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <app-mail-form *ngIf="isMailFormVisible"></app-mail-form>
+        <iframe *ngIf="!isMailFormVisible"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1448.795945882669!2d23.22375937545419!3d43.427352769400564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4754cb3582841599%3A0xfb46a5f9b72b8495!2z0YPQuy4g4oCe0J_QvtC_INCf0YPQvdGH0L7igJwgNiwgMzQwNSDQodC10LLQtdGA0L3QsCDQv9GA0L7QvNC40YjQu9C10L3QsCDQt9C-0L3QsCwg0JzQvtC90YLQsNC90LA!5e0!3m2!1sbg!2sbg!4v1610372744205!5m2!1sbg!2sbg"
+                width="100%"
+                height="450"
+                frameborder="0"
+                style="border:0; margin-top: 5px;"
+                allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>

@@ -13,5 +13,14 @@
   "login": "Login",
   "back": "Back",
   "about.us.value": "The company \"Kolev & Co LTD\" is specialized in creating can sealing machines for different kinds of cans as well as providing the required gear for the different can sizes and types. We can answer every technical question.",
-  "read.more": "Read More"
+  "read.more": "Read More",
+  "address": "Address",
+  "contact.us": "Contact us",
+  "ask.us.anything": "Ask us anything",
+  "your.name": "Your name",
+  "email": "Email",
+  "phone.number": "Phone number",
+  "your.message": "Your Message",
+  "required.field": "Required field",
+  "send": "Send"
 }

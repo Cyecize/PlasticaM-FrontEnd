@@ -1,0 +1,87 @@
+@import "~bootstrap/scss/functions";
+@import "functions";
+@import "variables";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "mixins";
+
+
+// Spacing
+* + .rd-form-btn { margin-top: px-to-rem( 25px ) }
+* + .rd-form-btn-1 { margin-top: px-to-rem( 51px * $xs-multiplier ) }
+* + .rd-form-meta { margin-top: px-to-rem( 20px ) }
+h3 + .rd-form { margin-top: px-to-rem( 51px * $xs-multiplier ) }
+
+@include media-breakpoint-up( lg ) {
+	* + .rd-form-btn { margin-top: px-to-rem( 30px * $lg-multiplier ) }
+	* + .rd-form-btn-1 { margin-top: px-to-rem( 50px * $lg-multiplier ) }
+	h3 + .rd-form { margin-top: px-to-rem( 51px * $lg-multiplier ) }
+}
+
+@include media-breakpoint-up( xxl ) {
+	* + .rd-form-btn { margin-top: px-to-rem( 30px ) }
+	* + .rd-form-btn-1 { margin-top: px-to-rem( 50px ) }
+	h3 + .rd-form { margin-top: px-to-rem( 51px ) }
+}
+
+
+// Form inline
+.rd-form-inline {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	@include group( px-to-rem( 20px ), px-to-rem( 15px ) );
+
+	.form-group {
+		flex-grow: 1;
+	}
+
+	.btn {
+		flex-shrink: 0;
+		margin-top: 0
+	}
+}
+
+
+// Form boxed
+.rd-form-boxed {
+	position: relative;
+
+	.form-validation {
+		right: auto;
+		left: px-to-rem( 18px );
+	}
+
+	.rd-form-boxed-btn {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		margin: 0;
+		padding-top: px-to-rem( 5px );
+		padding-bottom: px-to-rem( 5px );
+		transform: translateY( -50% );
+		transition: $transition-base;
+		pointer-events: auto;
+
+		&:hover {
+			color: $primary;
+		}
+	}
+}
+
+.rd-form-boxed-1 {
+	.form-control {
+		padding-right: px-to-rem( 45px );
+	}
+	.rd-form-boxed-btn {
+		right: px-to-rem( 15px );
+		font-size: px-to-rem( 18px );
+		transition: $transition-base;
+		pointer-events: auto;
+
+		&:hover {
+			color: $primary;
+		}
+	}
+}

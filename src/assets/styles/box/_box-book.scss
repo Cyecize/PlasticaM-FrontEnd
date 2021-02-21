@@ -1,0 +1,59 @@
+// Base
+.box-book {
+	.box-person {
+		padding: px-to-rem( 20px, 15px );
+		background-color: $gray-200;
+	}
+
+	.box-person-title {
+		color: $primary;
+	}
+
+	.box-person-date-icon {
+		margin-right: px-to-rem( 6px * $xs-multiplier );
+		color: $primary-light;
+	}
+
+	* + .box-title { margin-top: px-to-rem( 40px * $xs-multiplier ) }
+	* + .box-subtitle { margin-top: px-to-rem( 11px * $xs-multiplier ) }
+	* + .box-person { margin-top: px-to-rem( 20px * $xs-multiplier ) }
+	* + .box-person-date { margin-top: px-to-rem( 9px * $xs-multiplier ) }
+	* + .rd-form { margin-top: px-to-rem( 24px * $xs-multiplier ) }
+}
+
+// Media
+@include media-breakpoint-up( lg ) {
+	.box-book {
+		.box-person {
+			padding: px-to-rem( 27px * $lg-multiplier, 29px * $lg-multiplier, 25px * $lg-multiplier );
+		}
+
+		.box-person-date-icon {
+			margin-right: px-to-rem( 6px * $lg-multiplier );
+		}
+
+		* + .box-title { margin-top: px-to-rem( 40px * $lg-multiplier ) }
+		* + .box-subtitle { margin-top: px-to-rem( 11px * $lg-multiplier ) }
+		* + .box-person { margin-top: px-to-rem( 20px * $lg-multiplier ) }
+		* + .box-person-date { margin-top: px-to-rem( 9px * $lg-multiplier ) }
+		* + .rd-form { margin-top: px-to-rem( 24px * $lg-multiplier ) }
+	}
+}
+
+@include media-breakpoint-up( xxl ) {
+	.box-book {
+		.box-person {
+			padding: px-to-rem( 27px, 29px, 25px );
+		}
+
+		.box-person-date-icon {
+			margin-right: px-to-rem( 6px );
+		}
+
+		* + .box-title { margin-top: px-to-rem( 40px ) }
+		* + .box-subtitle { margin-top: px-to-rem( 11px ) }
+		* + .box-person { margin-top: px-to-rem( 20px ) }
+		* + .box-person-date { margin-top: px-to-rem( 9px ) }
+		* + .rd-form { margin-top: px-to-rem( 24px ) }
+	}
+}

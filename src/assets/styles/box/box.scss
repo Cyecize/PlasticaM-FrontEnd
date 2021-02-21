@@ -1,0 +1,13 @@
+@import "~bootstrap/scss/functions";
+@import "functions";
+@import "variables";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "mixins";
+
+// Layouts
+@import 'src/assets/styles/box/box-form-1';
+@import 'src/assets/styles/box/box-cta';
+@import 'src/assets/styles/box/box-solid';
+@import 'src/assets/styles/box/box-pricing';
+@import 'src/assets/styles/box/box-book';

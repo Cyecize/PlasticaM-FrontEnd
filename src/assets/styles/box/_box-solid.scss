@@ -1,0 +1,35 @@
+// Base
+.box-solid {
+	width: 100%;
+	padding: px-to-rem( 30px, 15px );
+	background-color: $gray-200;
+
+	.box-price-sm {
+		font-size: px-to-rem( 16px );
+	}
+
+	* + .box-prices { margin-top: px-to-rem( 30px * $xs-multiplier ) }
+	* + .box-price-md { margin-top: px-to-rem( 7px * $xs-multiplier ) }
+	* + .box-btn { margin-top: px-to-rem( 31px * $xs-multiplier ) }
+}
+
+// Media
+@include media-breakpoint-up( lg ) {
+	.box-solid {
+		padding: px-to-rem( 40px * $lg-multiplier, 40px * $lg-multiplier );
+
+		* + .box-prices { margin-top: px-to-rem( 30px * $lg-multiplier ) }
+		* + .box-price-md { margin-top: px-to-rem( 7px * $lg-multiplier ) }
+		* + .box-btn { margin-top: px-to-rem( 31px * $lg-multiplier ) }
+	}
+}
+
+@include media-breakpoint-up( xxl ) {
+	.box-solid {
+		padding: px-to-rem( 40px, 40px );
+
+		* + .box-prices { margin-top: px-to-rem( 30px ) }
+		* + .box-price-md { margin-top: px-to-rem( 7px ) }
+		* + .box-btn { margin-top: px-to-rem( 31px ) }
+	}
+}

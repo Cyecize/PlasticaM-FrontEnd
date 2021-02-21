@@ -1,0 +1,40 @@
+// Base
+.box-cta {
+	padding: px-to-rem( 35px, 20px, 40px );
+
+	.box-body {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		@include group( 10px, 10px )
+	}
+
+	* + .box-body { margin-top: px-to-rem( 35px * $xs-multiplier ); }
+}
+
+
+// Spacing
+.list + .box-cta { margin-top: px-to-rem( 50px * $xs-multiplier ) }
+
+
+// Media
+@include media-breakpoint-up( lg ) {
+	.box-cta {
+		padding: px-to-rem( 101px * $lg-multiplier, 100px * $lg-multiplier );
+
+		* + .box-body { margin-top: px-to-rem( 35px * $lg-multiplier ); }
+	}
+
+	.list + .box-cta { margin-top: px-to-rem( 50px * $lg-multiplier ) }
+}
+
+@include media-breakpoint-up( xxl ) {
+	.box-cta {
+		padding: px-to-rem( 101px, 100px );
+
+		* + .box-body { margin-top: px-to-rem( 35px ); }
+	}
+
+	.list + .box-cta { margin-top: px-to-rem( 50px ) }
+}

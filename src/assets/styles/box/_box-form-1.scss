@@ -1,0 +1,48 @@
+// Base
+.box-form-1 {
+	background-color: $white;
+	box-shadow: $box-shadow;
+
+	.box-header {
+		padding: px-to-rem( 20px, 15px );
+		text-align: center;
+		background-color: $primary;
+	}
+
+	.box-title {
+		color: $white;
+	}
+
+	.box-body {
+		padding: px-to-rem( 28px, 20px, 35px );
+	}
+}
+
+
+// Media
+@include media-breakpoint-up( md ) {
+	.box-form-1-offset {
+		margin-bottom: px-to-rem( -252px * $xs-multiplier );
+	}
+}
+
+@include media-breakpoint-up( lg ) {
+	.box-form-1 {
+		.box-header {
+			padding: px-to-rem( 29px, 20px );
+		}
+		.box-body {
+			padding: px-to-rem( 41px, 50px, 54px );
+		}
+	}
+
+	.box-form-1-offset {
+		margin-bottom: px-to-rem( -252px * $lg-multiplier );
+	}
+}
+
+@include media-breakpoint-up( xxl ) {
+	.box-form-1-offset {
+		margin-bottom: px-to-rem( -252px );
+	}
+}
