@@ -6,18 +6,18 @@ import {ProductCategory} from './product.category.model';
 export const productCategories: ProductCategory[] = [
   {
     id: 1,
-    tags: ['NEW', 'OLD'],
-    nameEn: 'Carpet',
-    nameBg: 'Килим',
-    imageUrl: './assets/images/prod1.png'
+    tags: ['NEW'],
+    nameEn: 'Cans',
+    nameBg: 'Кенове',
+    imageUrl: './assets/images/uploaded/cans.png'
   },
 
   {
     id: 2,
     tags: ['NEW'],
-    nameEn: 'Plastic Chess',
-    nameBg: 'Пластмасов Шах',
-    imageUrl: './assets/images/prod2.png'
+    nameEn: 'Bottles',
+    nameBg: 'Бутилки',
+    imageUrl: './assets/images/uploaded/bottles.png'
   },
 
   {
@@ -25,7 +25,7 @@ export const productCategories: ProductCategory[] = [
     tags: ['Featured'],
     nameEn: 'Can Sealers',
     nameBg: 'Затварачки за консервни кутии',
-    imageUrl: './assets/images/prod3.png'
+    imageUrl: './assets/images/uploaded/can-sealers.png'
   },
 
   {
@@ -39,16 +39,9 @@ export const productCategories: ProductCategory[] = [
   {
     id: 5,
     tags: [],
-    nameEn: 'Verti',
-    nameBg: 'Верти',
-    imageUrl: './assets/images/wrong-v.png'
+    nameEn: 'Plastic products',
+    nameBg: 'Пластмасови изделия',
+    imageUrl: './assets/images/uploaded/chess.png'
   },
 
-  {
-    id: 6,
-    tags: [],
-    nameEn: 'Hori',
-    nameBg: 'Хори',
-    imageUrl: './assets/images/wrong-h.png'
-  },
 ];
