@@ -1,6 +1,7 @@
 import {RouteConfig} from './core/routing/route-config';
 
 export class AppRoutingPath {
+  public static readonly NOT_FOUND: RouteConfig = new RouteConfig('not-found', null);
   public static readonly HOME: RouteConfig = new RouteConfig('', null);
   public static readonly CONTACTS: RouteConfig = new RouteConfig('contacts', null);
   public static readonly ABOUT_US: RouteConfig = new RouteConfig('about-us', null);
