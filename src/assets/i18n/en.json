@@ -25,5 +25,10 @@
   "send": "Send",
   "our.products": "Our products",
   "page.does.not.exist": "The page you’re looking for doesn’t exist :(",
-  "home.page": "Home page"
+  "home.page": "Home page",
+  "details": "Details",
+  "product.catalog": "Product catalog",
+  "pagination.message": "Showing {{current}} of {{max}} results.",
+  "category": "Category",
+  "search": "Search"
 }

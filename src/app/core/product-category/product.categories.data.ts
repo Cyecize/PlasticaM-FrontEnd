@@ -33,7 +33,7 @@ export const productCategories: ProductCategory[] = [
     tags: [],
     nameEn: 'Cars',
     nameBg: 'Коли',
-    imageUrl: './assets/images/prod4.png'
+    imageUrl: './assets/images/uploaded/prod4.png'
   },
 
   {

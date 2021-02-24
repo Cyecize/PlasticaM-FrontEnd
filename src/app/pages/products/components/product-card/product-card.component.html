@@ -1,0 +1,15 @@
+<div class="product product-light">
+  <div class="product-media">
+    <img class="product-img" [src]="product?.imageUrl" alt=""/>
+    <div class="product-meta">
+      <div class="product-tags">
+        <div *ngFor="let tag of product?.tags" class="tag tag-sm">{{tag}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="product-text">
+    <a class="link link-inherit" [routerLink]="'/not-found'">{{product?.name}}</a>
+  </div>
+  <div *ngIf="product?.price" class="product-price">${{product.price}}</div>
+  <a class="btn btn-outline-primary" [routerLink]="'not-found'" appTranslate="details"></a>
+</div>

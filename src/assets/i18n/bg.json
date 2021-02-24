@@ -25,5 +25,10 @@
   "send": "Изпращане",
   "our.products": "Нашите продукти",
   "page.does.not.exist": "Страницата, която търсите, не съществува :(",
-  "home.page": "Начална страница"
+  "home.page": "Начална страница",
+  "details": "Детайли",
+  "product.catalog": "Каталог",
+  "pagination.message": "Показани са {{current}} от {{max}} резултати.",
+  "category": "Категория",
+  "search": "Търсене"
 }

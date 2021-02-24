@@ -1,0 +1,55 @@
+<section class="section section-md bg-transparent">
+  <div class="container">
+    <div class="text-block text-block-1">
+      <h1 appTranslate="product.catalog"></h1>
+    </div>
+    <div class="row row-40 row-content flex-md-row-reverse">
+      <div class="col-md-8 col-lg-9">
+        <div class="product-search">
+          <div class="product-search-inner">
+            <div class="product-search-form form-group select-wrap">
+              <select class="select2" name="price" data-select2-options='{"placeholder":"Sort by price: High to low"}'>
+                <option label="placeholder"></option>
+                <option>Sort by price: High to low</option>
+                <option>Sort by price: Low to high</option>
+                <option>Sort by popularity</option>
+              </select>
+            </div>
+            <div class="product-search-results">
+              {{ 'pagination.message' | appTranslate:{'current':products?.elements?.length, 'max': products?.itemsCount} }}
+            </div>
+          </div>
+        </div>
+        <div class="row row-30 row-lg-50 row-content">
+          <div *ngFor="let product of products?.elements" class="col-xs-6 col-lg-4">
+            <app-product-card [product]="product"></app-product-card>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <div class="widget">
+          <div class="widget-title h5" appTranslate="search"></div>
+          <div class="widget-body">
+            <input type="text" class="form-control" [(ngModel)]="searchValue" (change)="onSearchChanged()">
+          </div>
+        </div>
+        <div class="widget">
+          <div class="widget-title h5" appTranslate="category"></div>
+          <div class="widget-body">
+            <div *ngFor="let category of categories" class="custom-control custom-checkbox">
+              <input class="custom-control-input"
+                     type="checkbox"
+                     id="cat__{{category.id}}"
+                     name="cartFilter1"
+                     (click)="onCategoryFilter(category.id)"
+                     [checked]="query.categoryIds.includes(category.id)">
+              <label class="custom-control-label" for="cat__{{category.id}}">
+                <span class="custom-control-text">{{ translator.getCategoryName(category) }}</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

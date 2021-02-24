@@ -1,9 +1,9 @@
-@import "~bootstrap/scss/functions";
-@import "functions";
-@import "variables";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-@import "mixins";
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "src/assets/styles/functions";
+@import "src/assets/styles/variables";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/mixins";
+@import "src/assets/styles/mixins";
 
 // Tag
 .tag {
@@ -95,4 +95,4 @@ a.tag-outline:hover {
 
 
 // Layouts
-@import "tag-container";
+@import "src/assets/styles/tag/tag-container";
