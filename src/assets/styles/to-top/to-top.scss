@@ -47,6 +47,7 @@
 
 	&.active,
 	&:hover {
+    background: $gray-900;
 		&::after {
 			transform: scale( 1 );
 		}
