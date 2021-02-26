@@ -8,8 +8,8 @@
     </div>
   </div>
   <div class="product-text">
-    <a class="link link-inherit" [routerLink]="'/not-found'">{{product?.name}}</a>
+    <a class="link link-inherit" [routerLink]="createProductDetailsLink()">{{product?.name}}</a>
   </div>
   <div *ngIf="product?.price" class="product-price">${{product.price}}</div>
-  <a class="btn btn-outline-primary" [routerLink]="'not-found'" appTranslate="details"></a>
+  <a class="btn btn-outline-primary" [routerLink]="createProductDetailsLink()" appTranslate="details"></a>
 </div>
