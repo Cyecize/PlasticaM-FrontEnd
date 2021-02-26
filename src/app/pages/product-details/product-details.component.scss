@@ -1,0 +1,44 @@
+@import "~bootstrap/scss/functions";
+@import "functions";
+@import "variables";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "mixins";
+
+// Thumbnail
+.product-img {
+  width: 100%;
+}
+
+.product-title {
+  color: $primary;
+}
+
+.product-link {
+  display: inline-block;
+}
+
+.gallery-container {
+  padding-right: 20px;
+  padding-left: 20px;
+  border-right: 2px solid $gray-300;
+}
+
+* + .product-text { margin-top: px-to-rem( 14px * $xs-multiplier ) }
+* + .product-link { margin-top: px-to-rem( 20px * $xs-multiplier ) }
+
+@include media-breakpoint-down( sm ) {
+  .gallery-container {padding: 0; border-right: transparent;}
+}
+
+@include media-breakpoint-up( lg ) {
+  * + .product-text { margin-top: px-to-rem( 14px * $lg-multiplier ) }
+  * + .product-link { margin-top: px-to-rem( 20px * $lg-multiplier ) }
+}
+
+@include media-breakpoint-up( xxl ) {
+  * + .product-text { margin-top: px-to-rem( 14px ) }
+  * + .product-link { margin-top: px-to-rem( 20px ) }
+}
+
+@import "product-overview";

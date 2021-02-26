@@ -10,6 +10,6 @@
   <div class="product-text">
     <a class="link link-inherit" [routerLink]="createProductDetailsLink()">{{product?.name}}</a>
   </div>
-  <div *ngIf="product?.price" class="product-price">${{product.price}}</div>
+  <div *ngIf="product?.price" class="product-price">{{product.price}} {{'currency' | appTranslate}}</div>
   <a class="btn btn-outline-primary" [routerLink]="createProductDetailsLink()" appTranslate="details"></a>
 </div>

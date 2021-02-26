@@ -5,6 +5,8 @@ import {ProductCategory} from '../product-category/product.category.model';
 import {CookieService} from 'ngx-cookie-service';
 import {COOKIE_LANG_NAME} from '../general.constants';
 import {Observable} from 'rxjs';
+import {ProductModel} from '../product/product.model';
+import {ObjectUtils} from '../../shared/util/object-utils';
 
 @Injectable({providedIn: 'root'})
 export class TranslatorService {
@@ -44,6 +46,23 @@ export class TranslatorService {
         return category.nameEn;
       default:
         throw new Error(`Category does not support language ${this.getCurrentLang()}!`);
+    }
+  }
+
+  public getProductDescription(product: ProductModel | null): string {
+    if (ObjectUtils.isNil(product)) {
+      return '';
+    }
+
+    switch (this.getCurrentLang()) {
+      case Locale.BG:
+        // @ts-ignore
+        return product.descriptionBg;
+      case Locale.EN:
+        // @ts-ignore
+        return product.descriptionEn;
+      default:
+        throw new Error(`Product description does not support language ${this.getCurrentLang()}!`);
     }
   }
 

@@ -30,5 +30,6 @@
   "product.catalog": "Каталог",
   "pagination.message": "Показани са {{current}} от {{max}} резултати.",
   "category": "Категория",
-  "search": "Търсене"
+  "search": "Търсене",
+  "currency": "лв."
 }

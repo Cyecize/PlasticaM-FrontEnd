@@ -30,5 +30,6 @@
   "product.catalog": "Product catalog",
   "pagination.message": "Showing {{current}} of {{max}} results.",
   "category": "Category",
-  "search": "Search"
+  "search": "Search",
+  "currency": "BGN"
 }

@@ -1,1 +1,19 @@
-<p>product-details works!</p>
+<section class="section section-md bg-transparent">
+  <div class="container">
+    <div class="row row-30">
+      <div class="col-md-6 gallery-container">
+        <app-gallery [images]="images"></app-gallery>
+      </div>
+      <div class="col-md-6">
+        <div class="product product-overview">
+          <div *ngFor="let tag of product?.tags" class="tag tag-sm">{{tag}}</div>
+          <h3 class="product-title" [textContent]="product?.name"></h3>
+          <div *ngIf="product?.price" class="product-price h4">{{product?.price}} {{'currency' | appTranslate}}</div>
+          <div class="product-text" [textContent]="translator.getProductDescription(product)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container"><hr></div>
+<app-contacts-section></app-contacts-section>

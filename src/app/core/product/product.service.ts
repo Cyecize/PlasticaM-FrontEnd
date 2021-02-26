@@ -32,4 +32,11 @@ export class ProductService {
       }, 500);
     });
   }
+
+  public getProduct(prodId: number): Observable<ProductModel | null> {
+    const prods = products.filter(prod => prod.id === prodId);
+    const product = prods.length < 1 ? null : prods[0];
+
+    return new Observable(subscriber => subscriber.next(product));
+  }
 }

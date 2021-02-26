@@ -1,0 +1,76 @@
+// Base
+.product-overview {
+	.product-title {
+		color: $headings-color;
+	}
+
+	.product-price {
+		color: $primary;
+	}
+
+	.product-meta {
+		display: flex;
+		align-items: center;
+		@include group( px-to-rem( 10px ) );
+	}
+
+	.product-meta-link {
+		font-size: px-to-rem( 15px );
+		color: $primary;
+	}
+
+	.product-check {
+		@include group( px-to-rem( 15px ) );
+	}
+
+	.product-term {
+		font-size: $font-size-sm;
+	}
+
+	.product-social {
+		@include group( px-to-rem( 10px ) )
+	}
+
+	* + .product-title { margin-top: px-to-rem( 30px * $xs-multiplier ) }
+	* + .product-price { margin-top: px-to-rem( 10px * $xs-multiplier ) }
+	* + .product-meta { margin-top: px-to-rem( 30px * $xs-multiplier ) }
+	* + .product-text { margin-top: px-to-rem( 24px * $xs-multiplier ) }
+	* + .product-select { margin-top: px-to-rem( 31px * $xs-multiplier ) }
+	* + .product-check { margin-top: px-to-rem( 23px * $xs-multiplier ) }
+	* + .product-term { margin-top: px-to-rem( 27px * $xs-multiplier ) }
+	* + .product-term-item { margin-top: px-to-rem( 2px * $xs-multiplier ) }
+	* + .product-social { margin-top: px-to-rem( 33px * $xs-multiplier ) }
+}
+
+// Media
+@include media-breakpoint-up( lg ) {
+	.product-overview {
+		* + .product-title { margin-top: px-to-rem( 30px * $lg-multiplier ) }
+		* + .product-price { margin-top: px-to-rem( 10px * $lg-multiplier ) }
+		* + .product-meta { margin-top: px-to-rem( 30px * $lg-multiplier ) }
+		* + .product-text { margin-top: px-to-rem( 24px * $lg-multiplier ) }
+		* + .product-select { margin-top: px-to-rem( 31px * $lg-multiplier ) }
+		* + .product-check { margin-top: px-to-rem( 23px * $lg-multiplier ) }
+		* + .product-term { margin-top: px-to-rem( 27px * $lg-multiplier ) }
+		* + .product-term-item { margin-top: px-to-rem( 2px * $lg-multiplier ) }
+		* + .product-social { margin-top: px-to-rem( 33px * $lg-multiplier ) }
+	}
+}
+
+@include media-breakpoint-up( xxl ) {
+	.product-overview {
+		.product-social {
+			@include groupX( px-to-rem( 28px ) )
+		}
+
+		* + .product-title { margin-top: px-to-rem( 30px ) }
+		* + .product-price { margin-top: px-to-rem( 10px ) }
+		* + .product-meta { margin-top: px-to-rem( 30px ) }
+		* + .product-text { margin-top: px-to-rem( 24px ) }
+		* + .product-select { margin-top: px-to-rem( 31px ) }
+		* + .product-check { margin-top: px-to-rem( 23px ) }
+		* + .product-term { margin-top: px-to-rem( 27px ) }
+		* + .product-term-item { margin-top: px-to-rem( 2px ) }
+		* + .product-social { margin-top: px-to-rem( 33px ) }
+	}
+}

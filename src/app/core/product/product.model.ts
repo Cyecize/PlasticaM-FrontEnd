@@ -6,5 +6,6 @@ export interface ProductModel {
   descriptionBg: string;
   descriptionEn: string;
   imageUrl: string;
+  imageGallery: string[];
   tags: string[];
 }

@@ -8,6 +8,7 @@ export const products: ProductModel[] = [
     descriptionBg: 'Фармацефтични бутилки',
     descriptionEn: 'All sorts of pharmacy bottles',
     imageUrl: './assets/images/uploaded/itemPharmBig23.jpg',
+    imageGallery: [],
     tags: ['TOP SELLER']
   },
 
@@ -18,6 +19,7 @@ export const products: ProductModel[] = [
     descriptionBg: 'Бутилки за олио',
     descriptionEn: 'All sorts of oil bottles',
     imageUrl: './assets/images/uploaded/oil-bot.jpg',
+    imageGallery: [],
     tags: []
   },
 
@@ -28,6 +30,7 @@ export const products: ProductModel[] = [
     descriptionBg: 'Бутилки за Минерална вода',
     descriptionEn: 'All sorts of mineral water bottles',
     imageUrl: './assets/images/uploaded/mineral-wat.jpg',
+    imageGallery: [],
     tags: []
   },
 
@@ -38,6 +41,7 @@ export const products: ProductModel[] = [
     descriptionBg: 'Бутилки за Алкохол',
     descriptionEn: 'All sorts of mineral alcohol bottles',
     imageUrl: './assets/images/uploaded/alcohol.jpg',
+    imageGallery: [],
     tags: []
   },
 
@@ -48,6 +52,7 @@ export const products: ProductModel[] = [
     descriptionBg: 'Полуавтоматична затварачка',
     descriptionEn: 'Semi automatic can sealer',
     imageUrl: './assets/images/uploaded/can-sealers.png',
+    imageGallery: [],
     tags: []
   },
 
@@ -57,7 +62,14 @@ export const products: ProductModel[] = [
     name: 'Mitsubishi Lancer Evo X',
     descriptionBg: '300 Кс.',
     descriptionEn: '300 HP',
+    price: 42000,
     imageUrl: './assets/images/uploaded/prod4.png',
+    imageGallery: [
+      '/assets/images/uploaded/sofia.jpg',
+      '/assets/images/uploaded/type-r.jpg',
+      '/assets/images/uploaded/yu-gi-oh.jpg',
+      '/assets/images/uploaded/whip.jpg'
+    ],
     tags: ['BEST']
   },
 
@@ -68,6 +80,7 @@ export const products: ProductModel[] = [
     descriptionBg: 'Пластмасов шах',
     descriptionEn: 'Plastic chess!',
     imageUrl: './assets/images/uploaded/chess.png',
+    imageGallery: [],
     tags: ['Featured']
   },
 
@@ -78,6 +91,7 @@ export const products: ProductModel[] = [
     descriptionBg: 'Кутии за бонбони',
     descriptionEn: 'Plastic candy boxes are good',
     imageUrl: './assets/images/uploaded/candy.jpg',
+    imageGallery: [],
     tags: ['NEW']
   },
 ];
