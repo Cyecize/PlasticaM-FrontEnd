@@ -32,5 +32,6 @@
   "category": "Category",
   "search": "Search",
   "currency": "BGN",
-  "question.about.what": "I have a question about {{what}}"
+  "question.about.what": "I have a question about {{what}}",
+  "description": "Description"
 }

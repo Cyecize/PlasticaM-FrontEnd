@@ -32,5 +32,6 @@
   "category": "Категория",
   "search": "Търсене",
   "currency": "лв.",
-  "question.about.what": "Имам въпрос относно {{what}}"
+  "question.about.what": "Имам въпрос относно {{what}}",
+  "description": "Описание"
 }

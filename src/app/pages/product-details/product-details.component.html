@@ -9,11 +9,16 @@
           <div *ngFor="let tag of product?.tags" class="tag tag-sm">{{tag}}</div>
           <h3 class="product-title" [textContent]="product?.name"></h3>
           <div *ngIf="product?.price" class="product-price h4">{{product?.price}} {{'currency' | appTranslate}}</div>
-          <div class="product-text" [textContent]="translator.getProductDescription(product)"></div>
+          <div class="product-text">
+            <div><strong appTranslate="description"></strong>:</div>
+            <span style="white-space: pre-wrap;" [textContent]="translator.getProductDescription(product)"></span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<div class="container"><hr></div>
+<div class="container">
+  <hr>
+</div>
 <app-contacts-section topic="{{'question.about.what' | appTranslate:topicParam}}&#13;&#10;"></app-contacts-section>
