@@ -17,6 +17,7 @@ export class ProductDetailsComponent implements OnInit {
 
   product!: ProductModel | null;
   images!: string[];
+  topicParam!: any;
 
   constructor(private route: ActivatedRoute,
               private nav: RouteNavigator,
@@ -45,6 +46,7 @@ export class ProductDetailsComponent implements OnInit {
         this.product = product;
         // @ts-ignore
         this.images = [this.product.imageUrl].concat(this.product.imageGallery);
+        this.topicParam = {what: product?.name};
         window.scrollTo(0, 0);
       });
     });

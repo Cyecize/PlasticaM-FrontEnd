@@ -31,5 +31,6 @@
   "pagination.message": "Showing {{current}} of {{max}} results.",
   "category": "Category",
   "search": "Search",
-  "currency": "BGN"
+  "currency": "BGN",
+  "question.about.what": "I have a question about {{what}}"
 }

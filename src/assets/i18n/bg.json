@@ -31,5 +31,6 @@
   "pagination.message": "Показани са {{current}} от {{max}} резултати.",
   "category": "Категория",
   "search": "Търсене",
-  "currency": "лв."
+  "currency": "лв.",
+  "question.about.what": "Имам въпрос относно {{what}}"
 }
