@@ -5,7 +5,7 @@
        data-rd-navbar='{"responsive":{"1200":{"stickUpOffset":"164px"}}}'>
     <div class="navbar-section navbar-non-stuck">
       <div class="navbar-panel">
-        <button class="navbar-switch fas fa-bars novi-icon"
+        <button #menuToggleButton class="navbar-switch fas fa-bars novi-icon"
                 data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","isolate":"[data-multi-switch]"}'></button>
         <div class="navbar-logo">
           <a class="navbar-logo-link" [routerLink]="routes.HOME.toString()">
@@ -76,17 +76,22 @@
             <li class="navbar-navigation-root-item "
                 routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact: true}">
-              <a class="navbar-navigation-root-link" [routerLink]="routes.HOME.toString()" appTranslate="home"></a>
+              <a class="navbar-navigation-root-link"
+                 [routerLink]="routes.HOME.toString()"
+                 appTranslate="home"
+                 (click)="hideMenu()"></a>
             </li>
             <li class="navbar-navigation-root-item" routerLinkActive="active">
               <a class="navbar-navigation-root-link"
                  [routerLink]="routes.ABOUT_US.toString()"
-                 appTranslate="about.us"></a>
+                 appTranslate="about.us"
+                 (click)="hideMenu()"></a>
             </li>
             <li class="navbar-navigation-root-item" routerLinkActive="active">
               <a class="navbar-navigation-root-link"
                  [routerLink]="routes.PRODUCTS.toString()"
-                 appTranslate="products"></a>
+                 appTranslate="products"
+                 (click)="hideMenu()"></a>
               <span class="rd-navbar-submenu-toggle fas fa-chevron-down"></span>
               <ul class="navbar-navigation-dropdown rd-navbar-dropdown">
                 <li class="navbar-navigation-back">
@@ -96,6 +101,7 @@
                 </li>
                 <li *ngFor="let category of categories" class="navbar-navigation-dropdown-item">
                   <a class="navbar-navigation-dropdown-link"
+                     (click)="hideMenu()"
                      [routerLink]="routeUtils.setPathParams(routes.PRODUCTS_CATEGORY.toString(), [category.id])">
                     {{translator.getCategoryName(category)}}
                   </a>
@@ -104,7 +110,8 @@
             </li>
             <li class="navbar-navigation-root-item" routerLinkActive="active">
               <a class="navbar-navigation-root-link" [routerLink]="routes.CONTACTS.toString()"
-                 appTranslate="contacts"></a>
+                 appTranslate="contacts"
+                 (click)="hideMenu()"></a>
             </li>
           </ul>
         </div>
@@ -126,13 +133,15 @@
                   <span class="navbar-navigation-dropdown-link"
                         [appTranslate]="lang"
                         [ngClass]="lang === translator.getCurrentLang() ? 'active' : ''"
-                        (click)="translator.updateLanguage(lang)">
+                        (click)="updateLanguage(lang)">
                   </span>
                 </li>
               </ul>
             </li>
             <li class="navbar-navigation-root-item" routerLinkActive="active">
-              <a class="navbar-navigation-root-link" [routerLink]="routes.LOGIN.toString()">
+              <a class="navbar-navigation-root-link"
+                 [routerLink]="routes.LOGIN.toString()"
+                 (click)="hideMenu()">
                 <span appTranslate="login"></span>
               </a>
             </li>

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {TranslatorService} from '../../translate/translator.service';
 import {Locale} from '../../translate/locale';
 import {ProductCategoryService} from '../../product-category/product.category.service';
@@ -18,11 +18,22 @@ export class NavbarComponent implements OnInit {
   routes = AppRoutingPath;
   routeUtils = RouteUtils;
 
+  @ViewChild('menuToggleButton') private menuToggleButton!: ElementRef;
+
   constructor(public translator: TranslatorService,
               private categoryService: ProductCategoryService) {
   }
 
   ngOnInit(): void {
     this.categoryService.getCategories().subscribe(value => this.categories = value);
+  }
+
+  hideMenu(): void {
+    this.menuToggleButton.nativeElement.click();
+  }
+
+  updateLanguage(lang: string): void {
+    this.translator.updateLanguage(lang);
+    this.hideMenu();
   }
 }
