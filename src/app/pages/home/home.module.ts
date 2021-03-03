@@ -4,6 +4,7 @@ import {CategoryCardComponent} from './components/category-card/category-card.co
 import {ContactsSectionModule} from '../../shared/components/contacts-section/contacts-section.module';
 import {SharedModule} from '../../shared/shared.module';
 import {RouterModule, Routes} from '@angular/router';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,7 @@ const routes: Routes = [
     ContactsSectionModule,
     RouterModule.forChild(routes),
   ],
-  declarations: [HomeComponent, CategoryCardComponent],
+  declarations: [HomeComponent, CategoryCardComponent, CarouselComponent],
   exports: [HomeComponent]
 })
 export class HomeModule {

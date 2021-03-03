@@ -7,6 +7,7 @@ import {COOKIE_LANG_NAME} from '../general.constants';
 import {Observable} from 'rxjs';
 import {ProductModel} from '../product/product.model';
 import {ObjectUtils} from '../../shared/util/object-utils';
+import {HomeCarouselModel} from '../home-carousel/home-carousel.model';
 
 @Injectable({providedIn: 'root'})
 export class TranslatorService {
@@ -63,6 +64,17 @@ export class TranslatorService {
         return product.descriptionEn;
       default:
         throw new Error(`Product description does not support language ${this.getCurrentLang()}!`);
+    }
+  }
+
+  public getHomeCarouselItemText(item: HomeCarouselModel): string {
+    switch (this.getCurrentLang()) {
+      case Locale.BG:
+        return item.textBg;
+      case Locale.EN:
+        return item.textEn;
+      default:
+        throw new Error(`Home Carousel text does not support language ${this.getCurrentLang()}!`);
     }
   }
 

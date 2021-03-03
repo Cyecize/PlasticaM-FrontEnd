@@ -713,8 +713,31 @@
 }
 
 .rd-navbar-wrap-absolute {
-	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+
+  .navbar-top-section, .navbar-bottom-section {
+    background: $white;
+  }
+
+  .navbar-top-section {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+
+  .navbar-bottom-section {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+}
+
+@include media-breakpoint-down( md ) {
+  .rd-navbar-wrap-absolute {
+
+    .navbar-top-section, .navbar-bottom-section {
+      background-color: $white;
+    }
+  }
 }

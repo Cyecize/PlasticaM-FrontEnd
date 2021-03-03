@@ -1,6 +1,6 @@
 <!--RD Navbar-->
-<!--<header class="section rd-navbar-wrap rd-navbar-wrap-absolute">-->
-<header class="section rd-navbar-wrap rd-navbar-wrap-transparent">
+<header class="section rd-navbar-wrap"
+        [ngClass]="isNavbarTransparent ? 'rd-navbar-wrap-absolute' : 'rd-navbar-wrap-transparent'">
   <nav class="rd-navbar rd-navbar-solid rd-navbar-transparent"
        data-rd-navbar='{"responsive":{"1200":{"stickUpOffset":"164px"}}}'>
     <div class="navbar-section navbar-non-stuck">
@@ -13,7 +13,7 @@
           </a>
         </div>
       </div>
-      <div class="navbar-container">
+      <div class="navbar-container navbar-top-section">
         <div class="navbar-cell flex-grow-1">
           <div class="navbar-info">
             <div class="list list-icons-2">
@@ -70,7 +70,7 @@
       </div>
     </div>
     <div class="navbar-section">
-      <div class="navbar-container navbar-sidebar">
+      <div class="navbar-container navbar-bottom-section navbar-sidebar">
         <div class="navbar-cell flex-grow-1">
           <ul class="navbar-navigation rd-navbar-nav">
             <li class="navbar-navigation-root-item "

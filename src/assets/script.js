@@ -1265,10 +1265,10 @@ components.rdSearch = {
 
 components.swiper = {
 	selector: '[data-swiper]',
-	styles: './assets/components/swiper/swiper.css',
+	// styles: './assets/components/swiper/swiper.css',
 	script: [
 		// './components/jquery/jquery.min.js',
-		'./assets/components/swiper/swiper.min.js',
+		// './assets/components/swiper/swiper.min.js',
 		// './assets/components/util.min.js'
 	],
 	init: function ( nodes ) {

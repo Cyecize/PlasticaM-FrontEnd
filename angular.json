@@ -40,6 +40,7 @@
               "node_modules/jquery/dist/jquery.min.js",
               "src/assets/components/util.min.js",
               "src/assets/components/owl-carousel/owl.carousel.min.js",
+              "src/assets/components/swiper/swiper.min.js",
               "src/assets/core.min.js",
               "src/assets/script.js"
             ]

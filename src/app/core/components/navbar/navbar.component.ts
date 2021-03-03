@@ -5,6 +5,7 @@ import {ProductCategoryService} from '../../product-category/product.category.se
 import {ProductCategory} from '../../product-category/product.category.model';
 import {AppRoutingPath} from '../../../app-routing.path';
 import {RouteUtils} from '../../routing/route-utils';
+import {NavbarService} from './navbar.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,14 +19,18 @@ export class NavbarComponent implements OnInit {
   routes = AppRoutingPath;
   routeUtils = RouteUtils;
 
+  isNavbarTransparent = false;
+
   @ViewChild('menuToggleButton') private menuToggleButton!: ElementRef;
 
   constructor(public translator: TranslatorService,
-              private categoryService: ProductCategoryService) {
+              private categoryService: ProductCategoryService,
+              private navbarService: NavbarService) {
   }
 
   ngOnInit(): void {
     this.categoryService.getCategories().subscribe(value => this.categories = value);
+    this.navbarService.onNavbarTransparentChanged.subscribe(value => this.isNavbarTransparent = value);
   }
 
   hideMenu(): void {

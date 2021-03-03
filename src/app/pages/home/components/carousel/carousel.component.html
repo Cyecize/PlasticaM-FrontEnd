@@ -1,0 +1,38 @@
+<section #carousel class="section swiper-container swiper-primary" data-swiper='{"effect":"fade"}'>
+  <!-- Additional required wrapper-->
+  <div class="swiper-wrapper">
+    <!-- Slides-->
+    <div class="swiper-slide"
+         *ngFor="let item of items"
+         style="background-size: cover;
+         background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+          url( {{ item.imageUrl }} ) center center;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-xl-8">
+            <h1 class="swiper-title">{{translator.getHomeCarouselItemText(item)}}</h1>
+            <div class="btn-group-1">
+              <a *ngIf="item.productId"
+                 class="btn btn-lg btn-primary"
+                 [routerLink]="getProductLink(item.productId)"
+                 appTranslate="read.more"></a>
+              <a *ngIf="item.customLink"
+                 [href]="item.customLink"
+                 [target]="item.customLinkSamePage ? '' : '_blank'"
+                 class="btn btn-lg btn-primary"
+                 appTranslate="read.more"></a>
+              <!--              <a class="icon icon-btn mdi-play lightgallery-item"-->
+              <!--                 data-lightgallery='{"selector":"this"}'-->
+              <!--                 href="https://www.youtube.com/embed/KdvwuQi0AJc"></a>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="swiper-pagination-wrap">
+    <div class="container">
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
