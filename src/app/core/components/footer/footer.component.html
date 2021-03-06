@@ -27,9 +27,14 @@
           </div>
         </div>
         <div class="social group-20">
-          <a class="social-icon icon icon-md icon-link onclinic-facebook" href="#"></a>
-          <a class="social-icon icon icon-md icon-link onclinic-twitter" href="#"></a>
-          <a class="social-icon icon icon-md icon-link onclinic-instagram" href="#"></a>
+          <a *ngIf="contactInfo?.facebook"
+             class="social-icon icon icon-md icon-link onclinic-facebook"
+             href="{{contactInfo?.facebook}}"
+             target="_blank"></a>
+          <a *ngIf="contactInfo?.youtube"
+             class="social-icon icon icon-md icon-link fab fa-youtube"
+             href="{{contactInfo?.youtube}}"
+             target="_blank"></a>
         </div>
       </div>
       <div class="col-sm-9 col-lg-4">
@@ -49,13 +54,13 @@
             <div class="list-icon onclinic-map-marker"></div>
             <span appTranslate="address.value"></span>
           </li>
-          <li class="list-item">
+          <li *ngIf="contactInfo?.phoneNumber" class="list-item">
             <div class="list-icon onclinic-phone"></div>
-            <a href="tel:0888494116">0888494116</a>
+            <a href="tel:{{contactInfo?.phoneNumber}}">{{contactInfo?.phoneNumber}}</a>
           </li>
-          <li class="list-item">
+          <li *ngIf="contactInfo?.email" class="list-item">
             <div class="list-icon onclinic-email-open"></div>
-            <a href="mailto:plasticam@abv.bg">plasticam@abv.bg</a>
+            <a href="mailto:{{contactInfo?.email}}">{{contactInfo?.email}}</a>
           </li>
         </ul>
       </div>

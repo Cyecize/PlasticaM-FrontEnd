@@ -5,6 +5,8 @@ import {ProductCategoryService} from '../../product-category/product.category.se
 import {ProductCategory} from '../../product-category/product.category.model';
 import {AppRoutingPath} from '../../../app-routing.path';
 import {RouteUtils} from '../../routing/route-utils';
+import {ContactInfoService} from '../../contact-info/contact-info.service';
+import {ContactInfoModel} from '../../contact-info/contact-info.model';
 
 @Component({
   selector: 'app-footer',
@@ -19,13 +21,16 @@ export class FooterComponent implements OnInit {
 
   routes = AppRoutingPath;
   routeUtils = RouteUtils;
+  contactInfo?: ContactInfoModel;
 
   constructor(public translator: TranslatorService,
-              private categoryService: ProductCategoryService) {
+              private categoryService: ProductCategoryService,
+              private contactInfoService: ContactInfoService) {
   }
 
   ngOnInit(): void {
     this.categoryService.getCategories().subscribe(value => this.categories = value);
+    this.contactInfoService.getContactInfo().subscribe(value => this.contactInfo = value);
   }
 
   updateLanguage(lang: string): void {

@@ -10,14 +10,18 @@
             <div class="text-block text-block-3">
               <h5 class="font-weight-bold" appTranslate="contacts"></h5>
               <ul class="list small-1">
-                <li class="contact-item">
-                  <button class="whatsapp-button"><i class="fab fa-whatsapp"></i> Whatsapp</button>
+                <li *ngIf="contactInfo?.whatsapp" class="contact-item">
+                  <a href="https://wa.me/{{contactInfo?.whatsapp}}"
+                     target="_blank"
+                     class="whatsapp-button"><i class="fab fa-whatsapp"></i> Whatsapp</a>
                 </li>
-                <li class="contact-item">
-                  <button class="facebook-button"><i class="fab fa-facebook"></i> Facebook</button>
+                <li *ngIf="contactInfo?.facebook" class="contact-item">
+                  <a [href]="contactInfo?.facebook"
+                     class="facebook-button"
+                     target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
                 </li>
-                <li class="contact-item">
-                  <a class="viber-button" href="viber://chat/?number=359888494116" target="_blank">
+                <li *ngIf="contactInfo?.whatsapp" class="contact-item">
+                  <a class="viber-button" href="viber://chat/?number={{contactInfo?.whatsapp}}" target="_blank">
                     <i class="fab fa-viber"></i> Viber
                   </a>
                 </li>
@@ -41,9 +45,9 @@
             <div class="text-block text-block-3">
               <h5 class="font-weight-bold" appTranslate="phone.number"></h5>
               <ul class="list small-1">
-                <li>
+                <li *ngIf="contactInfo?.phoneNumber">
                   <i class="icon onclinic-phone mr-1"></i>
-                  <a class="link link-primary" href="tel:0888494116">0888494116</a>
+                  <a class="link link-primary" href="tel:{{contactInfo?.phoneNumber}}">{{contactInfo?.phoneNumber}}</a>
                 </li>
               </ul>
             </div>

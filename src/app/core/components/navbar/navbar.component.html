@@ -27,13 +27,17 @@
                 <img alt="Airy" class="navbar-logo-default" height="42" src="/assets/images/logo.png" width="290"/>
               </a>
             </div>
-            <div class="text-block text-block-2 d-md-flex align-items-center justify-content-center">
+            <div *ngIf="contactInfo?.phoneNumber"
+                 class="text-block text-block-2 d-md-flex align-items-center justify-content-center">
               <p class="small-1" [appTranslate]="'call.now'"></p>
               <div class="list list-icons-2">
                 <div class="list-item">
                   <div class="list-icon icon onclinic-phone"></div>
-                  <!-- TODO: swap phone number with one coming from BE -->
-                  <span class="h5"><a class="link" href="tel:0885601720">0885601720</a></span>
+                  <span class="h5">
+                    <a class="link" href="tel:{{contactInfo?.phoneNumber}}">
+                    {{contactInfo?.phoneNumber}}
+                    </a>
+                  </span>
                 </div>
               </div>
             </div>
