@@ -35,5 +35,6 @@
   "question.about.what": "Имам въпрос относно {{what}}",
   "description": "Описание",
   "invalidValue": "Невалидна стойност",
-  "fieldCannotBeNull": "Полето не може да бъде празно"
+  "fieldCannotBeNull": "Полето не може да бъде празно",
+  "question.was.sent": "Запитването е изпратено успешно"
 }

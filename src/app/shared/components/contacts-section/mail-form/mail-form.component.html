@@ -3,19 +3,15 @@
     <h3 class="box-title" appTranslate="ask.us.anything"></h3>
   </div>
   <div class="box-body">
-    <form class="rd-form rd-mailform"
-          data-form-output="contact-form-1"
-          data-form-type="contact"
-          method="post"
-          action="components/rd-mailform/rd-mailform.php">
+    <form [formGroup]="form" (ngSubmit)="onFormSubmit()" class="rd-form rd-mailform">
       <div class="form-group">
         <label class="form-label" for="contact-1-name">* {{'your.name' | appTranslate}}</label>
         <div class="form-control-wrap">
           <input class="form-control" id="contact-1-name"
                  type="text"
-                 name="name"
-                 placeholder="{{'required.field' | appTranslate}}"
-                 data-constraints="@Required">
+                 formControlName="fullName"
+                 placeholder="{{'required.field' | appTranslate}}">
+          <app-field-error [errors]="errors" fieldName="fullName"></app-field-error>
         </div>
       </div>
       <div class="form-group">
@@ -24,9 +20,9 @@
           <input class="form-control"
                  id="contact-1-email"
                  type="email"
-                 name="email"
-                 placeholder="{{'required.field' | appTranslate}}"
-                 data-constraints="@Email @Required">
+                 formControlName="email"
+                 placeholder="{{'required.field' | appTranslate}}">
+          <app-field-error [errors]="errors" fieldName="email"></app-field-error>
         </div>
       </div>
       <div class="form-group">
@@ -35,8 +31,8 @@
           <input class="form-control"
                  id="contact-1-phone"
                  type="text"
-                 name="phone"
-                 data-constraints="@Numeric @Required">
+                 formControlName="phoneNumber">
+          <app-field-error [errors]="errors" fieldName="phoneNumber"></app-field-error>
         </div>
       </div>
       <div class="form-group">
@@ -44,13 +40,14 @@
         <div class="form-control-wrap">
                   <textarea class="textarea-1 form-control"
                             id="contact-1-message"
-                            name="textarea"
-                            placeholder="{{'your.message' | appTranslate}}"
-                            data-constraints="@Required">{{topic | appTranslate}}</textarea>
+                            formControlName="message"
+                            placeholder="{{'your.message' | appTranslate}}">{{topic | appTranslate}}</textarea>
+          <app-field-error [errors]="errors" fieldName="message"></app-field-error>
         </div>
       </div>
       <div class="rd-form-btn text-left">
-        <button class="btn btn-lg btn-primary" type="submit">{{'send' | appTranslate}}</button>
+        <button class="btn btn-lg btn-primary" [disabled]="!form?.valid"
+                type="submit">{{'send' | appTranslate}}</button>
       </div>
     </form>
   </div>

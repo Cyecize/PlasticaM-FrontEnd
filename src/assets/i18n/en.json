@@ -35,5 +35,6 @@
   "question.about.what": "I have a question about {{what}}",
   "description": "Description",
   "invalidValue": "Invalid value",
-  "fieldCannotBeNull": "Field cannot be empty"
+  "fieldCannotBeNull": "Field cannot be empty",
+  "question.was.sent": "Your question was sent successfully"
 }

@@ -1,4 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Lengths} from '../../../constants/lengths';
+import {QuestionModel} from '../../../../core/question/question.model';
+import {TranslatorService} from '../../../../core/translate/translator.service';
+import {ObjectUtils} from '../../../util/object-utils';
+import {FieldError} from '../../../field-error/field-error';
 
 @Component({
   selector: 'app-mail-form',
@@ -10,9 +16,34 @@ export class MailFormComponent implements OnInit {
   @Input()
   topic!: string;
 
-  constructor() {}
+  @Input()
+    // @ts-ignore
+  errors: FieldError[];
 
-  ngOnInit(): void {
+  @Output()
+  formSubmit: EventEmitter<QuestionModel> = new EventEmitter<QuestionModel>();
+
+  // @ts-ignore
+  form: FormGroup;
+
+  constructor(private fb: FormBuilder,
+              private translate: TranslatorService) {
   }
 
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      fullName: ['', [Validators.required, Validators.maxLength(Lengths.MAX_NAME_LENGTH)]],
+      email: ['', [Validators.maxLength(Lengths.MAX_EMAIL_LENGTH), Validators.email]],
+      phoneNumber: ['', [Validators.maxLength(Lengths.MAX_VARCHAR)]],
+      message: ['', [Validators.required]],
+    });
+
+    if (!ObjectUtils.isNil(this.topic)) {
+      this.translate.getTranslation(this.topic).subscribe(value => this.form.controls.message.setValue(value));
+    }
+  }
+
+  onFormSubmit(): void {
+    this.formSubmit.emit(this.form?.value);
+  }
 }
