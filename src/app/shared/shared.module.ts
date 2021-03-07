@@ -1,23 +1,26 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {AppTranslateDirective} from '../core/translate/app-translate.directive';
-import {AppTranslatePipe} from '../core/translate/app-translate-pipe';
 import {RouterModule} from '@angular/router';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FieldErrorModule} from './field-error/field-error.module';
+import {TranslateModule} from '../core/translate/translate.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    FieldErrorModule,
+    TranslateModule
   ],
-  declarations: [AppTranslateDirective, AppTranslatePipe],
   exports: [
     CommonModule,
-    AppTranslateDirective,
-    AppTranslatePipe,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    FieldErrorModule,
+    TranslateModule
   ]
 })
 export class SharedModule {

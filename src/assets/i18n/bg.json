@@ -33,5 +33,7 @@
   "search": "Търсене",
   "currency": "лв.",
   "question.about.what": "Имам въпрос относно {{what}}",
-  "description": "Описание"
+  "description": "Описание",
+  "invalidValue": "Невалидна стойност",
+  "fieldCannotBeNull": "Полето не може да бъде празно"
 }

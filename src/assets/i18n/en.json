@@ -33,5 +33,7 @@
   "search": "Search",
   "currency": "BGN",
   "question.about.what": "I have a question about {{what}}",
-  "description": "Description"
+  "description": "Description",
+  "invalidValue": "Invalid value",
+  "fieldCannotBeNull": "Field cannot be empty"
 }
