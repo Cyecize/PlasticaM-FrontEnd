@@ -1,6 +1,6 @@
 <div>
   <div class="selected-image-container">
-    <img [src]="currentImage" alt="Image not available!"/>
+    <img *ngIf="currentImage" [src]="currentImage" alt="Image not available!"/>
   </div>
 
   <div class="icons-container mt-3">

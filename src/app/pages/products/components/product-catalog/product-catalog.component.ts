@@ -8,6 +8,7 @@ import {TranslatorService} from '../../../../core/translate/translator.service';
 import {Router} from '@angular/router';
 import {AppRoutingPath} from '../../../../app-routing.path';
 import {Location} from '@angular/common';
+import {SORT_OPTIONS} from '../../sort-options';
 
 @Component({
   selector: 'app-product-catalog',
@@ -15,6 +16,8 @@ import {Location} from '@angular/common';
   styleUrls: ['./product-catalog.component.scss']
 })
 export class ProductCatalogComponent implements OnInit {
+
+  private _selectedValue = 0;
 
   categories: ProductCategory[] = [];
 
@@ -25,7 +28,9 @@ export class ProductCatalogComponent implements OnInit {
   products!: Page<ProductModel>;
 
   @Output()
-  filtersUpdated: EventEmitter<void> = new EventEmitter<void>();
+  filtersUpdated: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  sortOptions = SORT_OPTIONS;
 
   searchValue!: string;
 
@@ -39,6 +44,7 @@ export class ProductCatalogComponent implements OnInit {
     this.categoryService.getCategories().subscribe(value => {
       this.categories = value;
     });
+    window.scrollTo(0, 0);
   }
 
   onCategoryFilter(id: number): void {
@@ -58,5 +64,21 @@ export class ProductCatalogComponent implements OnInit {
   onSearchChanged(): void {
     this.query.search = this.searchValue;
     this.filtersUpdated.emit();
+  }
+
+  get selectedValue(): number {
+    return this._selectedValue;
+  }
+
+  set selectedValue(value: number) {
+    this._selectedValue = value;
+    this.query.sort = this.sortOptions[value].sortQuery;
+    this.filtersUpdated.emit();
+  }
+
+  onPageChanged(page: number): void {
+    // @ts-ignore
+    this.query.page?.page = page;
+    this.filtersUpdated.emit(true);
   }
 }

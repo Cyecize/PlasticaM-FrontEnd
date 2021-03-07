@@ -8,8 +8,17 @@ import {ObjectUtils} from '../../../../shared/util/object-utils';
 })
 export class GalleryComponent implements OnInit {
 
+  private _images!: string[];
+
+  get images(): string[] {
+    return this._images;
+  }
+
   @Input()
-  images!: string[];
+  set images(value: string[]) {
+    this._images = value;
+    this.initSelectedImage();
+  }
 
   currentImage!: string;
 
@@ -17,12 +26,16 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (!ObjectUtils.isNil(this.images) && this.images.length > 0) {
-      this.selectImage(this.images[0]);
-    }
+    this.initSelectedImage();
   }
 
   selectImage(src: string): void {
     this.currentImage = src;
+  }
+
+  private initSelectedImage(): void {
+    if (!ObjectUtils.isNil(this.images) && this.images.length > 0) {
+      this.selectImage(this.images[0]);
+    }
   }
 }

@@ -3,7 +3,7 @@ import {PageRequest} from '../../shared/util/page-request';
 
 export interface ProductQuery {
   sort?: SortQuery;
-  pageRequest?: PageRequest;
+  page?: PageRequest;
 
   categoryIds: number[];
   hidden?: boolean;

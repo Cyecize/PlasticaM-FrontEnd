@@ -13,8 +13,17 @@ import {FieldError} from '../../../field-error/field-error';
 })
 export class MailFormComponent implements OnInit {
 
+  private _topic!: string;
+
+  get topic(): string {
+    return this._topic;
+  }
+
   @Input()
-  topic!: string;
+  set topic(value: string) {
+    this._topic = value;
+    this.setTopic();
+  }
 
   @Input()
     // @ts-ignore
@@ -38,12 +47,16 @@ export class MailFormComponent implements OnInit {
       message: ['', [Validators.required]],
     });
 
-    if (!ObjectUtils.isNil(this.topic)) {
-      this.translate.getTranslation(this.topic).subscribe(value => this.form.controls.message.setValue(value));
-    }
+    this.setTopic();
   }
 
   onFormSubmit(): void {
     this.formSubmit.emit(this.form?.value);
+  }
+
+  private setTopic(): void {
+    if (!ObjectUtils.isNil(this.topic)) {
+      this.translate.getTranslation(this.topic).subscribe(value => this.form.controls.message.setValue(value));
+    }
   }
 }

@@ -36,5 +36,8 @@
   "description": "Description",
   "invalidValue": "Invalid value",
   "fieldCannotBeNull": "Field cannot be empty",
-  "question.was.sent": "Your question was sent successfully"
+  "question.was.sent": "Your question was sent successfully",
+  "price.asc": "Price asc",
+  "price.desc": "Price desc",
+  "name.asc": "Name"
 }

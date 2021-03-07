@@ -37,17 +37,23 @@ export class ProductDetailsComponent implements OnInit {
 
       this.loader.show();
       this.productService.getProduct(prodId).subscribe(product => {
-        this.loader.hide();
+
         if (ObjectUtils.isNil(product)) {
+          this.loader.hide();
           this.nav.navigate(AppRoutingPath.NOT_FOUND);
           return;
         }
 
         this.product = product;
         // @ts-ignore
-        this.images = [this.product.imageUrl].concat(this.product.imageGallery);
+        this.images = [this.product.imageUrl];
+        if (this.product?.imageGallery) {
+          this.images = this.images.concat(this.product.imageGallery);
+        }
+
         this.topicParam = {what: product?.name};
         window.scrollTo(0, 0);
+        this.loader.hide();
       });
     });
   }

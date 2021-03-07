@@ -8,21 +8,35 @@
         <div class="product-search">
           <div class="product-search-inner">
             <div class="product-search-form form-group select-wrap">
-              <select class="select2" name="price" data-select2-options='{"placeholder":"Sort by price: High to low"}'>
-                <option label="placeholder"></option>
-                <option>Sort by price: High to low</option>
-                <option>Sort by price: Low to high</option>
-                <option>Sort by popularity</option>
+              <select class="form-control" [(ngModel)]="selectedValue">
+                <option *ngFor="let option of sortOptions, index as i"
+                        [value]="i"
+                        [appTranslate]="option.name"></option>
               </select>
             </div>
-            <div class="product-search-results">
-              {{ 'pagination.message' | appTranslate:{'current':products?.elements?.length, 'max': products?.itemsCount} }}
+            <div *ngIf="products" class="product-search-results">
+              {{ 'pagination.message' | appTranslate:{
+              'current': products?.elements?.length,
+              'max': products?.itemsCount
+            } }}
             </div>
           </div>
         </div>
         <div class="row row-30 row-lg-50 row-content">
           <div *ngFor="let product of products?.elements" class="col-xs-6 col-lg-4">
             <app-product-card [product]="product"></app-product-card>
+          </div>
+        </div>
+        <div *ngIf="products?.pages && products.pages > 1">
+          <hr class="mt-3">
+          <div class="d-flex justify-content-center">
+            <div class="pagination">
+            <span *ngFor="let item of [].constructor(products?.pages), let i = index"
+                  class="swiper-pagination-bullet"
+                  style="margin: 10px"
+                  (click)="onPageChanged(i + 1)"
+                  [ngClass]="i + 1 === products?.pageable?.page ? 'swiper-pagination-bullet-active' : ''"></span>
+            </div>
           </div>
         </div>
       </div>

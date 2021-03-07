@@ -36,5 +36,8 @@
   "description": "Описание",
   "invalidValue": "Невалидна стойност",
   "fieldCannotBeNull": "Полето не може да бъде празно",
-  "question.was.sent": "Запитването е изпратено успешно"
+  "question.was.sent": "Запитването е изпратено успешно",
+  "price.asc": "Цена възх.",
+  "price.desc": "Цена низх.",
+  "name.asc": "Име"
 }
