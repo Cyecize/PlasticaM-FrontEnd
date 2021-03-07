@@ -1,18 +1,27 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {ProductCategory} from './product.category.model';
-import {productCategories} from './product.categories.data';
+import {ProductCategoryRepository} from './product-category.repository';
+import {ObjectUtils} from '../../shared/util/object-utils';
 
 @Injectable({providedIn: 'root'})
 export class ProductCategoryService {
 
-  public getCategories(): Observable<ProductCategory[]> {
-    return new Observable<ProductCategory[]>(subscriber => subscriber.next(productCategories));
+  private categories?: ProductCategory[];
+  private readonly categoriesEvent: EventEmitter<ProductCategory[]> = new EventEmitter<ProductCategory[]>();
+
+  constructor(private repository: ProductCategoryRepository) {
+    this.repository.fetch().subscribe(value => {
+      this.categories = value;
+      this.categoriesEvent.emit(value);
+    });
   }
 
-  public async getCategory(id: number | any): Promise<ProductCategory | null> {
-    // tslint:disable-next-line:triple-equals
-    const categories: ProductCategory[] = productCategories.filter(c => c.id == id);
-    return categories.length > 0 ? categories[0] : null;
+  public getCategories(): Observable<ProductCategory[]> {
+    if (!ObjectUtils.isNil(this.categories)) {
+      return new Observable<ProductCategory[]>(subscriber => subscriber.next(this.categories));
+    }
+
+    return this.categoriesEvent;
   }
 }
