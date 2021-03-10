@@ -45,10 +45,8 @@ export class ProductDetailsComponent implements OnInit {
         }
 
         this.product = product;
-        // @ts-ignore
-        this.images = [this.product.imageUrl];
         if (this.product?.imageGallery) {
-          this.images = this.images.concat(this.product.imageGallery);
+          this.images = this.product.imageGallery;
         }
 
         this.topicParam = {what: product?.name};
