@@ -8,6 +8,8 @@ import {RouteUtils} from '../../routing/route-utils';
 import {NavbarService} from './navbar.service';
 import {ContactInfoModel} from '../../contact-info/contact-info.model';
 import {ContactInfoService} from '../../contact-info/contact-info.service';
+import {ObjectUtils} from '../../../shared/util/object-utils';
+import {RouteNavigator} from '../../routing/route-navigator.service';
 
 @Component({
   selector: 'app-navbar',
@@ -21,6 +23,7 @@ export class NavbarComponent implements OnInit {
   routes = AppRoutingPath;
   routeUtils = RouteUtils;
   contactInfo?: ContactInfoModel;
+  searchTerm?: string;
 
   isNavbarTransparent = false;
 
@@ -29,7 +32,8 @@ export class NavbarComponent implements OnInit {
   constructor(public translator: TranslatorService,
               private categoryService: ProductCategoryService,
               private navbarService: NavbarService,
-              private contactInfoService: ContactInfoService) {
+              private contactInfoService: ContactInfoService,
+              private nav: RouteNavigator) {
   }
 
   ngOnInit(): void {
@@ -45,5 +49,13 @@ export class NavbarComponent implements OnInit {
   updateLanguage(lang: string): void {
     this.translator.updateLanguage(lang);
     this.hideMenu();
+  }
+
+  search(): void {
+    if (ObjectUtils.isNil(this.searchTerm)) {
+      return;
+    }
+
+    this.nav.navigate(AppRoutingPath.PRODUCTS, null, {queryParams: {q: this.searchTerm}});
   }
 }

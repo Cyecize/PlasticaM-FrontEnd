@@ -7,6 +7,8 @@ import {ProductService} from '../../core/product/product.service';
 import {ProductQuery} from '../../core/product/product.query';
 import {LoaderService} from '../../shared/components/loader/loader.service';
 import {SORT_OPTIONS} from './sort-options';
+import {combineLatest} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-products',
@@ -24,15 +26,21 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(value => {
-      this.query.categoryIds = [];
+    combineLatest([this.route.params, this.route.queryParams])
+      .pipe(map(results => ({params: results[0], query: results[1]})))
+      .subscribe(results => {
+        this.query.categoryIds = [];
 
-      if (value.hasOwnProperty('catId')) {
-        this.query.categoryIds.push(Number(value.catId));
-      }
+        if (results.params.hasOwnProperty('catId')) {
+          this.query.categoryIds.push(Number(results.params.catId));
+        }
 
-      this.fetchData(false);
-    });
+        if (results.query.hasOwnProperty('q')) {
+          this.query.search = results.query.q;
+        }
+
+        this.fetchData(false);
+      });
   }
 
   public async fetchData(isPageChange: boolean): Promise<void> {

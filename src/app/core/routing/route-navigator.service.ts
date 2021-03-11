@@ -12,7 +12,7 @@ export class RouteNavigator {
 
   public navigate(route: RouteConfig, pathVariables: any[] | { [name: string]: any } | null = null, extras: NavigationExtras = {}): void {
     // TODO: add params here.
-    const url = RouteUtils.setPathParams(route.absolutePath);
+    const url = RouteUtils.setPathParams(route.absolutePath, pathVariables);
 
     this.router.navigate([url], extras);
   }

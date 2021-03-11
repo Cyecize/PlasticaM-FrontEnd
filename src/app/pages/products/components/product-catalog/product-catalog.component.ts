@@ -32,7 +32,13 @@ export class ProductCatalogComponent implements OnInit {
 
   sortOptions = SORT_OPTIONS;
 
-  searchValue!: string;
+  get searchValue(): string | undefined {
+    return this.query?.search;
+  }
+
+  set searchValue(val) {
+    this.query.search = val;
+  }
 
   constructor(private categoryService: ProductCategoryService,
               public translator: TranslatorService,

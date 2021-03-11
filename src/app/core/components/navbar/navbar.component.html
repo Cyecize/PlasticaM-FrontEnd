@@ -52,12 +52,10 @@
             <div class="navbar-subpanel-item">
               <div class="navbar-search">
                 <div class="navbar-search-container">
-                  <form action="search-results.html" class="navbar-search-form"
-                        data-rd-search='{"output":".navbar-search-results","mode":"live","liveResults":3,"template":"<h5 class=\"search-title\"><a target=\"_top\" href=\"#{href}\" class=\"search-link\">#{title}</a></h5><p>...#{token}...</p>"}'
-                        method="GET">
-                    <input autocomplete="off" class="navbar-search-input" name="s"
+                  <form class="navbar-search-form">
+                    <input [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}" (change)="search()" autocomplete="off" class="navbar-search-input"
                            placeholder="{{ 'enter.keyword' | appTranslate }}" type="text"/>
-                    <button class="navbar-search-btn onclinic-search novi-icon"></button>
+                    <button (click)="search()" class="navbar-search-btn onclinic-search novi-icon"></button>
                     <button class="navbar-search-close fas fa-times search-switch novi-icon"
                             data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","class":"navbar-search-active","isolate":"[data-multi-switch]:not(.search-switch)"}'
                             type="button">
