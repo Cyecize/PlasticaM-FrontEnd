@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {HomeCarouselService} from '../../../../core/home-carousel/home-carousel.service';
 import {HomeCarouselModel} from '../../../../core/home-carousel/home-carousel.model';
 import {TranslatorService} from '../../../../core/translate/translator.service';
@@ -11,7 +11,7 @@ import {ObjectUtils} from '../../../../shared/util/object-utils';
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss']
 })
-export class CarouselComponent implements OnInit, AfterViewInit {
+export class CarouselComponent implements OnInit {
 
   private _swiper!: ElementRef;
 
@@ -19,7 +19,6 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
   @ViewChild('carousel') set swiper(value: ElementRef) {
     this._swiper = value;
-    console.log('setting MANE ');
     this.initCarousel();
   }
 
@@ -42,17 +41,12 @@ export class CarouselComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit(): void {
-    console.log('view init!');
-  }
-
   private initCarousel(): void {
     if (ObjectUtils.isNil(this.items) || ObjectUtils.isNil(this.swiper)) {
       return;
     }
 
     if (window.hasOwnProperty('components')) {
-      console.log('initting carousel!');
       // @ts-ignore
       window.components.swiper.init([this.swiper.nativeElement]);
     }
