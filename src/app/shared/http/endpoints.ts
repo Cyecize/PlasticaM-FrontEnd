@@ -8,4 +8,6 @@ export class Endpoints {
   public static readonly PRODUCTS = '/products';
 
   public static readonly PRODUCT = '/products/:id';
+
+  public static readonly HOME_CAROUSEL = '/home-carousel';
 }

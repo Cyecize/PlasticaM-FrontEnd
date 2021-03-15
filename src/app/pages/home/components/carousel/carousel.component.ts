@@ -4,6 +4,7 @@ import {HomeCarouselModel} from '../../../../core/home-carousel/home-carousel.mo
 import {TranslatorService} from '../../../../core/translate/translator.service';
 import {RouteUtils} from '../../../../core/routing/route-utils';
 import {AppRoutingPath} from '../../../../app-routing.path';
+import {ObjectUtils} from '../../../../shared/util/object-utils';
 
 @Component({
   selector: 'app-carousel',
@@ -12,9 +13,19 @@ import {AppRoutingPath} from '../../../../app-routing.path';
 })
 export class CarouselComponent implements OnInit, AfterViewInit {
 
+  private _swiper!: ElementRef;
+
   items?: HomeCarouselModel[];
 
-  @ViewChild('carousel') private swiper!: ElementRef;
+  @ViewChild('carousel') set swiper(value: ElementRef) {
+    this._swiper = value;
+    console.log('setting MANE ');
+    this.initCarousel();
+  }
+
+  get swiper(): ElementRef {
+    return this._swiper;
+  }
 
   constructor(private homeCarouselService: HomeCarouselService,
               public translator: TranslatorService) {
@@ -27,12 +38,21 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.homeCarouselService.getItems().subscribe(value => {
       this.items = value;
+      this.initCarousel();
     });
   }
 
   ngAfterViewInit(): void {
-    // @ts-ignore
-    if (window.components) {
+    console.log('view init!');
+  }
+
+  private initCarousel(): void {
+    if (ObjectUtils.isNil(this.items) || ObjectUtils.isNil(this.swiper)) {
+      return;
+    }
+
+    if (window.hasOwnProperty('components')) {
+      console.log('initting carousel!');
       // @ts-ignore
       window.components.swiper.init([this.swiper.nativeElement]);
     }
