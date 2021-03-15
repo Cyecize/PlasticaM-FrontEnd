@@ -55,7 +55,7 @@ export class MailFormComponent implements OnInit {
   }
 
   private setTopic(): void {
-    if (!ObjectUtils.isNil(this.topic)) {
+    if (!ObjectUtils.isNil(this.topic) && !ObjectUtils.isNil(this.form)) {
       this.translate.getTranslation(this.topic).subscribe(value => this.form.controls.message.setValue(value));
     }
   }
