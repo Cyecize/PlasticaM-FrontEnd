@@ -39,5 +39,6 @@
   "question.was.sent": "Запитването е изпратено успешно",
   "price.asc": "Цена възх.",
   "price.desc": "Цена низх.",
-  "name.asc": "Име"
+  "name.asc": "Име",
+  "password": "Парола"
 }

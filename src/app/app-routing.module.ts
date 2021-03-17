@@ -29,6 +29,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: AppRoutingPath.LOGIN.path,
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule)
   }

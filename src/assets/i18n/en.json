@@ -39,5 +39,6 @@
   "question.was.sent": "Your question was sent successfully",
   "price.asc": "Price asc",
   "price.desc": "Price desc",
-  "name.asc": "Name"
+  "name.asc": "Name",
+  "password": "Password"
 }
