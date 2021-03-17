@@ -9,6 +9,11 @@ import {LoaderService} from '../../shared/components/loader/loader.service';
 import {SORT_OPTIONS} from './sort-options';
 import {combineLatest} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {BreadcrumbModel} from '../../shared/components/breadcrumb-section/breadcrumb.model';
+import {AppRoutingPath} from '../../app-routing.path';
+import {ProductCategory} from '../../core/product-category/product.category.model';
+import {ProductCategoryService} from '../../core/product-category/product.category.service';
+import {TranslatorService} from '../../core/translate/translator.service';
 
 @Component({
   selector: 'app-products',
@@ -18,16 +23,20 @@ export class ProductsComponent implements OnInit {
 
   products!: Page<ProductModel>;
   query: ProductQuery = {categoryIds: [], sort: SORT_OPTIONS[0].sortQuery};
+  breadcrumbItems: BreadcrumbModel[] = [];
+  private categories: ProductCategory[] = [];
 
   constructor(private route: ActivatedRoute,
               private nav: RouteNavigator,
               private productService: ProductService,
-              private loader: LoaderService) {
+              private loader: LoaderService,
+              private categoryService: ProductCategoryService,
+              private translate: TranslatorService) {
   }
 
   ngOnInit(): void {
-    combineLatest([this.route.params, this.route.queryParams])
-      .pipe(map(results => ({params: results[0], query: results[1]})))
+    combineLatest([this.route.params, this.route.queryParams, this.categoryService.getCategories()])
+      .pipe(map(results => ({params: results[0], query: results[1], categories: results[2]})))
       .subscribe(results => {
         this.query.categoryIds = [];
 
@@ -38,6 +47,8 @@ export class ProductsComponent implements OnInit {
         if (results.query.hasOwnProperty('q')) {
           this.query.search = results.query.q;
         }
+
+        this.categories = results.categories;
 
         this.fetchData(false);
       });
@@ -52,10 +63,33 @@ export class ProductsComponent implements OnInit {
       this.query.page.page = 1;
     }
 
+    this.initBreadcrumb();
+
     this.loader.show();
     this.productService.getProducts(this.query).subscribe(value => {
       this.products = value;
       this.loader.hide();
     });
+  }
+
+  private initBreadcrumb(): void {
+    const isOneCategorySelected: boolean = this.query.categoryIds.length === 1;
+
+    this.breadcrumbItems = [
+      {
+        text: 'home',
+        link: AppRoutingPath.HOME.absolutePath
+      },
+      {
+        text: 'products',
+        link: isOneCategorySelected ? AppRoutingPath.PRODUCTS.absolutePath : undefined
+      }
+    ];
+
+    if (isOneCategorySelected) {
+      this.breadcrumbItems.push({
+        text: this.translate.getCategoryName(this.categories.filter(cat => cat.id === this.query.categoryIds[0])[0]),
+      });
+    }
   }
 }
