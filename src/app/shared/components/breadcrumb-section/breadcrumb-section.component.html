@@ -1,0 +1,15 @@
+<section class="section breadcrumb-section">
+  <div class="breadcrumb-section-inner">
+    <div class="container">
+      <!-- Breadcrumb-->
+      <div class="breadcrumb">
+        <div class="breadcrumb-inner">
+          <div *ngFor="let item of items" class="breadcrumb-item">
+            <a *ngIf="item.link" class="breadcrumb-link" [routerLink]="item.link" [appTranslate]="item.text"></a>
+            <span *ngIf="!item.link" class="breadcrumb-text breadcrumb-active" [appTranslate]="item.text"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

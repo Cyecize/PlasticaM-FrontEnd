@@ -1,0 +1,13 @@
+// Base
+.breadcrumb-section {
+	position: relative;
+
+	.breadcrumb-section-inner {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		padding: px-to-rem( 16px, 0 );
+	}
+}
+

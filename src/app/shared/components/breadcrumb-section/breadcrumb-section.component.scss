@@ -1,0 +1,73 @@
+@import "~bootstrap/scss/functions";
+@import "functions";
+@import "variables";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+
+// Variables
+$breadcrumb-font-size: px-to-rem( 12px );
+$breadcrumb-item-padding: 8px;
+$breadcrumb-divider: '>';
+$breadcrumb-divider-color: $body-color;
+$breadcrumb-primary: $primary;
+$breadcrumb-secondary: $secondary;
+$breadcrumb-background: transparent;
+
+
+// Base
+.breadcrumb {
+  position: relative;
+  color: $body-color;
+}
+
+.breadcrumb-inner {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  font-weight: 400;
+  font-size: $breadcrumb-font-size;
+  list-style: none;
+}
+
+.breadcrumb-item {
+  position: relative;
+  padding: 0 $breadcrumb-item-padding;
+
+  &:not(:last-child) {
+    &::after {
+      content: $breadcrumb-divider;
+      position: absolute;
+      top: 53%;
+      right: 0;
+      transform: translate(50%, -50%);
+      padding: 0;
+      font-size: inherit;
+      line-height: inherit;
+      vertical-align: middle;
+      color: $breadcrumb-divider-color;
+    }
+  }
+}
+
+.breadcrumb-text,
+.breadcrumb-link {
+  display: inline-block;
+  line-height: 1.5;
+}
+
+.breadcrumb-active {
+  color: $body-color;
+}
+
+* + .breadcrumb { margin-top: px-to-rem( 6px )}
+
+
+// Media
+@include media-breakpoint-up( lg ) {
+
+}
+
+
+// Breadcrumb section
+@import "breadcrumb-section";

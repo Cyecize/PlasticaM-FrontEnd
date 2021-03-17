@@ -4,6 +4,7 @@ import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FieldErrorModule} from './field-error/field-error.module';
 import {TranslateModule} from '../core/translate/translate.module';
+import {BreadcrumbSectionModule} from './components/breadcrumb-section/breadcrumb-section.module';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import {TranslateModule} from '../core/translate/translate.module';
     FormsModule,
     ReactiveFormsModule,
     FieldErrorModule,
-    TranslateModule
+    TranslateModule,
+    BreadcrumbSectionModule
   ],
   exports: [
     CommonModule,
@@ -20,7 +22,8 @@ import {TranslateModule} from '../core/translate/translate.module';
     FormsModule,
     ReactiveFormsModule,
     FieldErrorModule,
-    TranslateModule
+    TranslateModule,
+    BreadcrumbSectionModule
   ]
 })
 export class SharedModule {
