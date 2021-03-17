@@ -50,6 +50,21 @@ export class TranslatorService {
     }
   }
 
+  public getProductCategoryName(product: ProductModel): string {
+    if (ObjectUtils.isNil(product)) {
+      return '';
+    }
+
+    switch (this.getCurrentLang()) {
+      case Locale.BG:
+        return product.categoryNameBg;
+      case Locale.EN:
+        return product.categoryNameEn;
+      default:
+        throw new Error(`Product category name does not support language ${this.getCurrentLang()}!`);
+    }
+  }
+
   public getProductDescription(product: ProductModel | null): string {
     if (ObjectUtils.isNil(product)) {
       return '';

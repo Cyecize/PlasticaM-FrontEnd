@@ -7,6 +7,8 @@ import {ProductModel} from '../../core/product/product.model';
 import {AppRoutingPath} from '../../app-routing.path';
 import {ObjectUtils} from '../../shared/util/object-utils';
 import {TranslatorService} from '../../core/translate/translator.service';
+import {BreadcrumbModel} from '../../shared/components/breadcrumb-section/breadcrumb.model';
+import {RouteUtils} from '../../core/routing/route-utils';
 
 @Component({
   selector: 'app-product-details',
@@ -18,6 +20,7 @@ export class ProductDetailsComponent implements OnInit {
   product!: ProductModel | null;
   images!: string[];
   topicParam!: any;
+  breadcrumbItems: BreadcrumbModel[] = [];
 
   constructor(private route: ActivatedRoute,
               private nav: RouteNavigator,
@@ -50,9 +53,34 @@ export class ProductDetailsComponent implements OnInit {
         }
 
         this.topicParam = {what: product?.name};
+        this.initBreadcrumb(this.product);
         window.scrollTo(0, 0);
         this.loader.hide();
       });
     });
+  }
+
+  private initBreadcrumb(product: ProductModel | null): void {
+    if (!product) {
+      return;
+    }
+
+    this.breadcrumbItems = [
+      {
+        text: 'home',
+        link: AppRoutingPath.HOME.absolutePath
+      },
+      {
+        text: 'products',
+        link: AppRoutingPath.PRODUCTS.absolutePath
+      },
+      {
+        text: this.translator.getProductCategoryName(product),
+        link: RouteUtils.setPathParams(AppRoutingPath.PRODUCTS_CATEGORY.absolutePath, [product.categoryId])
+      },
+      {
+        text: product.name
+      }
+    ];
   }
 }

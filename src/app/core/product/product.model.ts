@@ -5,6 +5,8 @@ export interface ProductModel {
   price?: number;
   descriptionBg: string;
   descriptionEn: string;
+  categoryNameEn: string;
+  categoryNameBg: string;
   imageUrl: string;
   imageGallery: string[];
   tags: string[];
