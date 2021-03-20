@@ -7,9 +7,9 @@ export class FieldErrorWrapper {
   constructor(private delegate: () => Observable<any>) {
   }
 
-  async execute(): Promise<FieldError[]> {
+  async execute<T>(): Promise<FieldError[]|T> {
     try {
-      await this.delegate.call(null).toPromise();
+      return await this.delegate.call(null).toPromise();
     } catch (err) {
       if (err.status === HttpStatus.NOT_ACCEPTABLE) {
         return (err.error as FieldError[]);
@@ -20,7 +20,5 @@ export class FieldErrorWrapper {
         }];
       }
     }
-
-    return [];
   }
 }

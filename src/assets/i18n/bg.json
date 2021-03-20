@@ -40,5 +40,7 @@
   "price.asc": "Цена възх.",
   "price.desc": "Цена низх.",
   "name.asc": "Име",
-  "password": "Парола"
+  "password": "Парола",
+  "usernameNotFound": "Потр. име или Email не е отрито.",
+  "invalidPassword": "Грешна парола"
 }

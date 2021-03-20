@@ -9,7 +9,7 @@ import {environment} from '../../../environments/environment';
 @Injectable({providedIn: 'root'})
 export class HttpClientService {
 
-  constructor(private httpClient: HttpClient) {
+  constructor(protected httpClient: HttpClient) {
 
   }
 
@@ -51,7 +51,7 @@ export class HttpClientService {
     );
   }
 
-  private getHeaders(): HttpHeader {
+  protected getHeaders(): HttpHeader {
     return {};
   }
 

@@ -141,11 +141,12 @@
               </ul>
             </li>
             <li class="navbar-navigation-root-item" routerLinkActive="active">
-              <a class="navbar-navigation-root-link"
+              <a *ngIf="!user" class="navbar-navigation-root-link"
                  [routerLink]="routes.LOGIN.toString()"
                  (click)="hideMenu()">
                 <span appTranslate="login"></span>
               </a>
+              <span class="navbar-navigation-root-link" *ngIf="user">{{user?.username}}</span>
             </li>
           </ul>
         </div>

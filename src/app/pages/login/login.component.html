@@ -5,14 +5,16 @@
       <h3 class="box-title" appTranslate="login"></h3>
     </div>
     <div class="box-body">
-      <form class="rd-form">
+      <form [formGroup]="form" (ngSubmit)="onFormSubmit()" class="rd-form">
         <div class="form-group">
           <label class="form-label" for="contact-1-email">{{'email' | appTranslate}}</label>
           <div class="form-control-wrap">
             <input class="form-control"
                    id="contact-1-email"
-                   type="email"
+                   type="text"
+                   formControlName="username"
                    placeholder="{{'required.field' | appTranslate}}">
+            <app-field-error [errors]="errors" fieldName="username"></app-field-error>
           </div>
         </div>
         <div class="form-group">
@@ -20,11 +22,15 @@
           <div class="form-control-wrap">
             <input class="form-control" id="password"
                    type="password"
+                   formControlName="password"
                    placeholder="******">
+            <app-field-error [errors]="errors" fieldName="password"></app-field-error>
           </div>
         </div>
         <div class="rd-form-btn text-left">
-          <button class="btn btn-lg btn-primary" type="submit">{{'login' | appTranslate}}</button>
+          <button [disabled]="!form.valid"
+                  class="btn btn-lg btn-primary"
+                  type="submit">{{'login' | appTranslate}}</button>
         </div>
       </form>
     </div>

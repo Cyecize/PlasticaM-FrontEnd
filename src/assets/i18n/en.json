@@ -40,5 +40,7 @@
   "price.asc": "Price asc",
   "price.desc": "Price desc",
   "name.asc": "Name",
-  "password": "Password"
+  "password": "Password",
+  "usernameNotFound": "Username or email was not found",
+  "invalidPassword": "Wrong password"
 }

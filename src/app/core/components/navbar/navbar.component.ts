@@ -10,6 +10,8 @@ import {ContactInfoModel} from '../../contact-info/contact-info.model';
 import {ContactInfoService} from '../../contact-info/contact-info.service';
 import {ObjectUtils} from '../../../shared/util/object-utils';
 import {RouteNavigator} from '../../routing/route-navigator.service';
+import {UserService} from '../../user/user.service';
+import {UserModel} from '../../user/user.model';
 
 @Component({
   selector: 'app-navbar',
@@ -24,6 +26,7 @@ export class NavbarComponent implements OnInit {
   routeUtils = RouteUtils;
   contactInfo?: ContactInfoModel;
   searchTerm?: string;
+  user!: UserModel;
 
   isNavbarTransparent = false;
 
@@ -33,13 +36,15 @@ export class NavbarComponent implements OnInit {
               private categoryService: ProductCategoryService,
               private navbarService: NavbarService,
               private contactInfoService: ContactInfoService,
-              private nav: RouteNavigator) {
+              private nav: RouteNavigator,
+              private userService: UserService) {
   }
 
   ngOnInit(): void {
     this.categoryService.getCategories().subscribe(value => this.categories = value);
     this.navbarService.onNavbarTransparentChanged.subscribe(value => this.isNavbarTransparent = value);
     this.contactInfoService.getContactInfo().subscribe(value => this.contactInfo = value);
+    this.userService.getUser().subscribe(value => this.user = value);
   }
 
   hideMenu(): void {
