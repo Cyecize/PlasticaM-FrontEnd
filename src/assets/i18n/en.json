@@ -42,5 +42,6 @@
   "name.asc": "Name",
   "password": "Password",
   "usernameNotFound": "Username or email was not found",
-  "invalidPassword": "Wrong password"
+  "invalidPassword": "Wrong password",
+  "logout": "Logout"
 }

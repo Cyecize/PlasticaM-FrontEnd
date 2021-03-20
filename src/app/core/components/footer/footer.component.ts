@@ -7,6 +7,10 @@ import {AppRoutingPath} from '../../../app-routing.path';
 import {RouteUtils} from '../../routing/route-utils';
 import {ContactInfoService} from '../../contact-info/contact-info.service';
 import {ContactInfoModel} from '../../contact-info/contact-info.model';
+import {UserService} from '../../user/user.service';
+import {UserModel} from '../../user/user.model';
+import {RouteNavigator} from '../../routing/route-navigator.service';
+import {LoaderService} from '../../../shared/components/loader/loader.service';
 
 @Component({
   selector: 'app-footer',
@@ -22,15 +26,20 @@ export class FooterComponent implements OnInit {
   routes = AppRoutingPath;
   routeUtils = RouteUtils;
   contactInfo?: ContactInfoModel;
+  user!: UserModel;
 
   constructor(public translator: TranslatorService,
               private categoryService: ProductCategoryService,
-              private contactInfoService: ContactInfoService) {
+              private contactInfoService: ContactInfoService,
+              private userService: UserService,
+              private nav: RouteNavigator,
+              private loaderService: LoaderService) {
   }
 
   ngOnInit(): void {
     this.categoryService.getCategories().subscribe(value => this.categories = value);
     this.contactInfoService.getContactInfo().subscribe(value => this.contactInfo = value);
+    this.userService.getUser().subscribe(value => this.user = value);
   }
 
   updateLanguage(lang: string): void {
@@ -39,5 +48,12 @@ export class FooterComponent implements OnInit {
 
   showLanguagesDropdown(): void {
     this.showLanguages = !this.showLanguages;
+  }
+
+  async onLogout(): Promise<void> {
+    this.loaderService.show();
+    await this.userService.logout();
+    this.loaderService.hide();
+    this.nav.navigate(AppRoutingPath.HOME);
   }
 }

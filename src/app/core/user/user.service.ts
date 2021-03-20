@@ -11,16 +11,18 @@ import {HttpClientService} from '../../shared/http/http-client.service';
 import {Endpoints} from '../../shared/http/endpoints';
 import {LoginModel} from './login.model';
 import {AuthTokenModel} from './auth-token.model';
+import {HttpClientSecuredService} from '../../shared/http/http-client-secured.service';
 
 @Injectable({providedIn: 'root'})
 export class UserService {
 
-  private currentUser!: UserModel;
+  private currentUser: UserModel | undefined;
   private readonly currentUserEvent: EventEmitter<UserModel> = new EventEmitter<UserModel>();
 
   constructor(private repository: UserRepository,
               private cookieService: CookieService,
-              private http: HttpClientService) {
+              private http: HttpClientService,
+              private authenticatedHttp: HttpClientSecuredService) {
     this.tryGetUser();
   }
 
@@ -43,6 +45,13 @@ export class UserService {
     }
 
     return result as FieldError[];
+  }
+
+  public async logout(): Promise<void> {
+    await this.authenticatedHttp.post(Endpoints.LOGOUT, {}).toPromise();
+    this.cookieService.set(COOKIE_AUTH_TOKEN_NAME, '');
+    this.currentUser = undefined;
+    this.currentUserEvent.emit();
   }
 
   private tryGetUser(): void {

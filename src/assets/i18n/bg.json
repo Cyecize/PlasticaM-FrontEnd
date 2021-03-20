@@ -42,5 +42,6 @@
   "name.asc": "Име",
   "password": "Парола",
   "usernameNotFound": "Потр. име или Email не е отрито.",
-  "invalidPassword": "Грешна парола"
+  "invalidPassword": "Грешна парола",
+  "logout": "Изход"
 }
