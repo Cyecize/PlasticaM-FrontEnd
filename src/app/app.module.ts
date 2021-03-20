@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LoaderComponent} from './shared/components/loader/loader.component';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import {SharedModule} from './shared/shared.module';
 import {FooterModule} from './core/components/footer/footer.module';
@@ -11,6 +11,7 @@ import {NavbarModule} from './core/components/navbar/navbar.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {AuthInterceptor} from './core/user/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,14 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
       },
     }),
   ],
-  providers: [CookieService],
+  providers: [
+    CookieService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
