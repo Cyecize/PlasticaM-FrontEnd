@@ -54,7 +54,7 @@ export class ProductDetailsComponent implements OnInit {
 
         this.topicParam = {what: product?.name};
         this.initBreadcrumb(this.product);
-        window.scrollTo(0, 0);
+
         this.loader.hide();
       });
     });

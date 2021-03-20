@@ -50,7 +50,6 @@ export class ProductCatalogComponent implements OnInit {
     this.categoryService.getCategories().subscribe(value => {
       this.categories = value;
     });
-    window.scrollTo(0, 0);
   }
 
   onCategoryFilter(id: number): void {
