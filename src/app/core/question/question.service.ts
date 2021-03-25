@@ -12,6 +12,13 @@ export class QuestionService {
   }
 
   public async sendQuestion(question: QuestionModel): Promise<FieldError[]> {
-    return new FieldErrorWrapper(() => this.http.post(Endpoints.QUESTION, question)).execute();
+    const result: FieldError[] | any =
+      await new FieldErrorWrapper(() => this.http.post(Endpoints.QUESTION, question)).execute();
+
+    if (result.hasOwnProperty('message')) {
+      return [];
+    }
+
+    return result;
   }
 }
