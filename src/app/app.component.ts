@@ -29,6 +29,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
 
     // @ts-ignore
-    window.componentsLoaded = () => this.loaderService.hide();
+    window.componentsLoaded = () => setTimeout(() => this.loaderService.hide(), 500);
   }
 }
