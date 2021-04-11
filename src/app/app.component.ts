@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {LoaderService} from './shared/components/loader/loader.service';
 import {NavigationEnd, Router} from '@angular/router';
 
@@ -7,7 +7,7 @@ import {NavigationEnd, Router} from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'plastica-m';
 
   constructor(private loaderService: LoaderService,
@@ -15,12 +15,20 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => this.loaderService.hide(), 500);
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
         return;
       }
       window.scrollTo(0, 0);
     });
+  }
+
+  ngAfterViewInit(): void {
+    if (window.hasOwnProperty('components')) {
+      this.loaderService.hide();
+    }
+
+    // @ts-ignore
+    window.componentsLoaded = () => this.loaderService.hide();
   }
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {LoaderService} from './loader.service';
 
 @Component({
@@ -10,11 +10,19 @@ export class LoaderComponent implements OnInit {
 
   active = true;
 
-  constructor(private loaderService: LoaderService) {
+  constructor(private loaderService: LoaderService,
+              private ref: ChangeDetectorRef) {
 
   }
 
   ngOnInit(): void {
-    this.loaderService.loading$.subscribe(value => this.active = value);
+    this.loaderService.loading$.subscribe(value => {
+      if (this.active === value) {
+        return;
+      }
+
+      this.active = value;
+      this.ref.detectChanges();
+    });
   }
 }

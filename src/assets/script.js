@@ -1395,4 +1395,7 @@ window.addEventListener( 'load', function () {
 	});
 
   window.components = components;
+  if (window.componentsLoaded) {
+    window.componentsLoaded();
+  }
 });
