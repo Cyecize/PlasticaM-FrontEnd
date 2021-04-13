@@ -43,5 +43,6 @@
   "password": "Password",
   "usernameNotFound": "Username or email was not found",
   "invalidPassword": "Wrong password",
-  "logout": "Logout"
+  "logout": "Logout",
+  "call.via.whatsapp": "Call via Whatsapp"
 }
