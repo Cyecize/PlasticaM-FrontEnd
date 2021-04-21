@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ObjectUtils} from '../../../../shared/util/object-utils';
+import {ImageUtils} from '../../../../shared/util/image-utils';
 
 @Component({
   selector: 'app-gallery',
@@ -31,6 +32,10 @@ export class GalleryComponent implements OnInit {
 
   selectImage(src: string): void {
     this.currentImage = src;
+  }
+
+  makeLink(imageUrl: string): string {
+    return ImageUtils.makeLink(imageUrl);
   }
 
   private initSelectedImage(): void {

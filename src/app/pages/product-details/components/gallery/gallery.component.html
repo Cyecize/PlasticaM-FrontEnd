@@ -1,11 +1,11 @@
 <div>
   <div class="selected-image-container">
-    <img *ngIf="currentImage" [src]="currentImage" alt="Image not available!"/>
+    <img *ngIf="currentImage" [src]="makeLink(currentImage)" alt="Image not available!"/>
   </div>
 
   <div class="icons-container mt-3">
       <div *ngFor="let image of images" class="gallery-icon" [ngClass]="image === currentImage ? 'selected' : ''">
-        <img [src]="image" alt="" (click)="selectImage(image)"/>
+        <img [src]="makeLink(image)" alt="" (click)="selectImage(image)"/>
       </div>
   </div>
 </div>

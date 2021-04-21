@@ -56,6 +56,6 @@ export class HttpClientService {
   }
 
   private getFullUrl(url: string): string {
-    return environment.apiUrl + url;
+    return environment.backendUrl + environment.apiUrl + url;
   }
 }

@@ -3,6 +3,7 @@ import {ProductCategory} from '../../../../core/product-category/product.categor
 import {TranslatorService} from '../../../../core/translate/translator.service';
 import {AppRoutingPath} from '../../../../app-routing.path';
 import {RouteUtils} from '../../../../core/routing/route-utils';
+import {ImageUtils} from '../../../../shared/util/image-utils';
 
 @Component({
   selector: 'app-category-card',
@@ -21,5 +22,9 @@ export class CategoryCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.route = RouteUtils.setPathParams(AppRoutingPath.PRODUCTS_CATEGORY.toString(), [this.category.id]);
+  }
+
+  makeLink(imageUrl: string): string {
+    return ImageUtils.makeLink(imageUrl);
   }
 }

@@ -6,7 +6,7 @@
          *ngFor="let item of items"
          style="background-size: cover;
          background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-          url( {{ item.imageUrl }} ) center center;">
+          url( {{ makeLink(item.imageUrl) }} ) center center;">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-xl-8">

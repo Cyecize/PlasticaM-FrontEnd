@@ -1,6 +1,6 @@
 <div class="product product-light">
   <div class="product-media">
-    <img class="product-img" [src]="product?.imageUrl" alt=""/>
+    <img class="product-img" [src]="makeLink(product?.imageUrl)" alt=""/>
     <div class="product-meta">
       <div class="product-tags">
         <div *ngFor="let tag of product?.tags" class="tag tag-sm">{{tag}}</div>

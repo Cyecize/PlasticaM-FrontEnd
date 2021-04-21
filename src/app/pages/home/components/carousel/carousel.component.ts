@@ -5,6 +5,7 @@ import {TranslatorService} from '../../../../core/translate/translator.service';
 import {RouteUtils} from '../../../../core/routing/route-utils';
 import {AppRoutingPath} from '../../../../app-routing.path';
 import {ObjectUtils} from '../../../../shared/util/object-utils';
+import {ImageUtils} from '../../../../shared/util/image-utils';
 
 @Component({
   selector: 'app-carousel',
@@ -50,5 +51,9 @@ export class CarouselComponent implements OnInit {
       // @ts-ignore
       window.components.swiper.init([this.swiper.nativeElement]);
     }
+  }
+
+  makeLink(imageUrl: string): string {
+    return ImageUtils.makeLink(imageUrl);
   }
 }
