@@ -44,5 +44,6 @@
   "usernameNotFound": "Потр. име или Email не е отрито.",
   "invalidPassword": "Грешна парола",
   "logout": "Изход",
-  "call.via.whatsapp": "Обадете се сега"
+  "call.via.whatsapp": "Обадете се сега",
+  "specifications": "Спецификация"
 }

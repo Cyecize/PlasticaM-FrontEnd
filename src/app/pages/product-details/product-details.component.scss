@@ -42,3 +42,23 @@
 }
 
 @import "product-overview";
+
+.specification {
+  display: flex;
+
+  .title {
+    border-right: 1px $gray-300 solid;
+    border-left: 1px $gray-300 solid;
+  }
+
+  .value {
+    border-right: 1px $gray-300 solid;
+  }
+
+  .value, .title {
+    border-top: 1px $gray-300 solid;
+    width: 50%;
+    padding: 4px;
+    font-weight: 500;
+  }
+}

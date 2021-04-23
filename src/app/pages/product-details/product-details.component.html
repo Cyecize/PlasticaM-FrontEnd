@@ -1,4 +1,4 @@
-<app-breadcrumb-section [items]="breadcrumbItems"> </app-breadcrumb-section>
+<app-breadcrumb-section [items]="breadcrumbItems"></app-breadcrumb-section>
 <section class="section section-md bg-transparent">
   <div class="container">
     <div class="row row-30">
@@ -21,5 +21,19 @@
 </section>
 <div class="container">
   <hr>
+
+  <div class="mt-2" *ngIf="product?.specifications?.length">
+    <h4 appTranslate="specifications"></h4>
+    <div class="row mb-2">
+      <div class="col-md-6 col-lg-12">
+        <div class="specification" *ngFor="let specification of product?.specifications">
+          <div class="title">{{translator.getSpecificationTitle(specification)}}</div>
+          <div class="value">{{translator.getSpecificationValue(specification)}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr *ngIf="product?.specifications?.length">
 </div>
 <app-contacts-section topic="{{'question.about.what' | appTranslate:topicParam}}&#13;&#10;"></app-contacts-section>

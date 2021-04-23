@@ -10,4 +10,14 @@ export interface ProductModel {
   imageUrl: string;
   imageGallery: string[];
   tags: string[];
+  specifications: ProductSpecificationModel[];
+}
+
+export interface ProductSpecificationModel {
+  id: number;
+  productId: number;
+  titleBg: string;
+  titleEn: string;
+  valueBg: string;
+  valueEn: string;
 }

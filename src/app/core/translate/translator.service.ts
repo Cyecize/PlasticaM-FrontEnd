@@ -5,7 +5,7 @@ import {ProductCategory} from '../product-category/product.category.model';
 import {CookieService} from 'ngx-cookie-service';
 import {COOKIE_LANG_NAME} from '../general.constants';
 import {Observable} from 'rxjs';
-import {ProductModel} from '../product/product.model';
+import {ProductModel, ProductSpecificationModel} from '../product/product.model';
 import {ObjectUtils} from '../../shared/util/object-utils';
 import {HomeCarouselModel} from '../home-carousel/home-carousel.model';
 
@@ -90,6 +90,28 @@ export class TranslatorService {
         return item.textEn;
       default:
         throw new Error(`Home Carousel text does not support language ${this.getCurrentLang()}!`);
+    }
+  }
+
+  public getSpecificationTitle(specification: ProductSpecificationModel): string {
+    switch (this.getCurrentLang()) {
+      case Locale.BG:
+        return specification.titleBg;
+      case Locale.EN:
+        return specification.titleEn;
+      default:
+        throw new Error(`Specification title does not support language ${this.getCurrentLang()}!`);
+    }
+  }
+
+  public getSpecificationValue(specification: ProductSpecificationModel): string {
+    switch (this.getCurrentLang()) {
+      case Locale.BG:
+        return specification.valueBg;
+      case Locale.EN:
+        return specification.valueEn;
+      default:
+        throw new Error(`Specification value does not support language ${this.getCurrentLang()}!`);
     }
   }
 
