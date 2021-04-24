@@ -77,4 +77,7 @@
       <a class="ml-2 ml-md-4 " *ngIf="user" style="cursor: pointer" (click)="onLogout()" appTranslate="logout"></a>
     </p>
   </div>
+  <div class="container" *ngIf="isAdmin">
+    <a appTranslate="admin.panel" [routerLink]="routes.ADMIN_PANEL.toString()"></a>
+  </div>
 </footer>

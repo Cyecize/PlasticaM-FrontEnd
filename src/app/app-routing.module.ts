@@ -1,6 +1,8 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {AppRoutingPath} from './app-routing.path';
+import {HasRoleGuard} from './core/user/has-role-guard.service';
+import {UserRole} from './core/user/user.role';
 
 const routes: Routes = [
   {
@@ -31,6 +33,12 @@ const routes: Routes = [
   {
     path: AppRoutingPath.LOGIN.path,
     loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
+  },
+  {
+    path: AppRoutingPath.ADMIN_PANEL.path,
+    loadChildren: () => import('./shared/components/admin-base/admin-base.module').then(m => m.AdminBaseModule),
+    data: {role: UserRole.ROLE_ADMIN},
+    canActivate: [HasRoleGuard]
   },
   {
     path: '**',

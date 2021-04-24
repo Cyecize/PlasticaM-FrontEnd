@@ -10,4 +10,5 @@ export class AppRoutingPath {
   public static readonly PRODUCT_DETAILS: RouteConfig = new RouteConfig('products/:prodId', null);
   public static readonly LOGIN: RouteConfig = new RouteConfig('login', null);
   public static readonly PRIVACY_POLICY: RouteConfig = new RouteConfig('privacy-policy', null);
+  public static readonly ADMIN_PANEL: RouteConfig = new RouteConfig('admin-panel', null);
 }

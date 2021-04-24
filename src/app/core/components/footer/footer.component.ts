@@ -11,6 +11,7 @@ import {UserService} from '../../user/user.service';
 import {UserModel} from '../../user/user.model';
 import {RouteNavigator} from '../../routing/route-navigator.service';
 import {LoaderService} from '../../../shared/components/loader/loader.service';
+import {UserRole} from '../../user/user.role';
 
 @Component({
   selector: 'app-footer',
@@ -27,6 +28,7 @@ export class FooterComponent implements OnInit {
   routeUtils = RouteUtils;
   contactInfo?: ContactInfoModel;
   user!: UserModel;
+  isAdmin!: boolean;
 
   constructor(public translator: TranslatorService,
               private categoryService: ProductCategoryService,
@@ -40,6 +42,7 @@ export class FooterComponent implements OnInit {
     this.categoryService.getCategories().subscribe(value => this.categories = value);
     this.contactInfoService.getContactInfo().subscribe(value => this.contactInfo = value);
     this.userService.getUser().subscribe(value => this.user = value);
+    this.userService.hasRole(UserRole.ROLE_ADMIN).subscribe(value => this.isAdmin = value);
   }
 
   updateLanguage(lang: string): void {

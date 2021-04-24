@@ -45,5 +45,6 @@
   "invalidPassword": "Wrong password",
   "logout": "Logout",
   "call.via.whatsapp": "Call via Whatsapp",
-  "specifications": "Specifications"
+  "specifications": "Specifications",
+  "admin.panel": "Admin panel"
 }

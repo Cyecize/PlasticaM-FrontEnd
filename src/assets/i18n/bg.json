@@ -45,5 +45,6 @@
   "invalidPassword": "Грешна парола",
   "logout": "Изход",
   "call.via.whatsapp": "Обадете се сега",
-  "specifications": "Спецификация"
+  "specifications": "Спецификация",
+  "admin.panel": "Администраторски панел"
 }
