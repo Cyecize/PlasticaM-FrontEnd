@@ -12,6 +12,8 @@ import {Endpoints} from '../../shared/http/endpoints';
 import {LoginModel} from './login.model';
 import {AuthTokenModel} from './auth-token.model';
 import {HttpClientSecuredService} from '../../shared/http/http-client-secured.service';
+import {UserRole} from './user.role';
+import {map} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class UserService {
@@ -32,6 +34,10 @@ export class UserService {
     }
 
     return this.currentUserEvent;
+  }
+
+  public hasRole(role: UserRole): Observable<boolean> {
+    return this.getUser().pipe(map(value => value?.roles?.includes(role)));
   }
 
   public async login(loginModel: LoginModel): Promise<FieldError[]> {
