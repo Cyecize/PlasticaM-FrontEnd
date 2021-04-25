@@ -46,5 +46,10 @@
   "logout": "Logout",
   "call.via.whatsapp": "Call via Whatsapp",
   "specifications": "Specifications",
-  "admin.panel": "Admin panel"
+  "admin.panel": "Admin panel",
+  "add.new": "Add new",
+  "show.all": "Show all",
+  "edit": "Edit",
+  "categories": "Categories",
+  "home.carousel": "Home carousel"
 }

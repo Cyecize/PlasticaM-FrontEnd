@@ -1,0 +1,33 @@
+@import "~bootstrap/scss/functions";
+@import "functions";
+@import "variables";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "mixins";
+
+/* sidebar */
+.sidebar-section {
+
+}
+
+.sidebar-background {
+  background: #ededed;
+  background: linear-gradient(to right, #ededed, rgba(0, 0, 0, 0));
+}
+
+.sidebar-item {
+  padding: 5px;
+
+  li {
+    padding: 3px;
+  }
+}
+
+.link-active {
+  background: $primary;
+  border-radius: 5px;
+
+  a {
+    color: $white;
+  }
+}
