@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ObjectUtils} from '../../util/object-utils';
 import {ContactInfoModel} from '../../../core/contact-info/contact-info.model';
 import {ContactInfoService} from '../../../core/contact-info/contact-info.service';
 import {QuestionService} from '../../../core/question/question.service';
@@ -31,9 +30,6 @@ export class ContactsSectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (!ObjectUtils.isNil(this.topic)) {
-      this.isMailFormVisible = true;
-    }
     this.contactInfoService.getContactInfo().subscribe(value => this.contactInfo = value);
   }
 
