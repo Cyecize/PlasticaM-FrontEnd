@@ -58,6 +58,7 @@ export class ProductDetailsComponent implements OnInit {
         this.loader.hide();
       });
     });
+    this.translator.onTranslationChange(() => this.initBreadcrumb(this.product));
   }
 
   private initBreadcrumb(product: ProductModel | null): void {
