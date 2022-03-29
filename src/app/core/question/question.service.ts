@@ -15,7 +15,7 @@ export class QuestionService {
     const result: FieldError[] | any =
       await new FieldErrorWrapper(() => this.http.post(Endpoints.QUESTION, question)).execute();
 
-    if (result.hasOwnProperty('message')) {
+    if (result.hasOwnProperty('response') && result.response.hasOwnProperty('message')) {
       return [];
     }
 

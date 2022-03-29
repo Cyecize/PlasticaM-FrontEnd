@@ -34,8 +34,8 @@
             <span *ngFor="let item of [].constructor(products?.pages), let i = index"
                   class="swiper-pagination-bullet"
                   style="margin: 10px"
-                  (click)="onPageChanged(i + 1)"
-                  [ngClass]="i + 1 === products?.pageable?.page ? 'swiper-pagination-bullet-active' : ''"></span>
+                  (click)="onPageChanged(i)"
+                  [ngClass]="i === products?.pageable?.page ? 'swiper-pagination-bullet-active' : ''"></span>
             </div>
           </div>
         </div>

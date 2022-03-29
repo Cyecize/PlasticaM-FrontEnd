@@ -56,11 +56,11 @@ export class ProductsComponent implements OnInit {
 
   public async fetchData(isPageChange: boolean): Promise<void> {
     if (!this.query.page) {
-      this.query.page = {page: 1, size: 6};
+      this.query.page = {page: 0, size: 6};
     }
 
     if (!isPageChange) {
-      this.query.page.page = 1;
+      this.query.page.page = 0;
     }
 
     this.initBreadcrumb();
