@@ -63,6 +63,12 @@
             </div>
           </div>
         </div>
+        <div class="widget" *ngFor="let specificationType of specificationTypes.elements">
+          <div class="widget-title h5">{{ translator.getSpecificationTitle(specificationType) }}</div>
+          <div class="widget-body">
+            <p>le bodi</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

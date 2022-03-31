@@ -8,6 +8,7 @@ import {Observable} from 'rxjs';
 import {ProductModel, ProductSpecificationModel} from '../product/product.model';
 import {ObjectUtils} from '../../shared/util/object-utils';
 import {HomeCarouselModel} from '../home-carousel/home-carousel.model';
+import {SpecificationTypeModel} from '../product/productspec/specification-type.model';
 
 @Injectable({providedIn: 'root'})
 export class TranslatorService {
@@ -93,7 +94,7 @@ export class TranslatorService {
     }
   }
 
-  public getSpecificationTitle(specification: ProductSpecificationModel): string {
+  public getSpecificationTitle(specification: ProductSpecificationModel | SpecificationTypeModel): string {
     switch (this.getCurrentLang()) {
       case Locale.BG:
         return specification.titleBg;

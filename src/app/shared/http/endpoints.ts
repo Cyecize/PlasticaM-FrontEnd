@@ -16,4 +16,6 @@ export class Endpoints {
   public static readonly LOGOUT = '/logout';
 
   public static readonly USER_DETAILS = '/user-details';
+
+  public static readonly SPECIFICATION_TYPES  = '/specification_types';
 }

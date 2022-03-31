@@ -3,12 +3,14 @@ import {ProductCategoryService} from '../../../../core/product-category/product.
 import {ProductCategory} from '../../../../core/product-category/product.category.model';
 import {ProductModel} from '../../../../core/product/product.model';
 import {ProductQuery} from '../../../../core/product/product.query';
-import {Page} from '../../../../shared/util/page';
+import {EmptyPage, Page} from '../../../../shared/util/page';
 import {TranslatorService} from '../../../../core/translate/translator.service';
 import {Router} from '@angular/router';
 import {AppRoutingPath} from '../../../../app-routing.path';
 import {Location} from '@angular/common';
 import {SORT_OPTIONS} from '../../sort-options';
+import {SpecificationTypeService} from '../../../../core/product/productspec/specification-type.service';
+import {SpecificationTypeModel} from '../../../../core/product/productspec/specification-type.model';
 
 @Component({
   selector: 'app-product-catalog',
@@ -20,6 +22,8 @@ export class ProductCatalogComponent implements OnInit {
   private _selectedValue = 0;
 
   categories: ProductCategory[] = [];
+
+  specificationTypes: Page<SpecificationTypeModel> = new EmptyPage();
 
   @Input()
   query!: ProductQuery;
@@ -43,13 +47,16 @@ export class ProductCatalogComponent implements OnInit {
   constructor(private categoryService: ProductCategoryService,
               public translator: TranslatorService,
               private router: Router,
-              private location: Location) {
+              private location: Location,
+              private specificationTypeService: SpecificationTypeService) {
   }
 
   ngOnInit(): void {
     this.categoryService.getCategories().subscribe(value => {
       this.categories = value;
     });
+    this.specificationTypeService.specificationTypes$.subscribe(value => this.specificationTypes = value);
+    this.loadSpecificationTypes();
   }
 
   onCategoryFilter(id: number): void {
@@ -62,6 +69,8 @@ export class ProductCatalogComponent implements OnInit {
     if (this.router.url !== AppRoutingPath.PRODUCTS.absolutePath) {
       this.location.replaceState(AppRoutingPath.PRODUCTS.absolutePath);
     }
+
+    this.loadSpecificationTypes();
 
     this.filtersUpdated.emit();
   }
@@ -85,5 +94,13 @@ export class ProductCatalogComponent implements OnInit {
     // @ts-ignore
     this.query.page?.page = page;
     this.filtersUpdated.emit(true);
+  }
+
+  loadSpecificationTypes(): void {
+    if (!this.query.categoryIds) {
+      return;
+    }
+
+    this.specificationTypeService.loadSpecificationTypes({categoryIds: this.query.categoryIds, page: {page: 0, size: 100000}});
   }
 }
