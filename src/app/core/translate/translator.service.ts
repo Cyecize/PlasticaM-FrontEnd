@@ -5,10 +5,11 @@ import {ProductCategory} from '../product-category/product.category.model';
 import {CookieService} from 'ngx-cookie-service';
 import {COOKIE_LANG_NAME} from '../general.constants';
 import {Observable} from 'rxjs';
-import {ProductModel, ProductSpecificationModel} from '../product/product.model';
+import {ProductModel} from '../product/product.model';
 import {ObjectUtils} from '../../shared/util/object-utils';
 import {HomeCarouselModel} from '../home-carousel/home-carousel.model';
 import {SpecificationTypeModel} from '../product/productspec/specification-type.model';
+import {ProductSpecificationDetailedModel, ProductSpecificationModel} from '../product/productspec/product-specification.model';
 
 @Injectable({providedIn: 'root'})
 export class TranslatorService {
@@ -94,7 +95,7 @@ export class TranslatorService {
     }
   }
 
-  public getSpecificationTitle(specification: ProductSpecificationModel | SpecificationTypeModel): string {
+  public getSpecificationTitle(specification: ProductSpecificationDetailedModel | SpecificationTypeModel): string {
     switch (this.getCurrentLang()) {
       case Locale.BG:
         return specification.titleBg;

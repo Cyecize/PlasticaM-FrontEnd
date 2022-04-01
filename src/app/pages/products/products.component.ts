@@ -22,7 +22,7 @@ import {TranslatorService} from '../../core/translate/translator.service';
 export class ProductsComponent implements OnInit {
 
   products!: Page<ProductModel>;
-  query: ProductQuery = {categoryIds: [], sort: SORT_OPTIONS[0].sortQuery};
+  query: ProductQuery = {categoryIds: [], sort: SORT_OPTIONS[0].sortQuery, specifications: []};
   breadcrumbItems: BreadcrumbModel[] = [];
   private categories: ProductCategory[] = [];
 

@@ -1,3 +1,5 @@
+import {ProductSpecificationDetailedModel} from './productspec/product-specification.model';
+
 export interface ProductModel {
   id: number;
   categoryId: number;
@@ -10,14 +12,5 @@ export interface ProductModel {
   imageUrl: string;
   imageGallery: string[];
   tags: string[];
-  specifications: ProductSpecificationModel[];
-}
-
-export interface ProductSpecificationModel {
-  id: number;
-  productId: number;
-  titleBg: string;
-  titleEn: string;
-  valueBg: string;
-  valueEn: string;
+  specifications: ProductSpecificationDetailedModel[];
 }

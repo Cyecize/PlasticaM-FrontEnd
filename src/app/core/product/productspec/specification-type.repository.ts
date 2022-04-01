@@ -14,6 +14,6 @@ export class SpecificationTypeRepository {
   }
 
   public search(query: SpecificationTypeQuery): Observable<Page<SpecificationTypeModel>> {
-    return this.http.post<SpecificationTypeQuery, Page<SpecificationTypeModel>>(Endpoints.SPECIFICATION_TYPES, query);
+    return this.http.post<SpecificationTypeQuery, Page<SpecificationTypeModel>>(Endpoints.SPECIFICATION_TYPES_SEARCH, query);
   }
 }

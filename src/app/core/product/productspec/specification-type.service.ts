@@ -15,11 +15,12 @@ export class SpecificationTypeService {
   constructor(private repository: SpecificationTypeRepository) {
   }
 
-  public loadSpecificationTypes(query: SpecificationTypeQuery): void {
-    if (!query.categoryIds) {
+  public async loadSpecificationTypes(query: SpecificationTypeQuery): Promise<void> {
+    if (!query.categoryIds || !query.categoryIds.length) {
       return;
     }
 
-    this.repository.search(query).subscribe(value => this.specificationTypes.next(value));
+    const result = await this.repository.search(query).toPromise();
+    this.specificationTypes.next(result);
   }
 }

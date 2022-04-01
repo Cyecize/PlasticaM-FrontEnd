@@ -11,6 +11,8 @@ import {Location} from '@angular/common';
 import {SORT_OPTIONS} from '../../sort-options';
 import {SpecificationTypeService} from '../../../../core/product/productspec/specification-type.service';
 import {SpecificationTypeModel} from '../../../../core/product/productspec/specification-type.model';
+import {ProductSpecificationModel} from '../../../../core/product/productspec/product-specification.model';
+import {ProductSpecificationService} from '../../../../core/product/productspec/product-specification.service';
 
 @Component({
   selector: 'app-product-catalog',
@@ -24,6 +26,7 @@ export class ProductCatalogComponent implements OnInit {
   categories: ProductCategory[] = [];
 
   specificationTypes: Page<SpecificationTypeModel> = new EmptyPage();
+  specifications: Map<number, ProductSpecificationModel[]> = new Map<number, ProductSpecificationModel[]>();
 
   @Input()
   query!: ProductQuery;
@@ -48,15 +51,18 @@ export class ProductCatalogComponent implements OnInit {
               public translator: TranslatorService,
               private router: Router,
               private location: Location,
-              private specificationTypeService: SpecificationTypeService) {
+              private specificationTypeService: SpecificationTypeService,
+              private productSpecificationService: ProductSpecificationService) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.categoryService.getCategories().subscribe(value => {
       this.categories = value;
     });
     this.specificationTypeService.specificationTypes$.subscribe(value => this.specificationTypes = value);
-    this.loadSpecificationTypes();
+    this.productSpecificationService.specifications$.subscribe(value => this.setSpecifications(value));
+    await this.loadSpecificationTypes();
+    this.loadSpecifications();
   }
 
   onCategoryFilter(id: number): void {
@@ -71,6 +77,16 @@ export class ProductCatalogComponent implements OnInit {
     }
 
     this.loadSpecificationTypes();
+
+    this.filtersUpdated.emit();
+  }
+
+  onSpecificationFilter(id: number): void {
+    if (this.query.specifications.includes(id)) {
+      this.query.specifications = this.query.specifications.filter(spec => spec !== id);
+    } else {
+      this.query.specifications.push(id);
+    }
 
     this.filtersUpdated.emit();
   }
@@ -96,11 +112,34 @@ export class ProductCatalogComponent implements OnInit {
     this.filtersUpdated.emit(true);
   }
 
-  loadSpecificationTypes(): void {
+  private async loadSpecificationTypes(): Promise<void> {
     if (!this.query.categoryIds) {
       return;
     }
 
-    this.specificationTypeService.loadSpecificationTypes({categoryIds: this.query.categoryIds, page: {page: 0, size: 100000}});
+
+    await this.specificationTypeService.loadSpecificationTypes({categoryIds: this.query.categoryIds, page: {page: 0, size: 100000}});
+    this.loadSpecifications();
+  }
+
+  private loadSpecifications(): void {
+    if (!this.specificationTypes.elements.length) {
+      return;
+    }
+
+    this.productSpecificationService.searchSpecifications({
+      specificationTypeIds: this.specificationTypes.elements.map(value => value.id)
+    });
+  }
+
+  private setSpecifications(specs: Map<number, ProductSpecificationModel[]>): void {
+    const allSpecs: number[] = [];
+    for (const key of specs.keys()) {
+      // @ts-ignore
+      allSpecs.push(...specs.get(key).map(spec => spec.id));
+    }
+
+    this.query.specifications = this.query.specifications.filter(specId => allSpecs.includes(specId));
+    this.specifications = specs;
   }
 }

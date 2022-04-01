@@ -17,5 +17,7 @@ export class Endpoints {
 
   public static readonly USER_DETAILS = '/user-details';
 
-  public static readonly SPECIFICATION_TYPES  = '/specification_types';
+  public static readonly SPECIFICATION_TYPES_SEARCH  = '/specification_types/search';
+
+  public static readonly PRODUCT_SPECS_SEARCH  = '/product_specifications/search';
 }

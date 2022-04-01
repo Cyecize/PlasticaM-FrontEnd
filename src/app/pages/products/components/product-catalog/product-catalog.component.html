@@ -65,8 +65,18 @@
         </div>
         <div class="widget" *ngFor="let specificationType of specificationTypes.elements">
           <div class="widget-title h5">{{ translator.getSpecificationTitle(specificationType) }}</div>
-          <div class="widget-body">
-            <p>le bodi</p>
+          <div class="widget-body" *ngIf="specifications.has(specificationType.id)">
+            <div *ngFor="let spec of specifications.get(specificationType.id)" class="custom-control custom-checkbox">
+              <input class="custom-control-input"
+                     type="checkbox"
+                     id="spec__{{spec.id}}"
+                     [checked]="query.specifications.includes(spec.id)"
+                     (click)="onSpecificationFilter(spec.id)"
+                     name="cartFilter1">
+              <label class="custom-control-label" for="spec__{{spec.id}}">
+                <span class="custom-control-text">{{ translator.getSpecificationValue(spec) }}</span>
+              </label>
+            </div>
           </div>
         </div>
       </div>
