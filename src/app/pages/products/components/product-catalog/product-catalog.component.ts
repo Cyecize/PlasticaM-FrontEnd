@@ -65,7 +65,7 @@ export class ProductCatalogComponent implements OnInit {
     this.loadSpecifications();
   }
 
-  onCategoryFilter(id: number): void {
+  async onCategoryFilter(id: number): Promise<void> {
     if (this.query.categoryIds?.includes(id)) {
       this.query.categoryIds = this.query.categoryIds.filter(catId => catId !== id);
     } else {
@@ -76,7 +76,7 @@ export class ProductCatalogComponent implements OnInit {
       this.location.replaceState(AppRoutingPath.PRODUCTS.absolutePath);
     }
 
-    this.loadSpecificationTypes();
+    await this.loadSpecificationTypes();
 
     this.filtersUpdated.emit();
   }
@@ -119,15 +119,15 @@ export class ProductCatalogComponent implements OnInit {
 
 
     await this.specificationTypeService.loadSpecificationTypes({categoryIds: this.query.categoryIds, page: {page: 0, size: 100000}});
-    this.loadSpecifications();
+    await this.loadSpecifications();
   }
 
-  private loadSpecifications(): void {
+  private async loadSpecifications(): Promise<void> {
     if (!this.specificationTypes.elements.length) {
       return;
     }
 
-    this.productSpecificationService.searchSpecifications({
+    await this.productSpecificationService.searchSpecifications({
       specificationTypeIds: this.specificationTypes.elements.map(value => value.id)
     });
   }

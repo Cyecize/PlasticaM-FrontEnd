@@ -14,17 +14,16 @@ export class ProductSpecificationService {
   constructor(private repository: ProductSpecificationRepository) {
   }
 
-  public searchSpecifications(query: ProductSpecificationQuery): void {
+  public async searchSpecifications(query: ProductSpecificationQuery): Promise<void> {
     if (!query.specificationTypeIds || !query.specificationTypeIds.length) {
       return;
     }
 
-    this.repository.search(query).subscribe(value => {
-      const map = new Map<number, ProductSpecificationModel[]>();
+    const result = await this.repository.search(query).toPromise();
+    const map = new Map<number, ProductSpecificationModel[]>();
 
-      // @ts-ignore
-      Object.keys(value).forEach(id => map.set(Number(id), value[id]));
-      this.specifications.next(map);
-    });
+    // @ts-ignore
+    Object.keys(result).forEach(id => map.set(Number(id), result[id]));
+    this.specifications.next(map);
   }
 }
