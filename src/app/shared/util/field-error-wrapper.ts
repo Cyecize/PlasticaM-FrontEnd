@@ -16,7 +16,7 @@ export class FieldErrorWrapper {
       } else {
         return [{
           message: 'Something Went Wrong',
-          propertyPath: ''
+          fieldName: ''
         }];
       }
     }
