@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AppRoutingPath} from '../../../app-routing.path';
 
 @Component({
   selector: 'app-admin-base',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminBaseComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
+
+  routes = AppRoutingPath;
 
   ngOnInit(): void {
   }

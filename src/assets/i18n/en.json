@@ -51,5 +51,15 @@
   "show.all": "Show all",
   "edit": "Edit",
   "categories": "Categories",
-  "home.carousel": "Home carousel"
+  "home.carousel": "Home carousel",
+  "skip": "Skip",
+  "product": "Product",
+  "save": "Save",
+  "link": "Link",
+  "choose.this.or.product": "Choose this or select product",
+  "custom.link.same.page": "Link leads to this website",
+  "visible": "Visible",
+  "order": "Order",
+  "image": "Image",
+  "invalidFileSize": "Invalid file size"
 }

@@ -3,7 +3,7 @@
     <div class="title-1" appTranslate="admin.panel"></div>
     <div class="row">
       <div class="col-md-8">
-        <router-outlet>Select an option from the right</router-outlet>
+        <router-outlet></router-outlet>
       </div>
       <div class="col-md-4 sidebar-section rounded sidebar-background">
         <section class="sidebar-item">
@@ -34,7 +34,7 @@
           <h4 appTranslate="home.carousel"></h4>
           <ul>
             <li routerLinkActive="link-active">
-              <a href="/admin/receipt/create" appTranslate="add.new"></a>
+              <a [routerLink]="routes.ADD_HOME_CAROUSEL.toString()" appTranslate="add.new"></a>
             </li>
             <li routerLinkActive="link-active">
               <a href="/admin/recipes/browse" appTranslate="show.all"></a>

@@ -1,0 +1,99 @@
+<div class="box box-form-1">
+  <div class="box-header">
+    <h3 class="box-title">{{'home.carousel'|appTranslate}} : {{'add.new'|appTranslate}}</h3>
+  </div>
+  <div class="box-body">
+    <app-field-error [errors]="errors" fieldName=""></app-field-error>
+    <div class="form-group">
+      <label class="form-label" for="image">{{'image' | appTranslate}}</label>
+      <div class="form-control-wrap">
+        <input class="form-control" type="file" id="image" (change)="handleImageUpload($event)">
+        <app-field-error [errors]="errors" fieldName="image"></app-field-error>
+        <app-field-error [errors]="errors" fieldName="base64"></app-field-error>
+        <app-field-error [errors]="errors" fieldName="contentType"></app-field-error>
+        <app-field-error [errors]="errors" fieldName="fileName"></app-field-error>
+      </div>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onFormSubmit()" class="rd-form">
+      <div class="form-group">
+        <label class="form-label" for="productId">{{'product' | appTranslate}}</label>
+        <div class="form-control-wrap">
+          <input
+            (keyup)="searchProducts($event)"
+            list="prodList"
+            id="productId"
+            class="form-control"
+            formControlName="productId"
+            placeholder="-- {{'skip'|appTranslate}} --">
+          <datalist id="prodList">
+            <option *ngFor="let prod of productPage.elements" [value]="prod.id">{{prod.name}}</option>
+          </datalist>
+          <app-field-error [errors]="errors" fieldName="productId"></app-field-error>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="customLink">{{'link' | appTranslate}}</label>
+        <div class="form-control-wrap">
+          <input class="form-control" id="customLink"
+                 type="text"
+                 formControlName="customLink"
+                 placeholder="{{'choose.this.or.product'|appTranslate}}">
+          <app-field-error [errors]="errors" fieldName="customLink"></app-field-error>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="customLinkSamePage">{{'custom.link.same.page' | appTranslate}}</label>
+        <div class="form-control-wrap">
+          <div class="custom-control custom-checkbox">
+            <input id="customLinkSamePage" type="checkbox" formControlName="customLinkSamePage">
+          </div>
+          <app-field-error [errors]="errors" fieldName="customLinkSamePage"></app-field-error>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="textBg">{{'description' | appTranslate}}: {{'bg'|appTranslate}}</label>
+        <div class="form-control-wrap">
+          <input class="form-control" id="textBg"
+                 type="text"
+                 formControlName="textBg"
+                 placeholder="{{'required.field' | appTranslate}}">
+          <app-field-error [errors]="errors" fieldName="textBg"></app-field-error>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="textEn">{{'description' | appTranslate}}: {{'en'|appTranslate}}</label>
+        <div class="form-control-wrap">
+          <input class="form-control" id="textEn"
+                 type="text"
+                 formControlName="textEn"
+                 placeholder="{{'required.field' | appTranslate}}">
+          <app-field-error [errors]="errors" fieldName="textEn"></app-field-error>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="orderNumber">{{'order' | appTranslate}}</label>
+        <div class="form-control-wrap">
+          <input class="form-control" id="orderNumber"
+                 type="number"
+                 formControlName="orderNumber"
+                 placeholder="{{'required.field' | appTranslate}}">
+          <app-field-error [errors]="errors" fieldName="orderNumber"></app-field-error>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="enabled">{{'visible' | appTranslate}}</label>
+        <div class="form-control-wrap">
+          <div class="custom-control custom-checkbox">
+            <input id="enabled" type="checkbox" formControlName="enabled">
+          </div>
+          <app-field-error [errors]="errors" fieldName="enabled"></app-field-error>
+        </div>
+      </div>
+      <div class="rd-form-btn text-left">
+        <button [disabled]="!form.valid"
+                class="btn btn-lg btn-primary"
+                type="submit">{{'save' | appTranslate}}</button>
+      </div>
+    </form>
+  </div>
+</div>

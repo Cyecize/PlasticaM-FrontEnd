@@ -65,6 +65,10 @@ textarea {
 
 .form-control-wrap {
 	position: relative;
+
+  .ng-invalid {
+    border-bottom-color: darkred;
+  }
 }
 
 .form-control {

@@ -15,7 +15,7 @@ export class FieldErrorWrapper {
         return (err.error as FieldError[]);
       } else {
         return [{
-          message: 'Something Went Wrong',
+          message: err.error?.message || 'Something Went Wrong',
           fieldName: ''
         }];
       }
