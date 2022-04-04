@@ -23,7 +23,7 @@ export class AuthInterceptor implements HttpInterceptor {
             return;
           }
 
-          this.cookieService.set(COOKIE_AUTH_TOKEN_NAME, '');
+          this.cookieService.set(COOKIE_AUTH_TOKEN_NAME, '', undefined, '/');
           this.nav.navigate(AppRoutingPath.LOGIN);
         }
       }));

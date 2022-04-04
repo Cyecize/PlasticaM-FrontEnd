@@ -34,7 +34,7 @@ export class TranslatorService {
   public updateLanguage(lang: Locale | any): boolean {
     if (Object.values(Locale).includes(lang)) {
       this.translate.setDefaultLang(lang);
-      this.cookieService.set(COOKIE_LANG_NAME, lang);
+      this.cookieService.set(COOKIE_LANG_NAME, lang, undefined, '/');
       return true;
     }
 

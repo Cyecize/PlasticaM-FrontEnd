@@ -45,7 +45,7 @@ export class UserService {
 
     if (result.hasOwnProperty('lastAccessDate')) {
       const token: AuthTokenModel = result as AuthTokenModel;
-      this.cookieService.set(COOKIE_AUTH_TOKEN_NAME, token.id);
+      this.cookieService.set(COOKIE_AUTH_TOKEN_NAME, token.id, undefined, '/');
       this.tryGetUser();
       return [];
     }
@@ -55,7 +55,7 @@ export class UserService {
 
   public async logout(): Promise<void> {
     await this.authenticatedHttp.post(Endpoints.LOGOUT, {}).toPromise();
-    this.cookieService.set(COOKIE_AUTH_TOKEN_NAME, '');
+    this.cookieService.set(COOKIE_AUTH_TOKEN_NAME, '', undefined, '/');
     this.currentUser = undefined;
     this.currentUserEvent.emit();
   }
