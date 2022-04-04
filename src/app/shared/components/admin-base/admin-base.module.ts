@@ -17,7 +17,12 @@ const routes: Routes = [
         path: AppRoutingPath.ADD_HOME_CAROUSEL.path,
         loadChildren: () => import('../../../pages/home-carousel/create-home-carousel/create-home-carousel.module')
           .then(m => m.CreateHomeCarouselModule)
-      }
+      },
+      {
+        path: AppRoutingPath.ADD_CATEGORY.path,
+        loadChildren: () => import('../../../pages/category/create-category/create-category.module')
+          .then(m => m.CreateCategoryModule)
+      },
     ]
   },
 ];

@@ -61,5 +61,8 @@
   "visible": "Видим",
   "order": "Ред",
   "image": "Изображение",
-  "invalidFileSize": "Файла е твърде голям"
+  "invalidFileSize": "Файла е твърде голям",
+  "name": "Име",
+  "tooManyTags": "Твърде много тагове",
+  "tags": "Тагове"
 }

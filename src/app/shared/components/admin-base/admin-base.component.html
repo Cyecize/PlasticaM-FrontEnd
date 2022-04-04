@@ -22,7 +22,7 @@
           <h4 appTranslate="categories"></h4>
           <ul>
             <li routerLinkActive="link-active">
-              <a href="/admin/receipt/create" appTranslate="add.new"></a>
+              <a [routerLink]="routes.ADD_CATEGORY.toString()" appTranslate="add.new"></a>
             </li>
             <li routerLinkActive="link-active">
               <a href="/admin/recipes/browse" appTranslate="show.all"></a>

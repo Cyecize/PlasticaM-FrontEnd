@@ -1,0 +1,67 @@
+<div class="box box-form-1">
+  <div class="box-header">
+    <h3 class="box-title">{{'category'|appTranslate}} : {{'add.new'|appTranslate}}</h3>
+  </div>
+  <div class="box-body">
+    <app-field-error [errors]="errors" fieldName=""></app-field-error>
+    <div class="form-group">
+      <label class="form-label" for="image">{{'image' | appTranslate}}</label>
+      <div class="form-control-wrap">
+        <input class="form-control" type="file" id="image" (change)="handleImageUpload($event)">
+        <app-field-error [errors]="errors" fieldName="image"></app-field-error>
+        <app-field-error [errors]="errors" fieldName="base64"></app-field-error>
+        <app-field-error [errors]="errors" fieldName="contentType"></app-field-error>
+        <app-field-error [errors]="errors" fieldName="fileName"></app-field-error>
+      </div>
+    </div>
+    <form #ngForm [formGroup]="form" class="rd-form">
+      <div class="form-group">
+        <label class="form-label" for="nameBg">{{'name' | appTranslate}}: {{'bg'|appTranslate}}</label>
+        <div class="form-control-wrap">
+          <input class="form-control" id="nameBg"
+                 type="text"
+                 formControlName="nameBg"
+                 placeholder="{{'required.field' | appTranslate}}">
+          <app-field-error [errors]="errors" fieldName="nameBg"></app-field-error>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="nameEn">{{'name' | appTranslate}}: {{'en'|appTranslate}}</label>
+        <div class="form-control-wrap">
+          <input class="form-control" id="nameEn"
+                 type="text"
+                 formControlName="nameEn"
+                 placeholder="{{'required.field' | appTranslate}}">
+          <app-field-error [errors]="errors" fieldName="nameEn"></app-field-error>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="productId">{{'tags' | appTranslate}}</label>
+        <div class="form-control-wrap">
+          <input
+            (change)="addTag($event)"
+            [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="tagInput"
+            list="prodList"
+            id="productId"
+            class="form-control"
+            placeholder="-- {{'skip'|appTranslate}} --">
+          <datalist id="prodList">
+            <option *ngFor="let tag of tagsPage.elements" [value]="tag"></option>
+          </datalist>
+          <div>
+            <span class="m-1" *ngFor="let tag of selectedTags">
+              {{tag}} <i (click)="removeTag(tag)" class="fa fa-times" aria-hidden="true"></i>
+            </span>
+          </div>
+          <app-field-error [errors]="errors" fieldName="tagNames"></app-field-error>
+        </div>
+      </div>
+      <div class="rd-form-btn text-left">
+        <button [disabled]="!form.valid" class="btn btn-lg btn-primary" type="button" (click)="onFormSubmit()">
+          {{'save' | appTranslate}}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

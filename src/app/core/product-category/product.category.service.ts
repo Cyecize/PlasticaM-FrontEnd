@@ -3,6 +3,9 @@ import {Observable} from 'rxjs';
 import {ProductCategory} from './product.category.model';
 import {ProductCategoryRepository} from './product-category.repository';
 import {ObjectUtils} from '../../shared/util/object-utils';
+import {CreateProductCategoryModel} from './create-product-category.model';
+import {FieldError} from '../../shared/field-error/field-error';
+import {FieldErrorWrapper} from '../../shared/util/field-error-wrapper';
 
 @Injectable({providedIn: 'root'})
 export class ProductCategoryService {
@@ -23,5 +26,14 @@ export class ProductCategoryService {
     }
 
     return this.categoriesEvent;
+  }
+
+  public async createCategory(data: CreateProductCategoryModel): Promise<FieldError[]> {
+    const res = await new FieldErrorWrapper(() => this.repository.post(data)).execute<ProductCategory>();
+    if (res.hasOwnProperty('id')) {
+      return [];
+    }
+
+    return res as FieldError[];
   }
 }

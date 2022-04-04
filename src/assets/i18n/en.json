@@ -61,5 +61,8 @@
   "visible": "Visible",
   "order": "Order",
   "image": "Image",
-  "invalidFileSize": "Invalid file size"
+  "invalidFileSize": "Invalid file size",
+  "name": "Name",
+  "tooManyTags": "Too many tags",
+  "tags": "Tags"
 }
