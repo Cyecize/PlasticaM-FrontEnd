@@ -13,4 +13,5 @@ export class AppRoutingPath {
   public static readonly ADMIN_PANEL: RouteConfig = new RouteConfig('admin-panel', null);
   public static readonly ADD_HOME_CAROUSEL: RouteConfig = new RouteConfig('home-carousel/create', AppRoutingPath.ADMIN_PANEL);
   public static readonly ADD_CATEGORY: RouteConfig = new RouteConfig('category/create', AppRoutingPath.ADMIN_PANEL);
+  public static readonly ADD_PRODUCT: RouteConfig = new RouteConfig('product/create', AppRoutingPath.ADMIN_PANEL);
 }

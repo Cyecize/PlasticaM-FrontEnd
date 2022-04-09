@@ -23,6 +23,11 @@ const routes: Routes = [
         loadChildren: () => import('../../../pages/category/create-category/create-category.module')
           .then(m => m.CreateCategoryModule)
       },
+      {
+        path: AppRoutingPath.ADD_PRODUCT.path,
+        loadChildren: () => import('../../../pages/product/create-product/create-product.module')
+          .then(m => m.CreateProductModule)
+      },
     ]
   },
 ];
