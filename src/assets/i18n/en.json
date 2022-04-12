@@ -64,5 +64,11 @@
   "invalidFileSize": "Invalid file size",
   "name": "Name",
   "tooManyTags": "Too many tags",
-  "tags": "Tags"
+  "tags": "Tags",
+  "price": "Price",
+  "gallery": "Gallery",
+  "enter.value": "Enter value",
+  "type": "Type",
+  "value": "Value",
+  "new.value": "New Value"
 }
