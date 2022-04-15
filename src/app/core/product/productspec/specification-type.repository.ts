@@ -5,15 +5,25 @@ import {Observable} from 'rxjs';
 import {Page} from '../../../shared/util/page';
 import {SpecificationTypeModel} from './specification-type.model';
 import {Endpoints} from '../../../shared/http/endpoints';
+import {HttpClientSecuredService} from '../../../shared/http/http-client-secured.service';
+import {SpecificationCategoryModel} from './specification-category.model';
+import {RouteUtils} from '../../routing/route-utils';
 
 @Injectable({providedIn: 'root'})
 export class SpecificationTypeRepository {
 
-  constructor(private http: HttpClientService) {
+  constructor(private http: HttpClientService,
+              private httpSecure: HttpClientSecuredService) {
 
   }
 
   public search(query: SpecificationTypeQuery): Observable<Page<SpecificationTypeModel>> {
     return this.http.post<SpecificationTypeQuery, Page<SpecificationTypeModel>>(Endpoints.SPECIFICATION_TYPES_SEARCH, query);
+  }
+
+  public assign(data: SpecificationCategoryModel): Observable<any> {
+    return this.httpSecure.put(RouteUtils.setPathParams(
+      Endpoints.SPECIFICATION_CATEGORY, [data.specificationTypeId, data.categoryId]
+    ), {});
   }
 }

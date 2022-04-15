@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {SpecificationTypeRepository} from './specification-type.repository';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {EmptyPage, Page} from '../../../shared/util/page';
 import {SpecificationTypeModel} from './specification-type.model';
 import {SpecificationTypeQuery} from './specification-type.query';
+import {SpecificationCategoryModel} from './specification-category.model';
 
 @Injectable({providedIn: 'root'})
 export class SpecificationTypeService {
@@ -22,5 +23,13 @@ export class SpecificationTypeService {
 
     const result = await this.repository.search(query).toPromise();
     this.specificationTypes.next(result);
+  }
+
+  public search(query: SpecificationTypeQuery): Observable<Page<SpecificationTypeModel>> {
+    return this.repository.search(query);
+  }
+
+  async assignSpecificationToCategory(data: SpecificationCategoryModel): Promise<void> {
+    await this.repository.assign(data).toPromise();
   }
 }

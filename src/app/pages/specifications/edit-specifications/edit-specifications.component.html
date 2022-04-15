@@ -1,0 +1,58 @@
+<app-field-error [errors]="errors" fieldName=""></app-field-error>
+<div class="box box-form-1">
+  <div class="box-header">
+    <p class="title-2 text-light" appTranslate="assign.specifications"></p>
+  </div>
+  <div class="box-body">
+    <div class="form-group">
+      <form [formGroup]="assignForm" class="rd-form" (ngSubmit)="onFormSubmitAssign()">
+        <div class="form-group">
+          <label class="form-label" for="category">{{'category' | appTranslate}}</label>
+          <div class="form-control-wrap">
+            <select #specTypeSelect
+                    id="category"
+                    (change)="categorySelected()"
+                    class="form-control"
+                    formControlName="categoryId">
+              <option selected disabled value="">--- {{'required.field' | appTranslate}} ---</option>
+              <option *ngFor="let cat of categories" [value]="cat.id">{{translatorService.getCategoryName(cat)}}</option>
+            </select>
+            <app-field-error [errors]="errors" fieldName="category"></app-field-error>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="specificationType">{{'specification' | appTranslate}}</label>
+          <div class="form-control-wrap">
+            <select
+                    id="specificationType"
+                    class="form-control"
+                    formControlName="specificationTypeId">
+              <option selected disabled value="">--- {{'required.field' | appTranslate}} ---</option>
+              <option *ngFor="let spec of getUnassignedSpecifications()"
+                      [value]="spec.id">{{translatorService.getSpecificationTitle(spec)}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <button [disabled]="!assignForm.valid" type="submit" class="btn btn-primary" appTranslate="add.new"></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="box box-form-1">
+  <div class="box-header">
+    <p class="title-2 text-light" appTranslate="new.value"></p>
+  </div>
+  <div class="box-body">
+    <div class="form-group">
+      <form [formGroup]="newValueForm" class="rd-form">
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+

@@ -70,5 +70,7 @@
   "enter.value": "Enter value",
   "type": "Type",
   "value": "Value",
-  "new.value": "New Value"
+  "new.value": "New Value",
+  "assign.specifications": "Assign specifications",
+  "nameAlreadyTaken": "Name already taken"
 }

@@ -22,4 +22,8 @@ export class Endpoints {
   public static readonly SPECIFICATION_TYPES_SEARCH  = '/specification_types/search';
 
   public static readonly PRODUCT_SPECS_SEARCH  = '/product_specifications/search';
+
+  public static readonly SPECIFICATION_CATEGORY = '/specification_types/:specTypeId/category/:catId';
+
+  public static readonly SPECIFICATION_TYPES = '/specification_types';
 }

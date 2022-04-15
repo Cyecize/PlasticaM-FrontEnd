@@ -28,6 +28,11 @@ const routes: Routes = [
         loadChildren: () => import('../../../pages/product/create-product/create-product.module')
           .then(m => m.CreateProductModule)
       },
+      {
+        path: AppRoutingPath.EDIT_SPECIFICATIONS.path,
+        loadChildren: () => import('../../../pages/specifications/edit-specifications/edit-specifications.module')
+          .then(m => m.EditSpecificationsModule)
+      },
     ]
   },
 ];
