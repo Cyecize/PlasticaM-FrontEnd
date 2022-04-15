@@ -5,6 +5,7 @@ import {ProductCategory} from './product.category.model';
 import {Endpoints} from '../../shared/http/endpoints';
 import {HttpClientSecuredService} from '../../shared/http/http-client-secured.service';
 import {CreateProductCategoryModel} from './create-product-category.model';
+import {RouteUtils} from '../routing/route-utils';
 
 @Injectable({providedIn: 'root'})
 export class ProductCategoryRepository {
@@ -20,5 +21,9 @@ export class ProductCategoryRepository {
 
   post(data: CreateProductCategoryModel): Observable<ProductCategory> {
     return this.httpSecured.post(Endpoints.CATEGORIES, data);
+  }
+
+  get(catId: number): Observable<ProductCategory> {
+    return this.http.get(RouteUtils.setPathParams(Endpoints.CATEGORY, {catId}));
   }
 }

@@ -36,4 +36,8 @@ export class ProductCategoryService {
 
     return res as FieldError[];
   }
+
+  public getCategory(catId: number): Observable<ProductCategory> {
+    return this.repository.get(catId);
+  }
 }

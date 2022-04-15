@@ -24,6 +24,11 @@ const routes: Routes = [
           .then(m => m.CreateCategoryModule)
       },
       {
+        path: AppRoutingPath.EDIT_CATEGORY.path,
+        loadChildren: () => import('../../../pages/category/edit-category/edit-category.module')
+          .then(m => m.EditCategoryModule)
+      },
+      {
         path: AppRoutingPath.LIST_CATEGORIES.path,
         loadChildren: () => import('../../../pages/category/list-categories/list-categories.module')
           .then(m => m.ListCategoriesModule)
