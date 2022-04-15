@@ -72,5 +72,6 @@
   "value": "Стойност",
   "new.value": "Нова стойност",
   "assign.specifications": "Прилагане на спецификация",
+  "unAssign.specifications": "Премахване на спецификация",
   "nameAlreadyTaken": "Името е заето"
 }

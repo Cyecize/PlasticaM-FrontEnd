@@ -20,13 +20,14 @@ export class EditSpecificationsComponent implements OnInit {
   newValueForm!: FormGroup;
   errors: FieldError[] = [];
 
-  @ViewChild('specTypeSelect')
-  private specTypeSelect!: ElementRef;
-
   categories: ProductCategory[] = [];
   allSpecificationTypes: Page<SpecificationTypeModel> = new EmptyPage();
 
   specificationTypesForCategory: Page<SpecificationTypeModel> = new EmptyPage();
+
+  @ViewChild('selectForUnAssign')
+  private selectForUnAssign!: ElementRef;
+  specificationTypesForCategoryUnAssign: Page<SpecificationTypeModel> = new EmptyPage();
 
   constructor(private fb: FormBuilder,
               public translatorService: TranslatorService,
@@ -45,15 +46,28 @@ export class EditSpecificationsComponent implements OnInit {
       .subscribe(value => this.allSpecificationTypes = value);
   }
 
-  categorySelected(): void {
+  categoryForAssignSelected(): void {
     this.assignForm.get('specificationTypeId')?.reset();
     // @ts-ignore
     const categoryId: number = this.assignForm.get('categoryId')?.value;
-    if (!categoryId) { return; }
+    if (!categoryId) {
+      return;
+    }
     this.specificationTypeService.search({
       categoryIds: [categoryId],
       page: {page: 0, size: 1000}
     }).subscribe(value => this.specificationTypesForCategory = value);
+  }
+
+  categoryForUnAssignSelected(): void {
+    const categoryId = this.selectForUnAssign.nativeElement.value;
+    if (!categoryId) {
+      return;
+    }
+    this.specificationTypeService.search({
+      categoryIds: [categoryId],
+      page: {page: 0, size: 1000}
+    }).subscribe(value => this.specificationTypesForCategoryUnAssign = value);
   }
 
   getUnassignedSpecifications(): SpecificationTypeModel[] {
@@ -66,6 +80,21 @@ export class EditSpecificationsComponent implements OnInit {
     this.assignForm.reset();
 
     await this.specificationTypeService.assignSpecificationToCategory(data);
-    this.categorySelected();
+    this.categoryForAssignSelected();
+  }
+
+  async unAssignSpecification(specId: number): Promise<void> {
+    const categoryId = this.selectForUnAssign.nativeElement.value;
+    if (!categoryId) {
+      return;
+    }
+
+    await this.specificationTypeService.unAssignSpecificationToCategory({
+      specificationTypeId: specId,
+      categoryId
+    });
+
+    this.selectForUnAssign.nativeElement.selectedIndex = 0;
+    this.specificationTypesForCategoryUnAssign = new EmptyPage();
   }
 }

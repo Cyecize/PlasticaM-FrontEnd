@@ -32,4 +32,8 @@ export class SpecificationTypeService {
   async assignSpecificationToCategory(data: SpecificationCategoryModel): Promise<void> {
     await this.repository.assign(data).toPromise();
   }
+
+  async unAssignSpecificationToCategory(data: SpecificationCategoryModel): Promise<void> {
+    await this.repository.unAssign(data).toPromise();
+  }
 }

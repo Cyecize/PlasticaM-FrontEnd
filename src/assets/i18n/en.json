@@ -72,5 +72,6 @@
   "value": "Value",
   "new.value": "New Value",
   "assign.specifications": "Assign specifications",
+  "unAssign.specifications": "Un assign specification",
   "nameAlreadyTaken": "Name already taken"
 }

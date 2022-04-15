@@ -26,4 +26,10 @@ export class SpecificationTypeRepository {
       Endpoints.SPECIFICATION_CATEGORY, [data.specificationTypeId, data.categoryId]
     ), {});
   }
+
+  public unAssign(data: SpecificationCategoryModel): Observable<any> {
+    return this.httpSecure.delete(RouteUtils.setPathParams(
+      Endpoints.SPECIFICATION_CATEGORY, [data.specificationTypeId, data.categoryId]
+    ));
+  }
 }
