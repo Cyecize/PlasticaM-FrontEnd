@@ -5,6 +5,9 @@ import {EmptyPage, Page} from '../../../shared/util/page';
 import {SpecificationTypeModel} from './specification-type.model';
 import {SpecificationTypeQuery} from './specification-type.query';
 import {SpecificationCategoryModel} from './specification-category.model';
+import {CreateSpecificationTypeModel} from './create-specification-type.model';
+import {FieldError} from '../../../shared/field-error/field-error';
+import {FieldErrorWrapper} from '../../../shared/util/field-error-wrapper';
 
 @Injectable({providedIn: 'root'})
 export class SpecificationTypeService {
@@ -35,5 +38,14 @@ export class SpecificationTypeService {
 
   async unAssignSpecificationToCategory(data: SpecificationCategoryModel): Promise<void> {
     await this.repository.unAssign(data).toPromise();
+  }
+
+  async createSpecificationType(data: CreateSpecificationTypeModel): Promise<FieldError[]> {
+    const res = await new FieldErrorWrapper(() => this.repository.create(data)).execute<SpecificationTypeModel>();
+    if (res.hasOwnProperty('id')) {
+      return [];
+    }
+
+    return res as FieldError[];
   }
 }

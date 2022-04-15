@@ -8,6 +8,7 @@ import {Endpoints} from '../../../shared/http/endpoints';
 import {HttpClientSecuredService} from '../../../shared/http/http-client-secured.service';
 import {SpecificationCategoryModel} from './specification-category.model';
 import {RouteUtils} from '../../routing/route-utils';
+import {CreateSpecificationTypeModel} from './create-specification-type.model';
 
 @Injectable({providedIn: 'root'})
 export class SpecificationTypeRepository {
@@ -31,5 +32,9 @@ export class SpecificationTypeRepository {
     return this.httpSecure.delete(RouteUtils.setPathParams(
       Endpoints.SPECIFICATION_CATEGORY, [data.specificationTypeId, data.categoryId]
     ));
+  }
+
+  public create(data: CreateSpecificationTypeModel): Observable<SpecificationTypeModel> {
+    return this.httpSecure.post(Endpoints.SPECIFICATION_TYPES, data);
   }
 }

@@ -8,6 +8,7 @@ import {ProductCategoryService} from '../../../core/product-category/product.cat
 import {EmptyPage, Page} from '../../../shared/util/page';
 import {SpecificationTypeModel} from '../../../core/product/productspec/specification-type.model';
 import {SpecificationCategoryModel} from '../../../core/product/productspec/specification-category.model';
+import {CreateSpecificationTypeModel} from '../../../core/product/productspec/create-specification-type.model';
 
 @Component({
   selector: 'app-edit-specifications',
@@ -40,7 +41,14 @@ export class EditSpecificationsComponent implements OnInit {
       specificationTypeId: ['', Validators.required],
       categoryId: ['', Validators.required]
     });
-    this.newValueForm = this.fb.group({});
+
+    this.newValueForm = this.fb.group({
+      specificationType: ['', Validators.required],
+      titleBg: ['', Validators.required],
+      titleEn: ['', Validators.required],
+      categoryId: ['', Validators.required]
+    });
+
     this.productCategoryService.getCategories().subscribe(value => this.categories = value);
     this.specificationTypeService.search({page: {page: 0, size: 1000}, categoryIds: []})
       .subscribe(value => this.allSpecificationTypes = value);
@@ -96,5 +104,13 @@ export class EditSpecificationsComponent implements OnInit {
 
     this.selectForUnAssign.nativeElement.selectedIndex = 0;
     this.specificationTypesForCategoryUnAssign = new EmptyPage();
+  }
+
+  async onFormSubmitCreateSpecification(): Promise<void> {
+    const data: CreateSpecificationTypeModel = this.newValueForm.value;
+    this.errors = await this.specificationTypeService.createSpecificationType(data);
+    if (!this.errors.length) {
+      location.reload();
+    }
   }
 }

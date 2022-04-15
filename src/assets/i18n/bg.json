@@ -73,5 +73,6 @@
   "new.value": "Нова стойност",
   "assign.specifications": "Прилагане на спецификация",
   "unAssign.specifications": "Премахване на спецификация",
-  "nameAlreadyTaken": "Името е заето"
+  "nameAlreadyTaken": "Името е заето",
+  "specification.type": "ID на спецификация"
 }

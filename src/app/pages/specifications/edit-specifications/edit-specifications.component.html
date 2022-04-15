@@ -74,13 +74,59 @@
   </div>
   <div class="box-body">
     <div class="form-group">
-      <form [formGroup]="newValueForm" class="rd-form">
-
+      <form [formGroup]="newValueForm" class="rd-form" (ngSubmit)="onFormSubmitCreateSpecification()">
+        <div class="form-group">
+          <label class="form-label" for="categoryForCreatingSpecifications">{{'category' | appTranslate}}</label>
+          <div class="form-control-wrap">
+            <select
+              id="categoryForCreatingSpecifications"
+              class="form-control"
+              formControlName="categoryId">
+              <option selected disabled value="">--- {{'required.field' | appTranslate}} ---</option>
+              <option *ngFor="let cat of categories"
+                      [value]="cat.id">{{translatorService.getCategoryName(cat)}}</option>
+            </select>
+            <app-field-error [errors]="errors" fieldName="category"></app-field-error>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="specType">{{'specification.type' | appTranslate}}</label>
+          <div class="form-control-wrap">
+            <input class="form-control"
+                   id="specType"
+                   type="text"
+                   formControlName="specificationType"
+                   placeholder="{{'required.field' | appTranslate}}">
+            <app-field-error [errors]="errors" fieldName="specificationType"></app-field-error>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="titleBg">{{'name' | appTranslate}}: {{'bg'|appTranslate}}</label>
+          <div class="form-control-wrap">
+            <input class="form-control" id="titleBg"
+                   type="text"
+                   formControlName="titleBg"
+                   placeholder="{{'required.field' | appTranslate}}">
+            <app-field-error [errors]="errors" fieldName="titleBg"></app-field-error>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="titleEn">{{'name' | appTranslate}}: {{'en'|appTranslate}}</label>
+          <div class="form-control-wrap">
+            <input class="form-control" id="titleEn"
+                   type="text"
+                   formControlName="titleEn"
+                   placeholder="{{'required.field' | appTranslate}}">
+            <app-field-error [errors]="errors" fieldName="titleEn"></app-field-error>
+          </div>
+        </div>
+        <div class="form-group">
+          <button [disabled]="!newValueForm.valid"
+                  type="submit"
+                  class="btn btn-primary"
+                  appTranslate="add.new"></button>
+        </div>
       </form>
     </div>
   </div>
 </div>
-
-
-
-
