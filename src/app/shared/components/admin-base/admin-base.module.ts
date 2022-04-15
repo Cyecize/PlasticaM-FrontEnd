@@ -24,6 +24,11 @@ const routes: Routes = [
           .then(m => m.CreateCategoryModule)
       },
       {
+        path: AppRoutingPath.LIST_CATEGORIES.path,
+        loadChildren: () => import('../../../pages/category/list-categories/list-categories.module')
+          .then(m => m.ListCategoriesModule)
+      },
+      {
         path: AppRoutingPath.ADD_PRODUCT.path,
         loadChildren: () => import('../../../pages/product/create-product/create-product.module')
           .then(m => m.CreateProductModule)

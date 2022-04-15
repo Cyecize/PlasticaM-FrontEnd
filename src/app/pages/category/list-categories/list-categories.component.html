@@ -1,0 +1,14 @@
+<div class="box box-form-1">
+  <div class="box-header">
+    <h3 class="box-title">{{'category' | appTranslate}} : {{'show.all' | appTranslate}}</h3>
+  </div>
+  <div class="box-body">
+    <div class="row" *ngFor="let cat of categories">
+      <div class="col"><img [src]="makeLink(cat.imageUrl)" style="max-height: 150px; max-width: 150px;"></div>
+      <div class="col">{{translatorService.getCategoryName(cat)}}</div>
+      <div class="col">
+        <a class="btn btn-sm btn-dark" href="" appTranslate="edit"></a>
+      </div>
+    </div>
+  </div>
+</div>

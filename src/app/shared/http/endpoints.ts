@@ -5,6 +5,8 @@ export class Endpoints {
 
   public static readonly CATEGORIES = '/categories';
 
+  public static readonly CATEGORY = '/category';
+
   public static readonly PRODUCTS = '/products';
 
   public static readonly PRODUCT = '/products/:id';
