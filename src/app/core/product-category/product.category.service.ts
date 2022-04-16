@@ -40,4 +40,13 @@ export class ProductCategoryService {
   public getCategory(catId: number): Observable<ProductCategory> {
     return this.repository.get(catId);
   }
+
+  public async updateCategory(catId: number, model: CreateProductCategoryModel): Promise<FieldError[]> {
+    const res = await new FieldErrorWrapper(() => this.repository.put(catId, model)).execute<ProductCategory>();
+    if (res.hasOwnProperty('id')) {
+      return [];
+    }
+
+    return res as FieldError[];
+  }
 }

@@ -26,4 +26,8 @@ export class ProductCategoryRepository {
   get(catId: number): Observable<ProductCategory> {
     return this.http.get(RouteUtils.setPathParams(Endpoints.CATEGORY, {catId}));
   }
+
+  put(catId: number, model: CreateProductCategoryModel): Observable<ProductCategory> {
+    return this.httpSecured.put(RouteUtils.setPathParams(Endpoints.CATEGORY, {catId}), model);
+  }
 }

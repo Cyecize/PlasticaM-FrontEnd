@@ -2,6 +2,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../../shared/shared.module';
 import {EditCategoryComponent} from './edit-category.component';
+import {CategoryFormModule} from '../category-form/category-form.module';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     SharedModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    CategoryFormModule
   ],
   declarations: [EditCategoryComponent]
 })
