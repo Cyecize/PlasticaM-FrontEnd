@@ -41,7 +41,8 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
     this.categoryService.getCategories().subscribe(value => this.categories = value);
     this.contactInfoService.getContactInfo().subscribe(value => this.contactInfo = value);
-    this.userService.getUser().subscribe(value => this.user = value);
+    // @ts-ignore
+    this.userService.currentUser$.subscribe(value => this.user = value);
     this.userService.hasRole(UserRole.ROLE_ADMIN).subscribe(value => this.isAdmin = value);
   }
 

@@ -22,7 +22,7 @@ export class ProductRepository {
   }
 
   public search(query: ProductQuery): Observable<Page<ProductModel>> {
-    return this.userService.getUser().pipe(switchMap((user: UserModel) => {
+    return this.userService.currentUser$.pipe(switchMap((user: UserModel | undefined) => {
       if (!ObjectUtils.isNil(user?.id)) {
         return this.httpSecure.post<ProductQuery, Page<ProductModel>>(Endpoints.PRODUCTS, query);
       }
@@ -32,7 +32,7 @@ export class ProductRepository {
   }
 
   public findOne(id: number): Observable<ProductModel | null> {
-    return this.userService.getUser().pipe(switchMap((user: UserModel) => {
+    return this.userService.currentUser$.pipe(switchMap((user: UserModel | undefined) => {
       if (!ObjectUtils.isNil(user?.id)) {
         return this.httpSecure.get<ProductModel | null>(RouteUtils.setPathParams(Endpoints.PRODUCT, [id]));
       }

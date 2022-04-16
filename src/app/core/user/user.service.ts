@@ -1,5 +1,5 @@
-import {EventEmitter, Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {UserModel} from './user.model';
 import {UserRepository} from './user.repository';
 import {ObjectUtils} from '../../shared/util/object-utils';
@@ -17,9 +17,8 @@ import {map} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class UserService {
-
-  private currentUser: UserModel | undefined;
-  private readonly currentUserEvent: EventEmitter<UserModel> = new EventEmitter<UserModel>();
+  private readonly currentUser: BehaviorSubject<UserModel | undefined> = new BehaviorSubject<UserModel | undefined>(undefined);
+  public readonly currentUser$ = this.currentUser.asObservable();
 
   constructor(private repository: UserRepository,
               private cookieService: CookieService,
@@ -28,16 +27,14 @@ export class UserService {
     this.tryGetUser();
   }
 
-  public getUser(): Observable<UserModel> {
-    if (!ObjectUtils.isNil(this.currentUser)) {
-      return new Observable<UserModel>(subscriber => subscriber.next(this.currentUser));
-    }
-
-    return this.currentUserEvent;
-  }
-
   public hasRole(role: UserRole): Observable<boolean> {
-    return this.getUser().pipe(map(value => value?.roles?.includes(role)));
+    return this.currentUser$.pipe(map(value => {
+      if (ObjectUtils.isNil(value)) {
+        return false;
+      }
+
+      return (value as UserModel).roles?.includes(role);
+    }));
   }
 
   public async login(loginModel: LoginModel): Promise<FieldError[]> {
@@ -56,8 +53,7 @@ export class UserService {
   public async logout(): Promise<void> {
     await this.authenticatedHttp.post(Endpoints.LOGOUT, {}).toPromise();
     this.cookieService.set(COOKIE_AUTH_TOKEN_NAME, '', undefined, '/');
-    this.currentUser = undefined;
-    this.currentUserEvent.emit();
+    this.currentUser.next(undefined);
   }
 
   private tryGetUser(): void {
@@ -65,8 +61,7 @@ export class UserService {
 
     if (!ObjectUtils.isNil(token) && token.trim() !== '') {
       this.repository.fetch().subscribe(value => {
-        this.currentUser = value;
-        this.currentUserEvent.emit(value);
+        this.currentUser.next(value);
       });
     }
   }

@@ -44,7 +44,8 @@ export class NavbarComponent implements OnInit {
     this.categoryService.getCategories().subscribe(value => this.categories = value);
     this.navbarService.onNavbarTransparentChanged.subscribe(value => this.isNavbarTransparent = value);
     this.contactInfoService.getContactInfo().subscribe(value => this.contactInfo = value);
-    this.userService.getUser().subscribe(value => this.user = value);
+    // @ts-ignore
+    this.userService.currentUser$.subscribe(value => this.user = value);
   }
 
   hideMenu(): void {
