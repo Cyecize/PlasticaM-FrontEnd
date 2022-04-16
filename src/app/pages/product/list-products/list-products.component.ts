@@ -36,7 +36,7 @@ export class ListProductsComponent implements OnInit {
   }
 
   createEditProductLink(prodId: number): string {
-    return RouteUtils.setPathParams('TODO', {prodId});
+    return RouteUtils.setPathParams(AppRoutingPath.EDIT_PRODUCT.toString(), {prodId});
   }
 
   createProductDetailsLink(prodId: number): string {

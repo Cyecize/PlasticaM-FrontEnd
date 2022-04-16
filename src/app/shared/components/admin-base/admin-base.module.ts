@@ -34,6 +34,11 @@ const routes: Routes = [
           .then(m => m.ListCategoriesModule)
       },
       {
+        path: AppRoutingPath.EDIT_PRODUCT.path,
+        loadChildren: () => import('../../../pages/product/edit-product/edit-product.module')
+          .then(m => m.EditProductModule)
+      },
+      {
         path: AppRoutingPath.ADD_PRODUCT.path,
         loadChildren: () => import('../../../pages/product/create-product/create-product.module')
           .then(m => m.CreateProductModule)
