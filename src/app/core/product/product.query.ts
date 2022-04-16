@@ -6,6 +6,6 @@ export interface ProductQuery {
   page?: PageRequest;
   categoryIds: number[];
   specifications: number[];
-  hidden?: boolean;
+  showHidden?: boolean;
   search?: string;
 }

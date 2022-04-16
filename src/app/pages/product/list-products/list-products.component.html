@@ -1,0 +1,27 @@
+<div class="box box-form-1">
+  <div class="box-header">
+    <h3 class="box-title">{{'products' | appTranslate}} : {{'show.all' | appTranslate}}</h3>
+  </div>
+  <div class="box-body">
+    <div *ngIf="products?.pages && products.pages > 1">
+      <hr class="mt-3">
+      <div class="d-flex justify-content-center">
+        <div class="pagination">
+            <span *ngFor="let item of [].constructor(products?.pages), let i = index"
+                  class="swiper-pagination-bullet"
+                  style="margin: 10px"
+                  (click)="onPageChanged(i)"
+                  [ngClass]="i === products?.pageable?.page ? 'swiper-pagination-bullet-active' : ''"></span>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngFor="let prod of products.elements">
+      <div class="col"><img [src]="makeImgLink(prod.imageUrl)" style="max-height: 150px; max-width: 150px;"></div>
+      <div class="col"><a [routerLink]="createProductDetailsLink(prod.id)">{{prod.name}}</a></div>
+      <div class="col">{{(prod.enabled ? 'visible'  : 'hidden') | appTranslate}}</div>
+      <div class="col">
+        <a class="btn btn-sm btn-dark" [routerLink]="createEditProductLink(prod.id)" appTranslate="edit"></a>
+      </div>
+    </div>
+  </div>
+</div>

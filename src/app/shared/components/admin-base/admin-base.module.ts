@@ -39,6 +39,11 @@ const routes: Routes = [
           .then(m => m.CreateProductModule)
       },
       {
+        path: AppRoutingPath.LIST_PRODUCTS.path,
+        loadChildren: () => import('../../../pages/product/list-products/list-products.module')
+          .then(m => m.ListProductsModule)
+      },
+      {
         path: AppRoutingPath.EDIT_SPECIFICATIONS.path,
         loadChildren: () => import('../../../pages/specifications/edit-specifications/edit-specifications.module')
           .then(m => m.EditSpecificationsModule)

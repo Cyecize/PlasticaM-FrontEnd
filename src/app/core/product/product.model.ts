@@ -10,6 +10,7 @@ export interface ProductModel {
   categoryNameEn: string;
   categoryNameBg: string;
   imageUrl: string;
+  enabled: boolean;
   imageGallery: string[];
   tags: string[];
   specifications: ProductSpecificationDetailedModel[];
