@@ -32,7 +32,13 @@ export class ProductRepository {
   }
 
   public findOne(id: number): Observable<ProductModel | null> {
-    return this.http.get(RouteUtils.setPathParams(Endpoints.PRODUCT, [id]));
+    return this.userService.getUser().pipe(switchMap((user: UserModel) => {
+      if (!ObjectUtils.isNil(user?.id)) {
+        return this.httpSecure.get<ProductModel | null>(RouteUtils.setPathParams(Endpoints.PRODUCT, [id]));
+      }
+
+      return this.http.get<ProductModel | null>(RouteUtils.setPathParams(Endpoints.PRODUCT, [id]));
+    }));
   }
 
   public create(data: CreateProductModel): Observable<ProductModel> {

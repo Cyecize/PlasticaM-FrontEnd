@@ -2,6 +2,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../../shared/shared.module';
 import {CreateProductComponent} from './create-product.component';
+import {ProductFormModule} from '../product-form/product-form.module';
 
 const routes: Routes = [
   {
@@ -11,10 +12,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    SharedModule,
-    RouterModule.forChild(routes)
-  ],
+    imports: [
+        SharedModule,
+        RouterModule.forChild(routes),
+        ProductFormModule
+    ],
   declarations: [CreateProductComponent]
 })
 export class CreateProductModule {
