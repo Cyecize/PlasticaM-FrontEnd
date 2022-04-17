@@ -30,4 +30,13 @@ export class ProductService {
 
     return res as FieldError[];
   }
+
+  public async updateProduct(id: number, data: CreateProductModel): Promise<FieldError[]> {
+    const res = await new FieldErrorWrapper(() => this.repository.update(id, data)).execute<ProductModel>();
+    if (res.hasOwnProperty('id')) {
+      return [];
+    }
+
+    return res as FieldError[];
+  }
 }

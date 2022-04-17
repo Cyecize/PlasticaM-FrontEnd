@@ -17,6 +17,7 @@ import {CreateProductModel} from '../../../core/product/create-product.model';
 import {isNumeric} from 'rxjs/internal-compatibility';
 import {Observable} from 'rxjs';
 import {Base64FileUtil} from '../../../shared/base64/base64-file.util';
+import {ProductModel} from '../../../core/product/product.model';
 
 @Component({
   selector: 'app-product-form',
@@ -24,6 +25,8 @@ import {Base64FileUtil} from '../../../shared/base64/base64-file.util';
   styleUrls: ['./product-form.component.scss']
 })
 export class ProductFormComponent implements OnInit {
+  private _product!: ProductModel;
+
   form!: FormGroup;
   @Input()
   errors: FieldError[] = [];
@@ -53,6 +56,21 @@ export class ProductFormComponent implements OnInit {
 
   @Output()
   formSubmitted: EventEmitter<CreateProductModel> = new EventEmitter<CreateProductModel>();
+
+  @Input()
+  set product(prod: ProductModel) {
+    this._product = prod;
+    if (!this._product || !this.form) {
+      return;
+    }
+
+    // @ts-ignore
+    prod.productName = prod.name;
+    this.form.patchValue(prod);
+    this.selectedTags = prod.tags;
+    this.selectedExistingSpecifications = prod.specifications;
+    this.categorySelected();
+  }
 
   constructor(private fb: FormBuilder,
               private nav: RouteNavigator,

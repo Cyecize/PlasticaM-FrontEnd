@@ -1,0 +1,11 @@
+<div class="box box-form-1">
+  <div class="box-header">
+    <h3 class="box-title">{{'product'|appTranslate}} : {{'edit'|appTranslate}}</h3>
+  </div>
+  <div class="box-body">
+    <app-product-form
+      (formSubmitted)="onFormSubmit($event)"
+      [errors]="errors"
+      [product]="product"></app-product-form>
+  </div>
+</div>

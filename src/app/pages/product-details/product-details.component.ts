@@ -9,6 +9,8 @@ import {ObjectUtils} from '../../shared/util/object-utils';
 import {TranslatorService} from '../../core/translate/translator.service';
 import {BreadcrumbModel} from '../../shared/components/breadcrumb-section/breadcrumb.model';
 import {RouteUtils} from '../../core/routing/route-utils';
+import {UserService} from '../../core/user/user.service';
+import {UserRole} from '../../core/user/user.role';
 
 @Component({
   selector: 'app-product-details',
@@ -21,15 +23,18 @@ export class ProductDetailsComponent implements OnInit {
   images!: string[];
   topicParam!: any;
   breadcrumbItems: BreadcrumbModel[] = [];
+  isAdmin = false;
 
   constructor(private route: ActivatedRoute,
               private nav: RouteNavigator,
               private productService: ProductService,
               private loader: LoaderService,
-              public translator: TranslatorService) {
+              public translator: TranslatorService,
+              private userService: UserService) {
   }
 
   ngOnInit(): void {
+    this.userService.hasRole(UserRole.ROLE_ADMIN).subscribe(value => this.isAdmin = value);
     this.route.params.subscribe(value => {
       const prodId = Number(value.prodId);
 
@@ -59,6 +64,10 @@ export class ProductDetailsComponent implements OnInit {
       });
     });
     this.translator.onTranslationChange(() => this.initBreadcrumb(this.product));
+  }
+
+  generateEditLink(prodId: number | undefined): string {
+    return RouteUtils.setPathParams(AppRoutingPath.EDIT_PRODUCT.absolutePath, {prodId});
   }
 
   private initBreadcrumb(product: ProductModel | null): void {

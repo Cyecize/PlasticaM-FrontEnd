@@ -44,4 +44,8 @@ export class ProductRepository {
   public create(data: CreateProductModel): Observable<ProductModel> {
     return this.httpSecure.post(Endpoints.PRODUCT_CREATE, data);
   }
+
+  public update(id: number, data: CreateProductModel): Observable<ProductModel> {
+    return this.httpSecure.put(RouteUtils.setPathParams(Endpoints.PRODUCT, [id]), data);
+  }
 }
