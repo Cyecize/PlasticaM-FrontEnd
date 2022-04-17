@@ -36,7 +36,7 @@ export class CarouselComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.homeCarouselService.getItems().subscribe(value => {
+    this.homeCarouselService.homeCarouselItems$.subscribe(value => {
       this.items = value;
       this.initCarousel();
     });

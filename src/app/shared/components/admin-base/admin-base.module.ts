@@ -19,6 +19,16 @@ const routes: Routes = [
           .then(m => m.CreateHomeCarouselModule)
       },
       {
+        path: AppRoutingPath.EDIT_HOME_CAROUSEL.path,
+        loadChildren: () => import('../../../pages/home-carousel/edit-home-carousel/edit-home-carousel.module')
+          .then(m => m.EditHomeCarouselModule)
+      },
+      {
+        path: AppRoutingPath.LIST_HOME_CAROUSEL_ITEMS.path,
+        loadChildren: () => import('../../../pages/home-carousel/list-home-carousel-items/list-home-carousel-items.module')
+          .then(m => m.ListHomeCarouselItemsModule)
+      },
+      {
         path: AppRoutingPath.ADD_CATEGORY.path,
         loadChildren: () => import('../../../pages/category/create-category/create-category.module')
           .then(m => m.CreateCategoryModule)

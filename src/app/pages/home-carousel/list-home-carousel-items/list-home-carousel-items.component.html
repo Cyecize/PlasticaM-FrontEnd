@@ -1,0 +1,16 @@
+<div class="box box-form-1">
+  <div class="box-header">
+    <h3 class="box-title">{{'home.carousel' | appTranslate}} : {{'show.all' | appTranslate}}</h3>
+  </div>
+  <div class="box-body">
+    <div class="row" *ngFor="let item of carouselItems">
+      <div class="col"><img [src]="makeLink(item.imageUrl)" style="max-height: 150px; max-width: 150px;"></div>
+      <div class="col">{{translatorService.getHomeCarouselItemText(item)}}</div>
+      <div class="col">{{(item.enabled ? 'visible' : 'hidden') | appTranslate}},
+        {{'order' | appTranslate}}: {{item.orderNumber}}</div>
+      <div class="col">
+        <a class="btn btn-sm btn-dark" [routerLink]="generateEditLink(item.id)" appTranslate="edit"></a>
+      </div>
+    </div>
+  </div>
+</div>

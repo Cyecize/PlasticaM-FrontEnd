@@ -1,0 +1,11 @@
+<div class="box box-form-1">
+  <div class="box-header">
+    <h3 class="box-title">{{'home.carousel'|appTranslate}} : {{'edit'|appTranslate}}</h3>
+  </div>
+  <div class="box-body">
+    <app-home-carousel-form
+      (formSubmitted)="formSubmitted($event)"
+      [errors]="errors"
+      [homeCarouselItem]="homeCarouselItem"></app-home-carousel-form>
+  </div>
+</div>

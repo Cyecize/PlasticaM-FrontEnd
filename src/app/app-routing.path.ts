@@ -11,6 +11,8 @@ export class AppRoutingPath {
   public static readonly LOGIN: RouteConfig = new RouteConfig('login', null);
   public static readonly PRIVACY_POLICY: RouteConfig = new RouteConfig('privacy-policy', null);
   public static readonly ADMIN_PANEL: RouteConfig = new RouteConfig('admin-panel', null);
+  public static readonly LIST_HOME_CAROUSEL_ITEMS: RouteConfig = new RouteConfig('home-carousel/browse', AppRoutingPath.ADMIN_PANEL);
+  public static readonly EDIT_HOME_CAROUSEL: RouteConfig = new RouteConfig('home-carousel/:id/edit', AppRoutingPath.ADMIN_PANEL);
   public static readonly ADD_HOME_CAROUSEL: RouteConfig = new RouteConfig('home-carousel/create', AppRoutingPath.ADMIN_PANEL);
   public static readonly LIST_CATEGORIES: RouteConfig = new RouteConfig('cat/browse', AppRoutingPath.ADMIN_PANEL);
   public static readonly EDIT_CATEGORY: RouteConfig = new RouteConfig('cat/:catId/edit', AppRoutingPath.ADMIN_PANEL);

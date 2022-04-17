@@ -19,6 +19,8 @@ export class Endpoints {
 
   public static readonly HOME_CAROUSEL = '/home-carousel';
 
+  public static readonly HOME_CAROUSEL_ITEM = '/home-carousel/:id';
+
   public static readonly LOGIN = '/login';
 
   public static readonly LOGOUT = '/logout';
