@@ -7,5 +7,19 @@
       (formSubmitted)="onFormSubmit($event)"
       [errors]="errors"
       [product]="product"></app-product-form>
+    <hr style="margin-top: 20px; margin-bottom: 20px;">
+    <h3 class="title-1" appTranslate="uploaded.images"></h3>
+    <br>
+    <br>
+    <div class="d-flex justify-content-between flex-wrap">
+      <div *ngFor="let image of productGallery" style="position:relative;">
+        <i
+          (click)="removeImage(image.id)"
+          class="fa fa-times"
+          aria-hidden="true"
+          style="position:absolute; top: -5px; left: -5px; cursor:pointer;"></i>
+        <img style="max-height: 150px; max-width: 150px;" [src]="makeImageUrl(image.imageUrl)">
+      </div>
+    </div>
   </div>
 </div>

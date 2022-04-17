@@ -75,5 +75,6 @@
   "assign.specifications": "Прилагане на спецификация",
   "unAssign.specifications": "Премахване на спецификация",
   "nameAlreadyTaken": "Името е заето",
-  "specification.type": "ID на спецификация"
+  "specification.type": "ID на спецификация",
+  "uploaded.images": "Качени снимки"
 }

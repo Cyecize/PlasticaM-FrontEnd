@@ -7,6 +7,7 @@ import {ProductRepository} from './product.repository';
 import {FieldError} from '../../shared/field-error/field-error';
 import {FieldErrorWrapper} from '../../shared/util/field-error-wrapper';
 import {CreateProductModel} from './create-product.model';
+import {GalleryItemModel} from './gallery-item.model';
 
 @Injectable({providedIn: 'root'})
 export class ProductService {
@@ -38,5 +39,13 @@ export class ProductService {
     }
 
     return res as FieldError[];
+  }
+
+  public removeImage(prodId: number, imageId: number): Observable<any> {
+    return this.repository.removeImage(prodId, imageId);
+  }
+
+  public getProductGallery(prodId: number): Observable<GalleryItemModel[]> {
+    return this.repository.getProductGallery(prodId);
   }
 }

@@ -8,6 +8,10 @@ import {LoaderService} from '../../../shared/components/loader/loader.service';
 import {ObjectUtils} from '../../../shared/util/object-utils';
 import {AppRoutingPath} from '../../../app-routing.path';
 import {ProductService} from '../../../core/product/product.service';
+import {ImageUtils} from '../../../shared/util/image-utils';
+import {catchError} from 'rxjs/operators';
+import {of} from 'rxjs';
+import {GalleryItemModel} from '../../../core/product/gallery-item.model';
 
 @Component({
   selector: 'app-edit-product',
@@ -18,11 +22,13 @@ export class EditProductComponent implements OnInit {
 
   errors: FieldError[] = [];
   product!: ProductModel;
+  productGallery: GalleryItemModel[] = [];
 
   constructor(private route: ActivatedRoute,
               private nav: RouteNavigator,
               private loader: LoaderService,
-              private productService: ProductService) { }
+              private productService: ProductService) {
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe(value => {
@@ -45,6 +51,7 @@ export class EditProductComponent implements OnInit {
         // @ts-ignore
         this.product = product;
         this.loader.hide();
+        this.productService.getProductGallery(prodId).subscribe(gallery => this.productGallery = gallery);
       });
     });
   }
@@ -54,5 +61,22 @@ export class EditProductComponent implements OnInit {
     if (this.errors.length <= 0) {
       this.nav.navigate(AppRoutingPath.PRODUCT_DETAILS, [this.product.id]);
     }
+  }
+
+  makeImageUrl(imgPath: string): string {
+    return ImageUtils.makeLink(imgPath);
+  }
+
+  removeImage(imageId: number): void {
+    this.loader.show();
+    this.productService.removeImage(this.product.id, imageId)
+      .pipe(catchError(err => {
+        this.loader.hide();
+        return of([]);
+      }))
+      .subscribe(value => {
+        this.productService.getProductGallery(this.product.id).subscribe(gallery => this.productGallery = gallery);
+        this.loader.hide();
+      });
   }
 }

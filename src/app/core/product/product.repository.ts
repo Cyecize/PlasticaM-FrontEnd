@@ -12,6 +12,7 @@ import {UserService} from '../user/user.service';
 import {switchMap} from 'rxjs/operators';
 import {ObjectUtils} from '../../shared/util/object-utils';
 import {UserModel} from '../user/user.model';
+import {GalleryItemModel} from './gallery-item.model';
 
 @Injectable({providedIn: 'root'})
 export class ProductRepository {
@@ -47,5 +48,13 @@ export class ProductRepository {
 
   public update(id: number, data: CreateProductModel): Observable<ProductModel> {
     return this.httpSecure.put(RouteUtils.setPathParams(Endpoints.PRODUCT, [id]), data);
+  }
+
+  public removeImage(prodId: number, imageId: number): Observable<any> {
+    return this.httpSecure.delete(RouteUtils.setPathParams(Endpoints.PRODUCT_GALLERY_ITEM, {prodId, imageId}));
+  }
+
+  public getProductGallery(prodId: number): Observable<GalleryItemModel[]> {
+    return this.http.get(RouteUtils.setPathParams(Endpoints.PRODUCT_GALLERY_ITEMS, {prodId}));
   }
 }

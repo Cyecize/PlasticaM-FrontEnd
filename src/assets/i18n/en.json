@@ -75,5 +75,6 @@
   "assign.specifications": "Assign specifications",
   "unAssign.specifications": "Un assign specification",
   "nameAlreadyTaken": "Name already taken",
-  "specification.type": "Specification type ID"
+  "specification.type": "Specification type ID",
+  "uploaded.images": "Uploaded images"
 }

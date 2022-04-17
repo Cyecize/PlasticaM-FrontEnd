@@ -11,6 +11,10 @@ export class Endpoints {
 
   public static readonly PRODUCT = '/products/:id';
 
+  public static readonly PRODUCT_GALLERY_ITEMS = '/product/:prodId/gallery_items';
+
+  public static readonly PRODUCT_GALLERY_ITEM = '/product/:prodId/gallery_items/:imageId';
+
   public static readonly PRODUCT_CREATE = '/product/create';
 
   public static readonly HOME_CAROUSEL = '/home-carousel';
