@@ -11,11 +11,11 @@ import {SpecificationCategoryModel} from '../../../core/product/productspec/spec
 import {CreateSpecificationTypeModel} from '../../../core/product/productspec/create-specification-type.model';
 
 @Component({
-  selector: 'app-edit-specifications',
-  templateUrl: './edit-specifications.component.html',
-  styleUrls: ['./edit-specifications.component.scss']
+  selector: 'app-assign-specifications',
+  templateUrl: './assign-specifications.component.html',
+  styleUrls: ['./assign-specifications.component.scss']
 })
-export class EditSpecificationsComponent implements OnInit {
+export class AssignSpecificationsComponent implements OnInit {
 
   assignForm!: FormGroup;
   newValueForm!: FormGroup;

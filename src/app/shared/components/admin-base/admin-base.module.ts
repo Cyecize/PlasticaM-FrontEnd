@@ -60,8 +60,8 @@ const routes: Routes = [
       },
       {
         path: AppRoutingPath.EDIT_SPEC_CAT.path,
-        loadChildren: () => import('../../../pages/specifications/edit-specifications/edit-specifications.module')
-          .then(m => m.EditSpecificationsModule)
+        loadChildren: () => import('../../../pages/specifications/assign-specifications/assign-specifications.module')
+          .then(m => m.AssignSpecificationsModule)
       },
     ]
   },

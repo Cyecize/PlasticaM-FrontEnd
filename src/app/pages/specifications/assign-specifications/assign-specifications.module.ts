@@ -1,12 +1,12 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../../shared/shared.module';
-import {EditSpecificationsComponent} from './edit-specifications.component';
+import {AssignSpecificationsComponent} from './assign-specifications.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: EditSpecificationsComponent
+    component: AssignSpecificationsComponent
   }
 ];
 
@@ -15,8 +15,8 @@ const routes: Routes = [
     SharedModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [EditSpecificationsComponent]
+  declarations: [AssignSpecificationsComponent]
 })
-export class EditSpecificationsModule {
+export class AssignSpecificationsModule {
 
 }
