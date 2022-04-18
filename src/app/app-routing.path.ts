@@ -20,5 +20,5 @@ export class AppRoutingPath {
   public static readonly LIST_PRODUCTS: RouteConfig = new RouteConfig('prod/browse', AppRoutingPath.ADMIN_PANEL);
   public static readonly EDIT_PRODUCT: RouteConfig = new RouteConfig('prod/:prodId/edit', AppRoutingPath.ADMIN_PANEL);
   public static readonly ADD_PRODUCT: RouteConfig = new RouteConfig('prod/create', AppRoutingPath.ADMIN_PANEL);
-  public static readonly EDIT_SPECIFICATIONS: RouteConfig = new RouteConfig('specifications/edit', AppRoutingPath.ADMIN_PANEL);
+  public static readonly EDIT_SPEC_CAT: RouteConfig = new RouteConfig('specifications/edit-for-categories', AppRoutingPath.ADMIN_PANEL);
 }

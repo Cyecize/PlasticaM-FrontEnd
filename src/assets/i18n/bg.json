@@ -76,5 +76,6 @@
   "unAssign.specifications": "Премахване на спецификация",
   "nameAlreadyTaken": "Името е заето",
   "specification.type": "ID на спецификация",
-  "uploaded.images": "Качени снимки"
+  "uploaded.images": "Качени снимки",
+  "specifications.per-category": "Спецификация за категории"
 }

@@ -59,7 +59,7 @@ const routes: Routes = [
           .then(m => m.ListProductsModule)
       },
       {
-        path: AppRoutingPath.EDIT_SPECIFICATIONS.path,
+        path: AppRoutingPath.EDIT_SPEC_CAT.path,
         loadChildren: () => import('../../../pages/specifications/edit-specifications/edit-specifications.module')
           .then(m => m.EditSpecificationsModule)
       },
