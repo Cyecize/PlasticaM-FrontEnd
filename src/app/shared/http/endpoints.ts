@@ -34,4 +34,6 @@ export class Endpoints {
   public static readonly SPECIFICATION_CATEGORY = '/specification_types/:specTypeId/category/:catId';
 
   public static readonly SPECIFICATION_TYPES = '/specification_types';
+
+  public static readonly SPECIFICATION_TYPE = '/specification_types/:typeId';
 }

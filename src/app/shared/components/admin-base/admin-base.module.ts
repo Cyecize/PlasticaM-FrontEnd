@@ -63,6 +63,11 @@ const routes: Routes = [
         loadChildren: () => import('../../../pages/specifications/assign-specifications/assign-specifications.module')
           .then(m => m.AssignSpecificationsModule)
       },
+      {
+        path: AppRoutingPath.EDIT_SPEC_TYPE.path,
+        loadChildren: () => import('../../../pages/specifications/edit-specification-type/edit-specification-type.module')
+          .then(m => m.EditSpecificationTypeModule)
+      },
     ]
   },
 ];

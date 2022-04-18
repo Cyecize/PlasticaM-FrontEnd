@@ -9,6 +9,7 @@ import {HttpClientSecuredService} from '../../../shared/http/http-client-secured
 import {SpecificationCategoryModel} from './specification-category.model';
 import {RouteUtils} from '../../routing/route-utils';
 import {CreateSpecificationTypeModel} from './create-specification-type.model';
+import {EditSpecificationTypeModel} from './edit-specification-type.model';
 
 @Injectable({providedIn: 'root'})
 export class SpecificationTypeRepository {
@@ -36,5 +37,9 @@ export class SpecificationTypeRepository {
 
   public create(data: CreateSpecificationTypeModel): Observable<SpecificationTypeModel> {
     return this.httpSecure.post(Endpoints.SPECIFICATION_TYPES, data);
+  }
+
+  public put(typeId: number, data: EditSpecificationTypeModel): Observable<SpecificationTypeModel> {
+    return this.httpSecure.put(RouteUtils.setPathParams(Endpoints.SPECIFICATION_TYPE, {typeId}), data);
   }
 }

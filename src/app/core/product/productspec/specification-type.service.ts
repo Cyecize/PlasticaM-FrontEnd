@@ -8,6 +8,7 @@ import {SpecificationCategoryModel} from './specification-category.model';
 import {CreateSpecificationTypeModel} from './create-specification-type.model';
 import {FieldError} from '../../../shared/field-error/field-error';
 import {FieldErrorWrapper} from '../../../shared/util/field-error-wrapper';
+import {EditSpecificationTypeModel} from './edit-specification-type.model';
 
 @Injectable({providedIn: 'root'})
 export class SpecificationTypeService {
@@ -42,6 +43,15 @@ export class SpecificationTypeService {
 
   async createSpecificationType(data: CreateSpecificationTypeModel): Promise<FieldError[]> {
     const res = await new FieldErrorWrapper(() => this.repository.create(data)).execute<SpecificationTypeModel>();
+    if (res.hasOwnProperty('id')) {
+      return [];
+    }
+
+    return res as FieldError[];
+  }
+
+  public async editSpecificationType(id: number, data: EditSpecificationTypeModel): Promise<FieldError[]> {
+    const res = await new FieldErrorWrapper(() => this.repository.put(id, data)).execute<SpecificationTypeModel>();
     if (res.hasOwnProperty('id')) {
       return [];
     }

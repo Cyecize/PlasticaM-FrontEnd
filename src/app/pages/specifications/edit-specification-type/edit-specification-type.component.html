@@ -1,0 +1,77 @@
+<div class="box box-form-1">
+  <div class="box-header">
+    <h3 class="box-title text-light">{{'specifications' | appTranslate}}: {{'edit' | appTranslate}}</h3>
+  </div>
+  <div class="box-body">
+    <div class="form-group">
+      <app-field-error [errors]="errors" fieldName=""></app-field-error>
+      <form [formGroup]="form" class="rd-form" (ngSubmit)="onFormSubmit()">
+        <div class="form-group">
+          <label class="form-label" for="category">{{'category' | appTranslate}}</label>
+          <div class="form-control-wrap">
+            <select
+              #categorySelect
+              (change)="categorySelected()"
+              id="category"
+              class="form-control">
+              <option selected disabled value="">--- {{'required.field' | appTranslate}} ---</option>
+              <option *ngFor="let cat of categories"
+                      [value]="cat.id">{{translatorService.getCategoryName(cat)}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="specTypeSelect">{{'specification' | appTranslate}}</label>
+          <div class="form-control-wrap">
+            <select
+              #specTypeSelect
+              (change)="specificationTypeSelected()"
+              id="specTypeSelect"
+              class="form-control">
+              <option selected disabled value="">--- {{'required.field' | appTranslate}} ---</option>
+              <option *ngFor="let spec of specificationTypes.elements"
+                      [value]="spec.id">{{translatorService.getSpecificationTitle(spec)}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="specType">{{'specification.type' | appTranslate}}</label>
+          <div class="form-control-wrap">
+            <input class="form-control"
+                   [disabled]="true"
+                   [value]="specificationType?.specificationType"
+                   id="specType"
+                   type="text">
+            <app-field-error [errors]="errors" fieldName="specificationType"></app-field-error>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="titleBg">{{'name' | appTranslate}}: {{'bg'|appTranslate}}</label>
+          <div class="form-control-wrap">
+            <input class="form-control" id="titleBg"
+                   type="text"
+                   formControlName="titleBg"
+                   placeholder="{{'required.field' | appTranslate}}">
+            <app-field-error [errors]="errors" fieldName="titleBg"></app-field-error>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="titleEn">{{'name' | appTranslate}}: {{'en'|appTranslate}}</label>
+          <div class="form-control-wrap">
+            <input class="form-control" id="titleEn"
+                   type="text"
+                   formControlName="titleEn"
+                   placeholder="{{'required.field' | appTranslate}}">
+            <app-field-error [errors]="errors" fieldName="titleEn"></app-field-error>
+          </div>
+        </div>
+        <div class="form-group">
+          <button [disabled]="!form.valid"
+                  type="submit"
+                  class="btn btn-primary"
+                  appTranslate="save"></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
