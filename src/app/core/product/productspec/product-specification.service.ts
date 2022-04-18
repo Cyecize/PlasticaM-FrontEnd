@@ -1,8 +1,12 @@
 import {Injectable} from '@angular/core';
 import {ProductSpecificationRepository} from './product-specification.repository';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {ProductSpecificationModel} from './product-specification.model';
 import {ProductSpecificationQuery} from './product-specification.query';
+import {map} from 'rxjs/operators';
+import {EditProductSpecificationModel} from './edit-product-specification.model';
+import {FieldError} from '../../../shared/field-error/field-error';
+import {FieldErrorWrapper} from '../../../shared/util/field-error-wrapper';
 
 @Injectable({providedIn: 'root'})
 export class ProductSpecificationService {
@@ -20,10 +24,34 @@ export class ProductSpecificationService {
     }
 
     const result = await this.repository.search(query).toPromise();
-    const map = new Map<number, ProductSpecificationModel[]>();
+    this.specifications.next(this.makeMap(result));
+  }
 
+  public getSpecifications(query: ProductSpecificationQuery): Observable<ProductSpecificationModel[]> {
+    return this.repository.search(query).pipe(map(value => {
+      const res = [];
+      const valueAsMap = this.makeMap(value);
+      for (const key of valueAsMap.keys()) {
+        res.push(...(valueAsMap.get(key)) || []);
+      }
+
+      return res;
+    }));
+  }
+
+  public async editProductSpecification(id: number, data: EditProductSpecificationModel): Promise<FieldError[]> {
+    const res = await new FieldErrorWrapper(() => this.repository.put(id, data)).execute<ProductSpecificationModel>();
+    if (res.hasOwnProperty('id')) {
+      return [];
+    }
+
+    return res as FieldError[];
+  }
+
+  private makeMap(result: {}): Map<number, ProductSpecificationModel[]> {
+    const map = new Map<number, ProductSpecificationModel[]>();
     // @ts-ignore
     Object.keys(result).forEach(id => map.set(Number(id), result[id]));
-    this.specifications.next(map);
+    return map;
   }
 }

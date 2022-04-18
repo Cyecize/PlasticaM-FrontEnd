@@ -77,5 +77,6 @@
   "nameAlreadyTaken": "Името е заето",
   "specification.type": "ID на спецификация",
   "uploaded.images": "Качени снимки",
-  "specifications.per-category": "Спецификация за категории"
+  "specifications.per-category": "Спецификация за категории",
+  "edit.value": "Редакция на стойност"
 }

@@ -1,0 +1,81 @@
+<div class="box box-form-1">
+  <div class="box-header">
+    <h3 class="box-title text-light" appTranslate="edit.value"></h3>
+  </div>
+  <div class="box-body">
+    <div class="form-group">
+      <app-field-error [errors]="errors" fieldName=""></app-field-error>
+      <form [formGroup]="form" class="rd-form" (ngSubmit)="onFormSubmit()">
+        <div class="form-group">
+          <label class="form-label" for="category">{{'category' | appTranslate}}</label>
+          <div class="form-control-wrap">
+            <select
+              #categorySelect
+              (change)="categorySelected()"
+              id="category"
+              class="form-control">
+              <option selected disabled value="">--- {{'required.field' | appTranslate}} ---</option>
+              <option *ngFor="let cat of categories"
+                      [value]="cat.id">{{translatorService.getCategoryName(cat)}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="specTypeSelect">{{'specification.type' | appTranslate}}</label>
+          <div class="form-control-wrap">
+            <select
+              #specTypeSelect
+              (change)="specificationTypeSelected()"
+              id="specTypeSelect"
+              class="form-control">
+              <option selected disabled value="">--- {{'required.field' | appTranslate}} ---</option>
+              <option *ngFor="let spec of specificationTypes.elements"
+                      [value]="spec.id">{{translatorService.getSpecificationTitle(spec)}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="prodSpecSelect">{{'value' | appTranslate}}</label>
+          <div class="form-control-wrap">
+            <select
+              #prodSpecSelect
+              (change)="productSpecificationSelected()"
+              id="prodSpecSelect"
+              class="form-control">
+              <option selected disabled value="">--- {{'required.field' | appTranslate}} ---</option>
+              <option *ngFor="let spec of productSpecifications"
+                      [value]="spec.id">{{translatorService.getSpecificationValue(spec)}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="titleBg">{{'value' | appTranslate}}: {{'bg'|appTranslate}}</label>
+          <div class="form-control-wrap">
+            <input class="form-control" id="titleBg"
+                   type="text"
+                   formControlName="valueBg"
+                   placeholder="{{'required.field' | appTranslate}}">
+            <app-field-error [errors]="errors" fieldName="valueBg"></app-field-error>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="titleEn">{{'value' | appTranslate}}: {{'en'|appTranslate}}</label>
+          <div class="form-control-wrap">
+            <input class="form-control" id="titleEn"
+                   type="text"
+                   formControlName="valueEn"
+                   placeholder="{{'required.field' | appTranslate}}">
+            <app-field-error [errors]="errors" fieldName="valueEn"></app-field-error>
+          </div>
+        </div>
+        <div class="form-group">
+          <button [disabled]="!form.valid"
+                  type="submit"
+                  class="btn btn-primary"
+                  appTranslate="save"></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
