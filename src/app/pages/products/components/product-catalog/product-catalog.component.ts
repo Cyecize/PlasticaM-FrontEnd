@@ -13,6 +13,7 @@ import {SpecificationTypeService} from '../../../../core/product/productspec/spe
 import {SpecificationTypeModel} from '../../../../core/product/productspec/specification-type.model';
 import {ProductSpecificationModel} from '../../../../core/product/productspec/product-specification.model';
 import {ProductSpecificationService} from '../../../../core/product/productspec/product-specification.service';
+import {ObjectUtils} from '../../../../shared/util/object-utils';
 
 @Component({
   selector: 'app-product-catalog',
@@ -62,7 +63,7 @@ export class ProductCatalogComponent implements OnInit {
     this.specificationTypeService.specificationTypes$.subscribe(value => this.specificationTypes = value);
     this.productSpecificationService.specifications$.subscribe(value => this.setSpecifications(value));
     await this.loadSpecificationTypes();
-    this.loadSpecifications();
+    await this.loadSpecifications();
   }
 
   async onCategoryFilter(id: number): Promise<void> {
@@ -81,11 +82,17 @@ export class ProductCatalogComponent implements OnInit {
     this.filtersUpdated.emit();
   }
 
-  onSpecificationFilter(id: number): void {
-    if (this.query.specifications.includes(id)) {
-      this.query.specifications = this.query.specifications.filter(spec => spec !== id);
+  onSpecificationFilter(specTypeId: number, specId: number): void {
+    if (ObjectUtils.isNil(this.query.specifications[specTypeId])) {
+      this.query.specifications[specTypeId] = [];
+    }
+
+    const specs: number[] = this.query.specifications[specTypeId];
+
+    if (specs.includes(specId)) {
+      specs.splice(specs.indexOf(specId), 1);
     } else {
-      this.query.specifications.push(id);
+      specs.push(specId);
     }
 
     this.filtersUpdated.emit();
@@ -133,13 +140,17 @@ export class ProductCatalogComponent implements OnInit {
   }
 
   private setSpecifications(specs: Map<number, ProductSpecificationModel[]>): void {
-    const allSpecs: number[] = [];
-    for (const key of specs.keys()) {
-      // @ts-ignore
-      allSpecs.push(...specs.get(key).map(spec => spec.id));
+    for (const key of Object.keys(this.query.specifications)) {
+      const keyNum = Number(key);
+      const allSpecs: number[] = specs.get(keyNum)?.map(spec => spec.id) || [];
+      if (!specs.has(keyNum)) {
+        this.query.specifications[keyNum] = [];
+        continue;
+      }
+
+      this.query.specifications[keyNum] = this.query.specifications[keyNum].filter(specId => allSpecs.includes(specId));
     }
 
-    this.query.specifications = this.query.specifications.filter(specId => allSpecs.includes(specId));
     this.specifications = specs;
   }
 }

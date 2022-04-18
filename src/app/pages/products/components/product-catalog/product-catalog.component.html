@@ -70,8 +70,8 @@
               <input class="custom-control-input"
                      type="checkbox"
                      id="spec__{{spec.id}}"
-                     [checked]="query.specifications.includes(spec.id)"
-                     (click)="onSpecificationFilter(spec.id)"
+                     [checked]="query.specifications[specificationType.id]?.includes(spec.id)"
+                     (click)="onSpecificationFilter(specificationType.id, spec.id)"
                      name="cartFilter1">
               <label class="custom-control-label" for="spec__{{spec.id}}">
                 <span class="custom-control-text">{{ translator.getSpecificationValue(spec) }}</span>

@@ -5,7 +5,7 @@ export interface ProductQuery {
   sort?: SortQuery;
   page?: PageRequest;
   categoryIds: number[];
-  specifications: number[];
+  specifications: {[specTypeId: number]: number[] };
   showHidden?: boolean;
   search?: string;
 }

@@ -18,7 +18,7 @@ export class ListProductsComponent implements OnInit {
     page: {page: 0, size: 10},
     categoryIds: [],
     search: '',
-    specifications: [],
+    specifications: {},
     showHidden: true
   };
 

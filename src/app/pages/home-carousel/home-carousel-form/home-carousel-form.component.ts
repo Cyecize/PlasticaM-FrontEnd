@@ -74,7 +74,7 @@ export class HomeCarouselFormComponent implements OnInit {
     }
 
     this.productService.getProducts({
-      specifications: [],
+      specifications: {},
       search: value,
       page: {page: 0, size: 5},
       categoryIds: [],
